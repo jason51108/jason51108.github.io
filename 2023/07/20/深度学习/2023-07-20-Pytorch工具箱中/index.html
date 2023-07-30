@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Brainiaccc">
+    
+    <title>
+        
+            Pytorch深度学习(2)-工具箱中 |
+        
+        Brainiaccc&#39;blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://pic1.zhimg.com/80/v2-7f824408347c06f049291d5d90066ad8_1440w.webp">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/self.jpg","favicon":"https://pic1.zhimg.com/80/v2-7f824408347c06f049291d5d90066ad8_1440w.webp","avatar":"/images/self.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":true},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"jason51108","github_admins":"jason51108","repository":"jason51108.github.io","client_id":"7fcd8af2f0ac7c60cf9d","client_secret":"a32278ac01922c5a3ba4f3185444c2fb56f5ff0a","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":false,"custom_label_list":["小菜一枚"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/self.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Brainiaccc&#39;blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Pytorch深度学习(2)-工具箱中</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/self.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Brainiaccc</span>
+                            
+                                <span class="author-label">小菜一枚</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-07-20 00:00:00</span>
+        <span class="mobile">2023-07-20 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-07-28 21:30:22</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Pytorch/">Pytorch</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA/">模型构建</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C/">残差网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>471 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>当我们已经学习了网络的构建方法了，接下来小练习一下吧！让我们使用
+<strong><code>Pytorch</code></strong> 构建经典的残差网络</p>
+<span id="more"></span>
+<figure>
+<img src="https://img1.imgtp.com/2023/07/10/q9Ia9LY1.jpg"
+alt="图1:残差网络" />
+<figcaption aria-hidden="true">图1:残差网络</figcaption>
+</figure>
+<h2 id="残差网络a的构建">1、残差网络a的构建</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义图a的残差模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.nn <span class="keyword">import</span> functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RestNetBasicBlock</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,in_channels,out_channels,stride</span>):</span><br><span class="line">    <span class="built_in">super</span>(RestNetBasicBlock,self).__init__()</span><br><span class="line">    self.conv1 = nn.Conv2d(in_channels,out_channels,kernel_size=<span class="number">3</span>,stride=stride,padding=<span class="number">1</span>) <span class="comment">#3*3卷积层</span></span><br><span class="line">    self.bn1  = nn.BatchNorm2d(out_channels)</span><br><span class="line">    self.conv2 = nn.Conv2d(out_channels,out_channels,kernel_size=<span class="number">3</span>,stride=stride,padding=<span class="number">1</span>) <span class="comment">#3*3卷积层</span></span><br><span class="line">    self.bn2  = nn.BatchNorm2d(out_channels)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">    output = self.conv1(x)</span><br><span class="line">    output = F.relu(self.bn1(output))</span><br><span class="line">    output = self.conv2(output)</span><br><span class="line">    output = self.bn2(output)</span><br><span class="line">    <span class="keyword">return</span> F.relu(x+output)</span><br></pre></td></tr></table></figure>
+<h2 id="残差网络b的构建">2、残差网络b的构建</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义图二的残差模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.nn <span class="keyword">import</span> functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RestNetDownBlock</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,in_channels,out_channels,stride</span>):</span><br><span class="line">    <span class="built_in">super</span>(RestNetDownBlock,self).__init__()</span><br><span class="line">    self.conv1 = nn.Conv2d(in_channels,out_channels,kernel_size=<span class="number">3</span>,stride=stride[<span class="number">0</span>],padding=<span class="number">1</span>) <span class="comment">#3*3卷积层</span></span><br><span class="line">    self.bn1  = nn.BatchNorm2d(out_channels)</span><br><span class="line">    self.conv2 = nn.Conv2d(out_channels,out_channels,kernel_size=<span class="number">3</span>,stride=stride[<span class="number">1</span>],padding=<span class="number">1</span>) <span class="comment">#3*3卷积层</span></span><br><span class="line">    self.bn2  = nn.BatchNorm2d(out_channels)</span><br><span class="line">    self.extra = nn.Sequential(nn.Conv2d(in_channels,out_channels,kernel_size=<span class="number">1</span>,stride=stride[<span class="number">0</span>],padding=<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">    extra_x = self.extra(x)</span><br><span class="line">    output = self.conv1(x)</span><br><span class="line">    out = F.relu(self.bn1(output))</span><br><span class="line"></span><br><span class="line">    out = self.conv2(out)</span><br><span class="line">    out = self.bn2(out)</span><br><span class="line">    <span class="keyword">return</span> F.relu(extra_x+output)</span><br></pre></td></tr></table></figure>
+<h2 id="构建现代经典的restnet18网络">3、构建现代经典的RestNet18网络</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 组合以上两个模块可得到现代经典的RestNet18网络结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RestNet18</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">super</span>(RestNet18,self)._init__()</span><br><span class="line">    self.conv1 = nn.Conv2d(<span class="number">3</span>,<span class="number">64</span>,kernel_size=<span class="number">7</span>,stride=<span class="number">2</span>,padding=<span class="number">3</span>)</span><br><span class="line">    self.bn1  = nn.BatchNorm2d(<span class="number">64</span>)</span><br><span class="line">    self.maxpool - nn.MaxPool2d(kernel_size=<span class="number">3</span>,stride=<span class="number">2</span>,padding=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    self.layer1 = nn.Sequential(RestNetBasicBlock(<span class="number">64</span>,<span class="number">64</span>,<span class="number">1</span>),</span><br><span class="line">                   RestNetBasicBlock(<span class="number">64</span>,<span class="number">64</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    self.layer2 = nn.Sequential(RestNetDownBlock(<span class="number">64</span>,<span class="number">64</span>,[<span class="number">2</span>,<span class="number">1</span>]),</span><br><span class="line">                   RestNetBasicBlock(<span class="number">128</span>,<span class="number">128</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    self.layer3 = nn.Sequential(RestNetDownBlock(<span class="number">128</span>,<span class="number">256</span>,[<span class="number">2</span>,<span class="number">1</span>]),</span><br><span class="line">                   RestNetBasicBlock(<span class="number">256</span>,<span class="number">256</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    self.layer3 = nn.Sequential(RestNetDownBlock(<span class="number">256</span>,<span class="number">512</span>,[<span class="number">2</span>,<span class="number">1</span>]),</span><br><span class="line">                   RestNetBasicBlock(<span class="number">512</span>,<span class="number">512</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    self.avgpool = nn.AdaptiveAvgPool2d(output_size=(<span class="number">1</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    self.fc = nn.Linear(<span class="number">512</span>,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">    out = self.conv1(x)</span><br><span class="line">    out = self.layer1(out)</span><br><span class="line">    out = self.layer2(out)</span><br><span class="line">    out = self.layer3(out)</span><br><span class="line">    out = self.layer4(out)</span><br><span class="line">    out = self.avgpool(out)</span><br><span class="line">    out = out.reshape(x.shape[<span class="number">0</span>],-<span class="number">1</span>)</span><br><span class="line">    out = self.fc(out)</span><br><span class="line">    <span class="keyword">return</span> out</span><br></pre></td></tr></table></figure>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Pytorch/">#Pytorch</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#深度学习</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA/">#模型构建</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C/">#残差网络</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/07/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2023-07-21-Pytorch%E5%B7%A5%E5%85%B7%E7%AE%B1%E4%B8%8B/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Pytorch深度学习(3)-工具箱下</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/07/19/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2023-07-19-Pytorch%E5%B7%A5%E5%85%B7%E7%AE%B1%E4%B8%8A/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Pytorch深度学习(1)-工具箱上</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;评论
+    </div>
+    
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+        <script data-pjax>
+          function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+              __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+              Gitalk && new Gitalk({
+                clientID: '7fcd8af2f0ac7c60cf9d',
+                clientSecret: 'a32278ac01922c5a3ba4f3185444c2fb56f5ff0a',
+                repo: 'jason51108.github.io',
+                owner: 'jason51108',
+                admin: 'jason51108',
+                id: __gitalk__pathname,
+                proxy: '',
+                language: 'zh-CN'
+              }).render('gitalk-container');
+            } catch (e) {
+              window.Gitalk = null;
+            }
+          }
+
+          if ('true' === 'true') {
+            const loadGitalkTimeout = setTimeout(() => {
+              loadGitalk();
+              clearTimeout(loadGitalkTimeout);
+            }, 1000);
+          } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+          }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9Ca%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-text">1、残差网络a的构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9Cb%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-text">2、残差网络b的构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E7%8E%B0%E4%BB%A3%E7%BB%8F%E5%85%B8%E7%9A%84restnet18%E7%BD%91%E7%BB%9C"><span class="nav-text">3、构建现代经典的RestNet18网络</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2022</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Brainiaccc</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

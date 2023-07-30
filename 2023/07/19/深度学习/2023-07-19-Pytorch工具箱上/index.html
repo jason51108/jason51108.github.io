@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Brainiaccc">
+    
+    <title>
+        
+            Pytorch深度学习(1)-工具箱上 |
+        
+        Brainiaccc&#39;blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://pic1.zhimg.com/80/v2-7f824408347c06f049291d5d90066ad8_1440w.webp">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/self.jpg","favicon":"https://pic1.zhimg.com/80/v2-7f824408347c06f049291d5d90066ad8_1440w.webp","avatar":"/images/self.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":true},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"jason51108","github_admins":"jason51108","repository":"jason51108.github.io","client_id":"7fcd8af2f0ac7c60cf9d","client_secret":"a32278ac01922c5a3ba4f3185444c2fb56f5ff0a","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":false,"custom_label_list":["小菜一枚"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/self.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Brainiaccc&#39;blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Pytorch深度学习(1)-工具箱上</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/self.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Brainiaccc</span>
+                            
+                                <span class="author-label">小菜一枚</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-07-19 00:00:00</span>
+        <span class="mobile">2023-07-19 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-07-28 21:30:15</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Pytorch/">Pytorch</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA/">模型构建</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>使用 <strong><code>Pytorch</code></strong>
+构建模型的方法大致有以下三种:</p>
+<ol type="1">
+<li><p>继承 <strong><code>nn.Module</code></strong>
+基类构建模型</p></li>
+<li><p>使用 <strong><code>nn.Sequential</code></strong>
+按层顺序构建模型</p></li>
+<li><p>继承 <strong><code>nn.Module</code></strong>
+基类构建模型,再使用相关模型容器(如:
+<strong><code>nn.Sequential,nn.MouduleList,nn.ModuleDict</code></strong>
+等)进行封装</p></li>
+</ol>
+<p>这三种方法中:第一种方法最常见;第二种方法比较简单,非常适合初学者;第三种方法比较灵活,但复杂一些</p>
+<span id="more"></span>
+<h2
+id="方法一继承nn.module基类构建模型">方法一、继承nn.Module基类构建模型</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">nn中的大多数层(layer)在functional都有与之对应的函数，一般而言，含有可学</span></span><br><span class="line"><span class="string">习参数一般用nn.Module;不含可学习参数一般用nn.functional</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F </span><br><span class="line"></span><br><span class="line"><span class="comment">#构建模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Model_Seq</span>(nn.Module):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  通过继承nn.Module来构建模型</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,in_dim,n_hidden_1,n_hidden_2,out_dim</span>):</span><br><span class="line">    <span class="built_in">super</span>(Model_Seq,self).__init__()</span><br><span class="line">    self.flatten = nn.Flatten()</span><br><span class="line">    self.linearl = nn.Linear(in_dim,n_hidden_1)</span><br><span class="line">    self.bn1   = nn.BatchNorm1d(n_hidden_1)</span><br><span class="line">    self.linear2 = nn.Linear(n_hidden_1,n_hidden_2)</span><br><span class="line">    self.bn2   = nn.BatchNorm1d(n_hidden_2)</span><br><span class="line">    self.out   = nn.Linear(n_hidden_2,out_dim)</span><br><span class="line">  <span class="comment">#定义前向传播函数</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">    x = self.flatten(x)</span><br><span class="line">    x = self.linearl(x)</span><br><span class="line">    x = self.bn1(x)</span><br><span class="line">    x = F.relu(x)</span><br><span class="line">    x = self.linear2(x)</span><br><span class="line">    x = self.bn2(x)</span><br><span class="line">    x = F.relu(x)</span><br><span class="line">    x = self.out(x)</span><br><span class="line">    x = F.softmax(x,dim=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看模型</span></span><br><span class="line">in_dim,n_hidden_1,n_hidden_2,out_dim = <span class="number">28</span>*<span class="number">28</span>,<span class="number">300</span>,<span class="number">100</span>,<span class="number">10</span></span><br><span class="line">model_seq = Model_Seq(in_dim,n_hidden_1,n_hidden_2,out_dim)</span><br><span class="line"><span class="built_in">print</span>(model_seq)</span><br></pre></td></tr></table></figure>
+<h2
+id="方法二使用nn.sequential按层顺序构建模型">方法二、使用nn.Sequential按层顺序构建模型</h2>
+<p>因为 <strong><code>nn.Sequential</code></strong> 内部实现了
+<strong><code>forward</code></strong>
+函数,因此可以不用重写。必须要保证模块是按先后顺序进行排列的，前一个模块的输出大小和下一个模块的输入大小是一致的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">1、利用可变参数</span></span><br><span class="line"><span class="string">Python中的函数的参数个数是可变的(不定长的),Pytorch中的有些函数也类似,如nn.Sequential(*args)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"></span><br><span class="line"><span class="comment">#构建模型</span></span><br><span class="line">Seq_arg = nn.Sequential(</span><br><span class="line">    nn.Flatten(),</span><br><span class="line">    nn.Linear(in_dim,n_hidden_1),</span><br><span class="line">    nn.BatchNorm1d(n_hidden_1),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(n_hidden_1,n_hidden_2),</span><br><span class="line">    nn.BatchNorm1d(n_hidden_2),</span><br><span class="line">    nn.ReLU(),   <span class="comment">#没明白为什么这里不用F.relu()?应该是需要F.relu()传递参数</span></span><br><span class="line">    nn.Linear(n_hidden_2,out_dim),</span><br><span class="line">    nn.Softmax(dim=<span class="number">1</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看模型</span></span><br><span class="line">in_dim,n_hidden_1,n_hidden_2,out_dim = <span class="number">28</span>*<span class="number">28</span>,<span class="number">300</span>,<span class="number">100</span>,<span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(Seq_arg)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">2、使用add_module方法</span></span><br><span class="line"><span class="string">方法1不能给每个层指定名称,如需要给每个层指定名称,可使用add_module方法或OrderedDict方法</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"></span><br><span class="line"><span class="comment">#构建模型</span></span><br><span class="line">Seq_module = nn.Sequential()</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;flatten&quot;</span>,nn.Flatten())</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;linearl&quot;</span>,nn.Linear(in_dim,n_hidden_1))</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;bn1&quot;</span>,nn.BatchNorm1d(n_hidden_1))</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;relu1&quot;</span>,nn.ReLU())</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;linear2&quot;</span>,nn.Linear(n_hidden_1,n_hidden_2))</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;bn2&quot;</span>,nn.BatchNorm1d(n_hidden_2))</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;relu2&quot;</span>,nn.ReLU())</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;out&quot;</span>,nn.Linear(n_hidden_2,out_dim))</span><br><span class="line">Seq_module.add_module(<span class="string">&quot;softmax&quot;</span>,nn.Softmax(dim=<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看模型</span></span><br><span class="line">in_dim,n_hidden_1,n_hidden_2,out_dim = <span class="number">28</span>*<span class="number">28</span>,<span class="number">300</span>,<span class="number">100</span>,<span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(Seq_arg)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">3、使用OrderedDict方法</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line"></span><br><span class="line"><span class="comment">#构建模型</span></span><br><span class="line">Seq_dict = nn.Sequential(OrderedDict([</span><br><span class="line">    (<span class="string">&quot;flatten&quot;</span>, nn.Flatten()),</span><br><span class="line">    (<span class="string">&quot;linearl&quot;</span>, nn.Linear(in_dim, n_hidden_1)),</span><br><span class="line">    (<span class="string">&quot;bn1&quot;</span>, nn.BatchNorm1d(n_hidden_1)),</span><br><span class="line">    (<span class="string">&quot;relu1&quot;</span>, nn.ReLU()),</span><br><span class="line">    (<span class="string">&quot;linear2&quot;</span>, nn.Linear(n_hidden_1, n_hidden_2)),</span><br><span class="line">    (<span class="string">&quot;bn2&quot;</span>, nn.BatchNorm1d(n_hidden_2)),</span><br><span class="line">    (<span class="string">&quot;relu2&quot;</span>, nn.ReLU()),</span><br><span class="line">    (<span class="string">&quot;out&quot;</span>, nn.Linear(n_hidden_2, out_dim)),</span><br><span class="line">    (<span class="string">&quot;softmax&quot;</span>, nn.Softmax(dim=<span class="number">1</span>))</span><br><span class="line">]))</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看模型</span></span><br><span class="line">in_dim,n_hidden_1,n_hidden_2,out_dim = <span class="number">28</span>*<span class="number">28</span>,<span class="number">300</span>,<span class="number">100</span>,<span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(Seq_dict)</span><br></pre></td></tr></table></figure>
+<h2
+id="方法三继承nn.module基类并应用模型容器来构建模型">方法三、继承nn.Module基类并应用模型容器来构建模型</h2>
+<p>当模型的结构比较复杂时，可以应用模型容器(如
+<strong><code>nn.Sequential,nn.ModuleList,nn.ModuleDict</code></strong>
+)对模型部分结构进行封装,以增加模型的可读性,或减少代码量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">1、使用nn.Sequential模型容器</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment">#导入模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F </span><br><span class="line"></span><br><span class="line"><span class="comment">#构建模块</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Model_lay</span>(nn.Module):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  使用nn.Sequential构建网络,Sequential()函数的功能是将网络的层组合到一起</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,in_dim,n_hidden_1,n_hidden_2,out_dim</span>):</span><br><span class="line">    <span class="built_in">super</span>(Model_lay,self).__init__()</span><br><span class="line">    self.flatten = nn.Flatten()</span><br><span class="line">    self.layer1 = nn.Sequential(nn.Linear(in_dim,n_hidden_1),nn.BatchNorm1d(n_hidden_1))</span><br><span class="line">    self.layer2 = nn.Sequential(nn.Linear(n_hidden_1,n_hidden_2),nn.BatchNorm1d(n_hidden_2))</span><br><span class="line">    self.out = nn.Sequential(nn.Linear(n_hidden_2,out_dim))</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">    x = self.flatten(x)</span><br><span class="line">    x = F.relu(self.layer1(x))</span><br><span class="line">    x = F.relu(self.layer2(x))</span><br><span class="line">    x = F.softmax(self.out(x),dim=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看模型</span></span><br><span class="line">in_dim,n_hidden_1,n_hidden_2,out_dim = <span class="number">28</span>*<span class="number">28</span>,<span class="number">300</span>,<span class="number">100</span>,<span class="number">10</span></span><br><span class="line">model_lay = Model_lay(in_dim,n_hidden_1,n_hidden_2,out_dim)</span><br><span class="line"><span class="built_in">print</span>(model_lay)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">2、使用nn.ModuleList模型容器</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment">#导入模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F </span><br><span class="line"></span><br><span class="line"><span class="comment">#构建模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Model_lst</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,in_dim,n_hidden_1,n_hidden_2,out_dim</span>):</span><br><span class="line">    <span class="built_in">super</span>(Model_lst,self).__init__()</span><br><span class="line">    self.layers = nn.ModuleList([</span><br><span class="line">    nn.Flatten(),</span><br><span class="line">    nn.Linear(in_dim,n_hidden_1),</span><br><span class="line">    nn.BatchNorm1d(n_hidden_1),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(n_hidden_1,n_hidden_2),</span><br><span class="line">    nn.BatchNorm1d(n_hidden_2),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(n_hidden_2,out_dim),</span><br><span class="line">    nn.Softmax(dim=<span class="number">1</span>)])</span><br><span class="line">  <span class="comment">#定义前向传播函数</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> self.layers:</span><br><span class="line">      x = layer(x)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看模型</span></span><br><span class="line">in_dim,n_hidden_1,n_hidden_2,out_dim = <span class="number">28</span>*<span class="number">28</span>,<span class="number">300</span>,<span class="number">100</span>,<span class="number">10</span></span><br><span class="line">model_lst = Model_lst(in_dim,n_hidden_1,n_hidden_2,out_dim)</span><br><span class="line"><span class="built_in">print</span>(model_lst)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">3、使用nn.ModuleDict模型容器,注意ReLU函数在模型中出现一次,但在forward函数列表中则需出现2次</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment">#导入模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F </span><br><span class="line"></span><br><span class="line"><span class="comment">#构建模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Model_dict</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,in_dim,n_hidden_1,n_hidden_2,out_dim</span>):</span><br><span class="line">    <span class="built_in">super</span>(Model_dict,self).__init__()</span><br><span class="line">    self.layers_dict = nn.ModuleDict(&#123;</span><br><span class="line">    <span class="string">&quot;flatten&quot;</span>:nn.Flatten(),</span><br><span class="line">    <span class="string">&quot;linearl&quot;</span>:nn.Linear(in_dim, n_hidden_1),</span><br><span class="line">    <span class="string">&quot;bn1&quot;</span>:nn.BatchNorm1d(n_hidden_1),</span><br><span class="line">    <span class="string">&quot;relu1&quot;</span>:nn.ReLU(),</span><br><span class="line">    <span class="string">&quot;linear2&quot;</span>:nn.Linear(n_hidden_1, n_hidden_2),</span><br><span class="line">    <span class="string">&quot;bn2&quot;</span>:nn.BatchNorm1d(n_hidden_2),</span><br><span class="line">    <span class="string">&quot;relu2&quot;</span>:nn.ReLU(),</span><br><span class="line">    <span class="string">&quot;out&quot;</span>:nn.Linear(n_hidden_2, out_dim),</span><br><span class="line">    <span class="string">&quot;softmax&quot;</span>:nn.Softmax(dim=<span class="number">1</span>)&#125;)</span><br><span class="line">  <span class="comment">#定义前向传播函数</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">    layers = [<span class="string">&quot;flatten&quot;</span>,<span class="string">&quot;linear1&quot;</span>,<span class="string">&quot;bn1&quot;</span>,<span class="string">&quot;relu&quot;</span>,<span class="string">&quot;linear2&quot;</span>,<span class="string">&quot;bn2&quot;</span>,<span class="string">&quot;relu&quot;</span>,<span class="string">&quot;out&quot;</span>,<span class="string">&quot;softmax&quot;</span>]</span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> layers:</span><br><span class="line">        x = self.layers_dict[layer](x)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看模型</span></span><br><span class="line">in_dim,n_hidden_1,n_hidden_2,out_dim = <span class="number">28</span>*<span class="number">28</span>,<span class="number">300</span>,<span class="number">100</span>,<span class="number">10</span></span><br><span class="line">model_dict = Model_dict(in_dim,n_hidden_1,n_hidden_2,out_dim)</span><br><span class="line"><span class="built_in">print</span>(model_dict)</span><br></pre></td></tr></table></figure>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Pytorch/">#Pytorch</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#深度学习</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA/">#模型构建</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/07/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2023-07-20-Pytorch%E5%B7%A5%E5%85%B7%E7%AE%B1%E4%B8%AD/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Pytorch深度学习(2)-工具箱中</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/07/10/Python/2023-07-10-Python%20run%20in%20time/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Python程序定时运行</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;评论
+    </div>
+    
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+        <script data-pjax>
+          function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+              __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+              Gitalk && new Gitalk({
+                clientID: '7fcd8af2f0ac7c60cf9d',
+                clientSecret: 'a32278ac01922c5a3ba4f3185444c2fb56f5ff0a',
+                repo: 'jason51108.github.io',
+                owner: 'jason51108',
+                admin: 'jason51108',
+                id: __gitalk__pathname,
+                proxy: '',
+                language: 'zh-CN'
+              }).render('gitalk-container');
+            } catch (e) {
+              window.Gitalk = null;
+            }
+          }
+
+          if ('true' === 'true') {
+            const loadGitalkTimeout = setTimeout(() => {
+              loadGitalk();
+              clearTimeout(loadGitalkTimeout);
+            }, 1000);
+          } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+          }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E7%BB%A7%E6%89%BFnn.module%E5%9F%BA%E7%B1%BB%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="nav-text">方法一、继承nn.Module基类构建模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E4%BD%BF%E7%94%A8nn.sequential%E6%8C%89%E5%B1%82%E9%A1%BA%E5%BA%8F%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="nav-text">方法二、使用nn.Sequential按层顺序构建模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%E7%BB%A7%E6%89%BFnn.module%E5%9F%BA%E7%B1%BB%E5%B9%B6%E5%BA%94%E7%94%A8%E6%A8%A1%E5%9E%8B%E5%AE%B9%E5%99%A8%E6%9D%A5%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="nav-text">方法三、继承nn.Module基类并应用模型容器来构建模型</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2022</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Brainiaccc</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
