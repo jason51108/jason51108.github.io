@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Brainiaccc">
+    
+    <title>
+        
+            第一章 pandas练习解答 |
+        
+        Brainiaccc&#39;blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://pic1.zhimg.com/80/v2-7f824408347c06f049291d5d90066ad8_1440w.webp">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/self.jpg","favicon":"https://pic1.zhimg.com/80/v2-7f824408347c06f049291d5d90066ad8_1440w.webp","avatar":"/images/self.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":true},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"jason51108","github_admins":"jason51108","repository":"jason51108.github.io","client_id":"7fcd8af2f0ac7c60cf9d","client_secret":"a32278ac01922c5a3ba4f3185444c2fb56f5ff0a","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":false,"custom_label_list":["小菜一枚"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/self.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Brainiaccc&#39;blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">第一章 pandas练习解答</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/self.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Brainiaccc</span>
+                            
+                                <span class="author-label">小菜一枚</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-08-13 00:00:00</span>
+        <span class="mobile">2023-08-13 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-08-13 16:50:30</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Pandas/">Pandas</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%A7%A3%E7%AD%94/">解答</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>663 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <center>
+<h1>
+第一章 pandas练习解答
+</h1>
+</center>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>答案下载地址：https://github.com/jason51108/The-Answer-of-DA/archive/refs/heads/main.zip</p>
+</blockquote>
+<h2 id="ex1口袋妖怪数据集">Ex1：口袋妖怪数据集</h2>
+<h3
+id="对hp-attack-defense-sp.-atk-sp.-def-speed进行加总验证是否为total值">1.对HP,
+Attack, Defense, Sp. Atk, Sp. Def,
+Speed进行加总，验证是否为Total值。</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;data/pokemon.csv&#x27;</span>)  <span class="comment">#读取文件</span></span><br><span class="line">df.head()</span><br><span class="line">(df[df.columns[<span class="number">5</span>:]].<span class="built_in">sum</span>(<span class="number">1</span>) == df[<span class="string">&#x27;Total&#x27;</span>]).<span class="built_in">all</span>()  <span class="comment">#注意，在使用all函数之前一定要加括号！</span></span><br></pre></td></tr></table></figure>
+<h3
+id="对于重复的妖怪只保留第一条记录">2.对于#重复的妖怪只保留第一条记录</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.drop_duplicates(subset=<span class="string">&#x27;#&#x27;</span>,keep=<span class="string">&#x27;first&#x27;</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<h3
+id="求第一属性的种类数量和前三多数量对应的种类">3.求第一属性的种类数量和前三多数量对应的种类</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#求第一属性的种类数量</span></span><br><span class="line">df[<span class="string">&#x27;Type 1&#x27;</span>].nunique()</span><br><span class="line"></span><br><span class="line"><span class="comment">#前三多数量对应的种类</span></span><br><span class="line">df[<span class="string">&#x27;Type 1&#x27;</span>].value_counts().index[:<span class="number">3</span>]  <span class="comment">#使用value_counts()函数后，原本的值会变为索引</span></span><br></pre></td></tr></table></figure>
+<h3
+id="求第一属性和第二属性的组合种类">4.求第一属性和第二属性的组合种类</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">attr_dup = df.drop_duplicates([<span class="string">&#x27;Type 1&#x27;</span>, <span class="string">&#x27;Type 2&#x27;</span>])</span><br><span class="line">attr_dup.shape[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="求尚未出现过的属性组合">5.求尚未出现过的属性组合</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">L_full = [i+<span class="string">&#x27; &#x27;</span>+j <span class="keyword">if</span> i!=j <span class="keyword">else</span> i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">&#x27;Type 1&#x27;</span>].unique() <span class="keyword">for</span> j <span class="keyword">in</span> df[<span class="string">&#x27;Type 1&#x27;</span>].unique()]</span><br><span class="line">L_part = [i+<span class="string">&#x27; &#x27;</span>+j <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(j, <span class="built_in">float</span>) <span class="keyword">else</span> i <span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">zip</span>(df[<span class="string">&#x27;Type 1&#x27;</span>], df[<span class="string">&#x27;Type 2&#x27;</span>])] <span class="comment">#对缺失值做了判断，利用isinstance判断数字类型，原因在于type(np.nan)为float！</span></span><br><span class="line">res = <span class="built_in">set</span>(L_full).difference(<span class="built_in">set</span>(L_part)) <span class="comment">#利用集合进行相减</span></span><br><span class="line"><span class="built_in">len</span>(res) <span class="comment"># 太多，不打印了</span></span><br></pre></td></tr></table></figure>
+<h3
+id="取出物攻超过120的替换为high不足50的替换为low否则设为mid">6.取出物攻，超过120的替换为high，不足50的替换为low，否则设为mid</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;Attack&#x27;</span>].mask(df[<span class="string">&#x27;Attack&#x27;</span>]&gt;<span class="number">120</span>, <span class="string">&#x27;high&#x27;</span>).mask(df[<span class="string">&#x27;Attack&#x27;</span>]&lt;<span class="number">50</span>, <span class="string">&#x27;low&#x27;</span>).mask((<span class="number">50</span>&lt;=df[<span class="string">&#x27;Attack&#x27;</span>])&amp;(df[<span class="string">&#x27;Attack&#x27;</span>]&lt;=<span class="number">120</span>), <span class="string">&#x27;mid&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3
+id="取出第一属性分别用replace和apply替换所有字母为大写">7.取出第一属性，分别用replace和apply替换所有字母为大写</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;Type 1&#x27;</span>].replace(&#123;i:<span class="built_in">str</span>.upper(i) <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">&#x27;Type 1&#x27;</span>].unique()&#125;)</span><br><span class="line">df[<span class="string">&#x27;Type 1&#x27;</span>].apply(<span class="keyword">lambda</span> x:<span class="built_in">str</span>.upper(x))</span><br></pre></td></tr></table></figure>
+<h3
+id="求每个妖怪六项能力的离差即所有能力中偏离中位数最大的值添加到df并从大到小排序">8.求每个妖怪六项能力的离差，即所有能力中偏离******中位数******最大的值，添加到df并从大到小排序</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;Deviation&#x27;</span>] = df[[<span class="string">&#x27;HP&#x27;</span>, <span class="string">&#x27;Attack&#x27;</span>, <span class="string">&#x27;Defense&#x27;</span>, <span class="string">&#x27;Sp. Atk&#x27;</span>, <span class="string">&#x27;Sp. Def&#x27;</span>, <span class="string">&#x27;Speed&#x27;</span>]].apply(<span class="keyword">lambda</span> x:np.<span class="built_in">max</span>((x-x.median()).<span class="built_in">abs</span>()), <span class="number">1</span>) <span class="comment">#按照行来求，因此后面要制定为1 </span></span><br><span class="line">df.sort_values(<span class="string">&#x27;Deviation&#x27;</span>, ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="ex2指数加权窗口">Ex2：指数加权窗口</h2>
+<h3 id="请用expanding窗口实现">1.请用expanding窗口实现</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">s = pd.Series(np.random.randint(-<span class="number">1</span>,<span class="number">2</span>,<span class="number">30</span>).cumsum())</span><br><span class="line">s.ewm(alpha=<span class="number">0.2</span>).mean().head()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ewm_func</span>(<span class="params">x, alpha=<span class="number">0.2</span></span>):</span><br><span class="line">    win = (<span class="number">1</span>-alpha)**np.arange(x.shape[<span class="number">0</span>])[::-<span class="number">1</span>]</span><br><span class="line">    res = (win*x).<span class="built_in">sum</span>()/win.<span class="built_in">sum</span>()</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">s.expanding().apply(ewm_func).head()</span><br></pre></td></tr></table></figure>
+<h3 id="作为滑动窗口的ewm窗口">2.作为滑动窗口的ewm窗口</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 公式不是到t了，而是到n-1</span></span><br><span class="line">s.rolling(window=<span class="number">4</span>).apply(ewm_func).head() <span class="comment"># 无需对原函数改动</span></span><br></pre></td></tr></table></figure>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Pandas/">#Pandas</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">#数据分析</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E8%A7%A3%E7%AD%94/">#解答</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/08/10/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%B4%A2%E5%BC%95/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">第二章 索引</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;评论
+    </div>
+    
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+        <script data-pjax>
+          function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+              __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+              Gitalk && new Gitalk({
+                clientID: '7fcd8af2f0ac7c60cf9d',
+                clientSecret: 'a32278ac01922c5a3ba4f3185444c2fb56f5ff0a',
+                repo: 'jason51108.github.io',
+                owner: 'jason51108',
+                admin: 'jason51108',
+                id: __gitalk__pathname,
+                proxy: '',
+                language: 'zh-CN'
+              }).render('gitalk-container');
+            } catch (e) {
+              window.Gitalk = null;
+            }
+          }
+
+          if ('true' === 'true') {
+            const loadGitalkTimeout = setTimeout(() => {
+              loadGitalk();
+              clearTimeout(loadGitalkTimeout);
+            }, 1000);
+          } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+          }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">
+第一章 pandas练习解答
+</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ex1%E5%8F%A3%E8%A2%8B%E5%A6%96%E6%80%AA%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">Ex1：口袋妖怪数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9hp-attack-defense-sp.-atk-sp.-def-speed%E8%BF%9B%E8%A1%8C%E5%8A%A0%E6%80%BB%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E4%B8%BAtotal%E5%80%BC"><span class="nav-text">1.对HP,
+Attack, Defense, Sp. Atk, Sp. Def,
+Speed进行加总，验证是否为Total值。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E9%87%8D%E5%A4%8D%E7%9A%84%E5%A6%96%E6%80%AA%E5%8F%AA%E4%BF%9D%E7%95%99%E7%AC%AC%E4%B8%80%E6%9D%A1%E8%AE%B0%E5%BD%95"><span class="nav-text">2.对于#重复的妖怪只保留第一条记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E7%AC%AC%E4%B8%80%E5%B1%9E%E6%80%A7%E7%9A%84%E7%A7%8D%E7%B1%BB%E6%95%B0%E9%87%8F%E5%92%8C%E5%89%8D%E4%B8%89%E5%A4%9A%E6%95%B0%E9%87%8F%E5%AF%B9%E5%BA%94%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="nav-text">3.求第一属性的种类数量和前三多数量对应的种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E7%AC%AC%E4%B8%80%E5%B1%9E%E6%80%A7%E5%92%8C%E7%AC%AC%E4%BA%8C%E5%B1%9E%E6%80%A7%E7%9A%84%E7%BB%84%E5%90%88%E7%A7%8D%E7%B1%BB"><span class="nav-text">4.求第一属性和第二属性的组合种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E5%B0%9A%E6%9C%AA%E5%87%BA%E7%8E%B0%E8%BF%87%E7%9A%84%E5%B1%9E%E6%80%A7%E7%BB%84%E5%90%88"><span class="nav-text">5.求尚未出现过的属性组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%87%BA%E7%89%A9%E6%94%BB%E8%B6%85%E8%BF%87120%E7%9A%84%E6%9B%BF%E6%8D%A2%E4%B8%BAhigh%E4%B8%8D%E8%B6%B350%E7%9A%84%E6%9B%BF%E6%8D%A2%E4%B8%BAlow%E5%90%A6%E5%88%99%E8%AE%BE%E4%B8%BAmid"><span class="nav-text">6.取出物攻，超过120的替换为high，不足50的替换为low，否则设为mid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%87%BA%E7%AC%AC%E4%B8%80%E5%B1%9E%E6%80%A7%E5%88%86%E5%88%AB%E7%94%A8replace%E5%92%8Capply%E6%9B%BF%E6%8D%A2%E6%89%80%E6%9C%89%E5%AD%97%E6%AF%8D%E4%B8%BA%E5%A4%A7%E5%86%99"><span class="nav-text">7.取出第一属性，分别用replace和apply替换所有字母为大写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E6%AF%8F%E4%B8%AA%E5%A6%96%E6%80%AA%E5%85%AD%E9%A1%B9%E8%83%BD%E5%8A%9B%E7%9A%84%E7%A6%BB%E5%B7%AE%E5%8D%B3%E6%89%80%E6%9C%89%E8%83%BD%E5%8A%9B%E4%B8%AD%E5%81%8F%E7%A6%BB%E4%B8%AD%E4%BD%8D%E6%95%B0%E6%9C%80%E5%A4%A7%E7%9A%84%E5%80%BC%E6%B7%BB%E5%8A%A0%E5%88%B0df%E5%B9%B6%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%E6%8E%92%E5%BA%8F"><span class="nav-text">8.求每个妖怪六项能力的离差，即所有能力中偏离******中位数******最大的值，添加到df并从大到小排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ex2%E6%8C%87%E6%95%B0%E5%8A%A0%E6%9D%83%E7%AA%97%E5%8F%A3"><span class="nav-text">Ex2：指数加权窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B7%E7%94%A8expanding%E7%AA%97%E5%8F%A3%E5%AE%9E%E7%8E%B0"><span class="nav-text">1.请用expanding窗口实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%BA%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84ewm%E7%AA%97%E5%8F%A3"><span class="nav-text">2.作为滑动窗口的ewm窗口</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2022</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Brainiaccc</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

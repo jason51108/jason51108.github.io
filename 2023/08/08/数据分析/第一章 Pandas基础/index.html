@@ -330,7 +330,7 @@ mjx-container[display="true"] + br {
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-08-09 23:29:31</span>
+        <span class="pc">2023-08-13 14:46:09</span>
     </span>
     
     
@@ -365,7 +365,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>4.7k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>4.8k 字</span>
         </span>
     
     
@@ -441,7 +441,7 @@ mjx-container[display="true"] + br {
 <h2 id="三常用基本函数">三、常用基本函数</h2>
 <h3 id="汇总函数">1. 汇总函数</h3>
 <p><code>head, tail,sample</code>函数分别表示返回表或者序列的前<code>n</code>行、后<code>n</code>行以及随机<code>n</code>行，其中<code>n</code>默认为5：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.head(<span class="number">2</span>) <span class="comment">#查看前两行</span></span><br><span class="line">df.tail(<span class="number">3</span>) <span class="comment">#查看后三行</span></span><br><span class="line">df.sample(<span class="number">4</span>) <span class="comment">#查看随机三行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.head(<span class="number">2</span>) <span class="comment">#查看前两行</span></span><br><span class="line">df.tail(<span class="number">3</span>) <span class="comment">#查看后三行</span></span><br><span class="line">df.sample(<span class="number">4</span>) <span class="comment">#查看随机四行</span></span><br></pre></td></tr></table></figure>
 <p><code>info, describe</code>分别返回表的信息概况和表中数值列对应的主要统计量
 ：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.info()</span><br><span class="line">df.describe()</span><br></pre></td></tr></table></figure>
@@ -521,7 +521,10 @@ mjx-container[display="true"] + br {
 <p>在得到了滑窗对象后，能够使用相应的聚合函数进行计算，需要注意的是窗口包含当前行所在的元素，例如在第四个位置进行均值运算时，应当计算(2+3+4)/3，而不是(1+2+3)/3：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">roller.mean()</span><br><span class="line"><span class="comment">#0    NaN</span></span><br><span class="line"><span class="comment">#,1    NaN</span></span><br><span class="line"><span class="comment">#,2    2.0</span></span><br><span class="line"><span class="comment">#,3    3.0</span></span><br><span class="line"><span class="comment">#,4    4.0</span></span><br><span class="line"><span class="comment">#,dtype: float64</span></span><br><span class="line"></span><br><span class="line">roller.<span class="built_in">sum</span>()</span><br><span class="line"><span class="comment">#0     NaN</span></span><br><span class="line"><span class="comment">#,1     NaN</span></span><br><span class="line"><span class="comment">#,2     6.0</span></span><br><span class="line"><span class="comment">#,3     9.0</span></span><br><span class="line"><span class="comment">#,4    12.0</span></span><br><span class="line"><span class="comment">#,dtype: float64</span></span><br></pre></td></tr></table></figure>
 <p>对于滑动相关系数或滑动协方差的计算，可以如下写出：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">s2 = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">16</span>,<span class="number">30</span>])</span><br><span class="line">roller = s.rolling(window = <span class="number">3</span>)</span><br><span class="line">roller.cov(s2)</span><br><span class="line"><span class="comment">#0     NaN</span></span><br><span class="line"><span class="comment">#,1     NaN</span></span><br><span class="line"><span class="comment">#,2     2.5</span></span><br><span class="line"><span class="comment">#,3     7.0</span></span><br><span class="line"><span class="comment">#,4    12.0</span></span><br><span class="line"><span class="comment">#,dtype: float64</span></span><br><span class="line"></span><br><span class="line">roller.corr(s2)</span><br><span class="line"><span class="comment">#0         NaN</span></span><br><span class="line"><span class="comment">#,1         NaN</span></span><br><span class="line"><span class="comment">#,2    0.944911</span></span><br><span class="line"><span class="comment">#,3    0.970725</span></span><br><span class="line"><span class="comment">#,4    0.995402</span></span><br><span class="line"><span class="comment">#,dtype: float64</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：协方差或相关系数等值需要两条不同的序列进行比较！一般而言，自身和自身比较是没有意义的</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">s2 = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">16</span>,<span class="number">30</span>])</span><br><span class="line">roller = s.rolling(window = <span class="number">3</span>)</span><br><span class="line">roller.cov(s2) <span class="comment">#注意，这里计算的是滑动窗口序列与s2之间的cov</span></span><br><span class="line"><span class="comment">#0     NaN</span></span><br><span class="line"><span class="comment">#,1     NaN</span></span><br><span class="line"><span class="comment">#,2     2.5</span></span><br><span class="line"><span class="comment">#,3     7.0</span></span><br><span class="line"><span class="comment">#,4    12.0</span></span><br><span class="line"><span class="comment">#,dtype: float64</span></span><br><span class="line"></span><br><span class="line">roller.corr(s2) <span class="comment">#注意，这里计算的是滑动窗口序列与s2之间的corr</span></span><br><span class="line"><span class="comment">#0         NaN</span></span><br><span class="line"><span class="comment">#,1         NaN</span></span><br><span class="line"><span class="comment">#,2    0.944911</span></span><br><span class="line"><span class="comment">#,3    0.970725</span></span><br><span class="line"><span class="comment">#,4    0.995402</span></span><br><span class="line"><span class="comment">#,dtype: float64</span></span><br></pre></td></tr></table></figure>
 <p>此外，还支持使用<code>apply</code>传入自定义函数，其传入值是对应窗口的<code>Series</code>，例如上述的均值函数可以等效表示：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">roller.apply(<span class="keyword">lambda</span> x:x.mean())</span><br><span class="line"><span class="comment">#0    NaN</span></span><br><span class="line"><span class="comment">#,1    NaN</span></span><br><span class="line"><span class="comment">#,2    2.0</span></span><br><span class="line"><span class="comment">#,3    3.0</span></span><br><span class="line"><span class="comment">#,4    4.0</span></span><br><span class="line"><span class="comment">#,dtype: float64</span></span><br></pre></td></tr></table></figure>
 <p><code>shift, diff, pct_change</code>是一组类滑窗函数，它们的公共参数为<code>periods=n</code>，默认为1，分别表示取向前第<code>n</code>个元素的值、与向前第<code>n</code>个元素做差（与<code>Numpy</code>中不同，后者表示<code>n</code>阶差分）、与向前第<code>n</code>个元素相比计算增长率。这里的<code>n</code>可以为负，表示反方向的类似操作。</p>
@@ -667,6 +670,21 @@ a2, a3, a4]。</p>
 
             
                 <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/08/10/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%B4%A2%E5%BC%95/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">第二章 索引</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
                     
                     
                         <div class="article-next">
