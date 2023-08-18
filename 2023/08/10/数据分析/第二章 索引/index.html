@@ -330,7 +330,7 @@ mjx-container[display="true"] + br {
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-08-13 16:38:25</span>
+        <span class="pc">2023-08-13 20:03:48</span>
     </span>
     
     
@@ -365,12 +365,12 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>3.4k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>5.5k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>14 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>24 分钟</span>
         </span>
     
     
@@ -1149,7 +1149,1176 @@ mjx-container[display="true"] + br {
 </tbody>
 </table>
 <h2 id="二多级索引">二、多级索引</h2>
-<p>目前而言暂时用得不多，本章节及以下章节省略.....</p>
+<h3 id="多级索引及其表的结构">1. 多级索引及其表的结构</h3>
+<p>为了更加清晰地说明具有多级索引的<code>DataFrame</code>结构，下面新构造一张表，读者可以忽略这里的构造方法，它们将会在第4小节被更详细地讲解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">multi_index = pd.MultiIndex.from_product([<span class="built_in">list</span>(<span class="string">'ABCD'</span>), df.Gender.unique()], names=(<span class="string">'School'</span>, <span class="string">'Gender'</span>))</span><br><span class="line">multi_column = pd.MultiIndex.from_product([[<span class="string">'Height'</span>, <span class="string">'Weight'</span>], df.Grade.unique()], names=(<span class="string">'Indicator'</span>, <span class="string">'Grade'</span>))</span><br><span class="line">df_multi = pd.DataFrame(np.c_[(np.random.randn(<span class="number">8</span>,<span class="number">4</span>)*<span class="number">5</span> + <span class="number">163</span>).tolist(), (np.random.randn(<span class="number">8</span>,<span class="number">4</span>)*<span class="number">5</span> + <span class="number">65</span>).tolist()],</span><br><span class="line">                        index = multi_index, columns = multi_column).<span class="built_in">round</span>(<span class="number">1</span>)</span><br><span class="line">df_multi</span><br></pre></td></tr></table></figure>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Indicator</th>
+<th style="text-align: left;">Height</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Junior</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Gender</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">171.8</td>
+<td style="text-align: left;">165.0</td>
+<td style="text-align: left;">167.9</td>
+<td style="text-align: left;">174.2</td>
+<td style="text-align: left;">60.6</td>
+<td style="text-align: left;">55.1</td>
+<td style="text-align: left;">63.3</td>
+<td style="text-align: left;">65.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">172.3</td>
+<td style="text-align: left;">158.1</td>
+<td style="text-align: left;">167.8</td>
+<td style="text-align: left;">162.2</td>
+<td style="text-align: left;">71.2</td>
+<td style="text-align: left;">71.0</td>
+<td style="text-align: left;">63.1</td>
+<td style="text-align: left;">63.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">162.5</td>
+<td style="text-align: left;">165.1</td>
+<td style="text-align: left;">163.7</td>
+<td style="text-align: left;">170.3</td>
+<td style="text-align: left;">59.8</td>
+<td style="text-align: left;">57.9</td>
+<td style="text-align: left;">56.5</td>
+<td style="text-align: left;">74.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">166.8</td>
+<td style="text-align: left;">163.6</td>
+<td style="text-align: left;">165.2</td>
+<td style="text-align: left;">164.7</td>
+<td style="text-align: left;">62.5</td>
+<td style="text-align: left;">62.8</td>
+<td style="text-align: left;">58.7</td>
+<td style="text-align: left;">68.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">170.5</td>
+<td style="text-align: left;">162.0</td>
+<td style="text-align: left;">164.6</td>
+<td style="text-align: left;">158.7</td>
+<td style="text-align: left;">56.9</td>
+<td style="text-align: left;">63.9</td>
+<td style="text-align: left;">60.5</td>
+<td style="text-align: left;">66.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">150.2</td>
+<td style="text-align: left;">166.3</td>
+<td style="text-align: left;">167.3</td>
+<td style="text-align: left;">159.3</td>
+<td style="text-align: left;">62.4</td>
+<td style="text-align: left;">59.1</td>
+<td style="text-align: left;">64.9</td>
+<td style="text-align: left;">67.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">174.3</td>
+<td style="text-align: left;">155.7</td>
+<td style="text-align: left;">163.2</td>
+<td style="text-align: left;">162.1</td>
+<td style="text-align: left;">65.3</td>
+<td style="text-align: left;">66.5</td>
+<td style="text-align: left;">61.8</td>
+<td style="text-align: left;">63.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">170.7</td>
+<td style="text-align: left;">170.3</td>
+<td style="text-align: left;">163.8</td>
+<td style="text-align: left;">164.9</td>
+<td style="text-align: left;">61.6</td>
+<td style="text-align: left;">63.2</td>
+<td style="text-align: left;">60.9</td>
+<td style="text-align: left;">56.4</td>
+</tr>
+</tbody>
+</table>
+<p>与单层索引类似，<code>MultiIndex</code>也具有名字属性，图中的<code>School</code>和<code>Gender</code>分别对应了表的第一层和第二层行索引的名字，<code>Indicator</code>和<code>Grade</code>分别对应了第一层和第二层列索引的名字。</p>
+<p>索引的名字和值属性分别可以通过<code>names</code>和<code>values</code>获得：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_multi.index.names</span><br><span class="line"><span class="comment"># FrozenList(['School', 'Gender'])</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_multi.columns.names</span><br><span class="line"><span class="comment"># FrozenList(['Indicator', 'Grade'])</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df_multi.index.values</span><br><span class="line"><span class="comment">#array([('A', 'Female'), ('A', 'Male'), ('B', 'Female'), ('B', 'Male'),</span></span><br><span class="line"><span class="comment">#,       ('C', 'Female'), ('C', 'Male'), ('D', 'Female'), ('D', 'Male')],</span></span><br><span class="line"><span class="comment">#,      dtype=object)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df_multi.columns.values</span><br><span class="line"><span class="comment">#array([('Height', 'Freshman'), ('Height', 'Senior'),</span></span><br><span class="line"><span class="comment">#,       ('Height', 'Sophomore'), ('Height', 'Junior'),</span></span><br><span class="line"><span class="comment">#,       ('Weight', 'Freshman'), ('Weight', 'Senior'),</span></span><br><span class="line"><span class="comment">#,       ('Weight', 'Sophomore'), ('Weight', 'Junior')], dtype=object)</span></span><br></pre></td></tr></table></figure>
+<p>如果想要得到某一层的索引，则需要通过<code>get_level_values</code>获得</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_multi.index.get_level_values(<span class="number">0</span>)</span><br><span class="line"><span class="comment"># Index(['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D'], dtype='object', name='School')</span></span><br></pre></td></tr></table></figure>
+<p>但对于索引而言，无论是单层还是多层，用户都无法通过<code>index_obj[0] = item</code>的方式来修改元素，也不能通过<code>index_name[0] = new_name</code>的方式来修改名字，关于如何修改这些属性的话题将在第三节被讨论。</p>
+<h3 id="多级索引中的loc索引器">2. 多级索引中的loc索引器</h3>
+<p>熟悉了结构后，现在回到原表，将学校和年级设为索引，此时的行为多级索引，列为单级索引，由于默认状态的列索引不含名字，因此对应于刚刚图中<code>Indicator</code>和<code>Grade</code>的索引名位置是空缺的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_multi = df.set_index([<span class="string">'School'</span>, <span class="string">'Grade'</span>])</span><br><span class="line">df_multi.head()</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 12%">
+<col style="width: 19%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shanghai Jiao Tong University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Gaopeng Yang</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">46.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Peking University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Changqiang You</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">70.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shanghai Jiao Tong University</td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Mei Sun</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">89.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Xiaojuan Sun</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">41.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Gaojuan You</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">74.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+</tbody>
+</table>
+<p>由于多级索引中的单个元素以元组为单位，因此之前在第一节介绍的
+<code>loc</code> 和 <code>iloc</code>
+方法完全可以照搬，只需把标量的位置替换成对应的元组。</p>
+<p>当传入元组列表或单个元组或返回前二者的函数时，需要先进行索引排序以避免性能警告：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> warnings.catch_warnings():</span><br><span class="line">    warnings.filterwarnings(<span class="string">'error'</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        df_multi.loc[(<span class="string">'Fudan University'</span>, <span class="string">'Junior'</span>)].head()</span><br><span class="line">    <span class="keyword">except</span> Warning <span class="keyword">as</span> w:</span><br><span class="line">        Warning_Msg = w</span><br><span class="line">Warning_Msg</span><br><span class="line"><span class="comment">#pandas.errors.PerformanceWarning('indexing past lexsort depth may impact performance.')</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_sorted = df_multi.sort_index()</span><br><span class="line">df_sorted.loc[(<span class="string">'Fudan University'</span>, <span class="string">'Junior'</span>)].head()</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 29%">
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Yanli You</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">48.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Chunqiang Chu</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">72.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Changfeng Lv</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">76.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Yanjuan Lv</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">49.0</td>
+<td style="text-align: left;">NaN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Gaoqiang Zhou</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">43.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_sorted.loc[[(<span class="string">'Fudan University'</span>, <span class="string">'Senior'</span>), (<span class="string">'Shanghai Jiao Tong University'</span>, <span class="string">'Freshman'</span>)]].head()</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 10%">
+<col style="width: 26%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chengpeng Zheng</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">38.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Feng Zhou</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">47.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Gaomei Lv</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">34.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chunli Lv</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">56.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chengpeng Zhou</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">81.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_sorted.loc[df_sorted.Weight &gt; <span class="number">70</span>].head() <span class="comment"># 布尔列表也是可用的</span></span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 13%">
+<col style="width: 24%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Feng Wang</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">74.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Chunqiang Chu</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">72.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Changfeng Lv</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">76.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chengpeng Zhou</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">81.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chengpeng Qian</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">73.0</td>
+<td style="text-align: left;">Y</td>
+</tr>
+</tbody>
+</table>
+<p>当使用切片时需要注意，在单级索引中只要切片端点元素是唯一的，那么就可以进行切片，但在多级索引中，无论元组在索引中是否重复出现，都必须经过排序才能使用切片，否则报错：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    df_multi.loc[(<span class="string">'Fudan University'</span>, <span class="string">'Senior'</span>):].head()</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    Err_Msg = e</span><br><span class="line">Err_Msg</span><br><span class="line"><span class="comment"># pandas.errors.UnsortedIndexError('Key length (2) was greater than MultiIndex lexsort depth (0)')</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_sorted.loc[('Fudan University', 'Senior'):].head()</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 10%">
+<col style="width: 26%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chengpeng Zheng</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">38.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Feng Zhou</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">47.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Gaomei Lv</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">34.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chunli Lv</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">56.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chengpeng Zhou</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">81.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_unique = df.drop_duplicates(subset=[<span class="string">'School'</span>,<span class="string">'Grade'</span>]).set_index([<span class="string">'School'</span>, <span class="string">'Grade'</span>])</span><br><span class="line">df_unique.head()</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 12%">
+<col style="width: 19%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shanghai Jiao Tong University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Gaopeng Yang</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">46.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Peking University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Changqiang You</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">70.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shanghai Jiao Tong University</td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Mei Sun</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">89.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Xiaojuan Sun</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">41.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tsinghua University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Xiaoli Qian</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">51.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    df_unique.loc[(<span class="string">'Fudan University'</span>, <span class="string">'Senior'</span>):].head()</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    Err_Msg = e</span><br><span class="line">Err_Msg</span><br><span class="line"><span class="comment"># pandas.errors.UnsortedIndexError('Key length (2) was greater than MultiIndex lexsort depth (0)')</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_unique.sort_index().loc[(<span class="string">'Fudan University'</span>, <span class="string">'Senior'</span>):].head()</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 14%">
+<col style="width: 24%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Chengpeng Zheng</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">38.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Xiaojuan Sun</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">41.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peking University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Changqiang You</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">70.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Juan Xu</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">NaN</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Senior</td>
+<td style="text-align: left;">Changli Lv</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">41.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+</tbody>
+</table>
+<p>此外，在多级索引中的元组有一种特殊的用法，可以对多层的元素进行交叉组合后索引，但同时需要指定<code>loc</code>的列，全选则用<code>:</code>表示。其中，每一层需要选中的元素用列表存放，传入<code>loc</code>的形式为<code>[(level_0_list, level_1_list), cols]</code>。例如，想要得到所有北大和复旦的大二大三学生，可以如下写出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res = df_multi.loc[([<span class="string">'Peking University'</span>, <span class="string">'Fudan University'</span>], [<span class="string">'Sophomore'</span>, <span class="string">'Junior'</span>]), :]</span><br><span class="line">res.shape <span class="comment">#(33, 4)</span></span><br><span class="line">res.head()</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 29%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peking University</td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Changmei Xu</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">43.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Xiaopeng Qin</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">NaN</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Mei Xu</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">39.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Xiaoli Zhou</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">55.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sophomore</td>
+<td style="text-align: left;">Peng Han</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">34.0</td>
+<td style="text-align: left;">NaN</td>
+</tr>
+</tbody>
+</table>
+<p>下面的语句和上面类似，但仍然传入的是元素（这里为元组）的列表，它们的意义是不同的，表示的是选出北大的大三学生和复旦的大二学生：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res = df_multi.loc[[(<span class="string">'Peking University'</span>, <span class="string">'Junior'</span>), (<span class="string">'Fudan University'</span>, <span class="string">'Sophomore'</span>)]]</span><br><span class="line">res.shape <span class="comment">#(16, 4)</span></span><br><span class="line">res.head()</span><br></pre></td></tr></table></figure>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">School</td>
+<td style="text-align: left;">Grade</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peking University</td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Juan Xu</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">NaN</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Changjuan You</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">47.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Gaoli Xu</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">48.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Gaoquan Zhou</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">70.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Junior</td>
+<td style="text-align: left;">Qiang You</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">56.0</td>
+<td style="text-align: left;">N</td>
+</tr>
+</tbody>
+</table>
+<h3 id="indexslice对象">3. IndexSlice对象</h3>
+<p>前面介绍的方法，即使在索引不重复的时候，也只能对元组整体进行切片，而不能对每层进行切片，也不允许将切片和布尔列表混合使用，引入<code>IndexSlice</code>对象就能解决这个问题。<code>Slice</code>对象一共有两种形式，第一种为<code>loc[idx[*,*]]</code>型，第二种为<code>loc[idx[*,*],idx[*,*]]</code>型，下面将进行介绍。为了方便演示，下面构造一个<strong>索引不重复的</strong><code>DataFrame</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">L1,L2 = [<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>],[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</span><br><span class="line">mul_index1 = pd.MultiIndex.from_product([L1,L2],names=(<span class="string">'Upper'</span>, <span class="string">'Lower'</span>))</span><br><span class="line">L3,L4 = [<span class="string">'D'</span>,<span class="string">'E'</span>,<span class="string">'F'</span>],[<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>]</span><br><span class="line">mul_index2 = pd.MultiIndex.from_product([L3,L4],names=(<span class="string">'Big'</span>, <span class="string">'Small'</span>))</span><br><span class="line">df_ex = pd.DataFrame(np.random.randint(-<span class="number">9</span>,<span class="number">10</span>,(<span class="number">9</span>,<span class="number">9</span>)), index=mul_index1, columns=mul_index2)</span><br><span class="line">df_ex</span><br></pre></td></tr></table></figure>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Big</th>
+<th style="text-align: left;">D</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">E</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">F</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Small</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">f</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Upper</td>
+<td style="text-align: left;">Lower</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">-9</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">-2</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">-5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">-8</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">-2</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">-4</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">-4</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">-9</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">-6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">-2</td>
+<td style="text-align: left;">-9</td>
+<td style="text-align: left;">-8</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-9</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">-6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">-7</td>
+<td style="text-align: left;">-9</td>
+<td style="text-align: left;">-9</td>
+<td style="text-align: left;">-5</td>
+<td style="text-align: left;">-4</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">-5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">-8</td>
+<td style="text-align: left;">-8</td>
+<td style="text-align: left;">-2</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">-9</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">-5</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">-5</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">-5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">-4</td>
+</tr>
+</tbody>
+</table>
+<p>为了使用<code>silce</code>对象，先要进行定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">idx = pd.IndexSlice</span><br></pre></td></tr></table></figure>
+<p>【a】<code>loc[idx[*,*]]</code>型</p>
+<p>这种情况并不能进行多层分别切片，前一个<code>*</code>表示行的选择，后一个<code>*</code>表示列的选择，与单纯的<code>loc</code>是类似的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_ex.loc[idx[<span class="string">'C'</span>:, (<span class="string">'D'</span>, <span class="string">'f'</span>):]]</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Big</th>
+<th style="text-align: left;">D</th>
+<th style="text-align: left;">E</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">F</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Small</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">f</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Upper</td>
+<td style="text-align: left;">Lower</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">-9</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">-5</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">-5</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">-5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">-6</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">-4</td>
+</tr>
+</tbody>
+</table>
+<p>另外，也支持布尔序列的索引：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_ex.loc[idx[:<span class="string">'A'</span>, <span class="keyword">lambda</span> x:x.<span class="built_in">sum</span>()&gt;<span class="number">0</span>]] <span class="comment"># 列和大于0</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Big</th>
+<th style="text-align: left;">D</th>
+<th style="text-align: left;">F</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Small</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">e</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Upper</td>
+<td style="text-align: left;">Lower</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">-4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">9</td>
+</tr>
+</tbody>
+</table>
+<p>【b】<code>loc[idx[*,*],idx[*,*]]</code>型</p>
+<p>这种情况能够分层进行切片，前一个<code>idx</code>指代的是行索引，后一个是列索引。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_ex.loc[idx[:<span class="string">'A'</span>, <span class="string">'b'</span>:], idx[<span class="string">'E'</span>:, <span class="string">'e'</span>:]]</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Big</th>
+<th style="text-align: left;">E</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">F</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Small</td>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">f</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Upper</td>
+<td style="text-align: left;">Lower</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">-2</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">-4</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">-6</td>
+</tr>
+</tbody>
+</table>
+<p>但需要注意的是，此时不支持使用函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    df_ex.loc[idx[:<span class="string">'A'</span>, <span class="keyword">lambda</span> x: <span class="string">'b'</span>], idx[<span class="string">'E'</span>:, <span class="string">'e'</span>:]]</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    Err_Msg = e</span><br><span class="line">Err_Msg</span><br><span class="line"><span class="comment"># KeyError(&lt;function __main__.&lt;lambda&gt;(x)&gt;)</span></span><br></pre></td></tr></table></figure>
+<h3 id="多级索引的构造">4. 多级索引的构造</h3>
 <h2 id="三索引的常用方法">三、索引的常用方法</h2>
 <h3 id="索引层的交换和删除">1. 索引层的交换和删除</h3>
 <h3 id="索引属性的修改">2. 索引属性的修改</h3>
@@ -1189,7 +2358,7 @@ mjx-container[display="true"] + br {
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">第一章 pandas练习解答</span>
+                                <span class="post-nav-title-item">pandas练习解答(一)</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -1282,7 +2451,7 @@ mjx-container[display="true"] + br {
     <div class="post-toc">
         <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">
 第二章 索引
-</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%B4%A2%E5%BC%95%E5%99%A8"><span class="nav-text">一、索引器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E7%9A%84%E5%88%97%E7%B4%A2%E5%BC%95"><span class="nav-text">1. 表的列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E7%9A%84%E8%A1%8C%E7%B4%A2%E5%BC%95"><span class="nav-text">2. 序列的行索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loc%E7%B4%A2%E5%BC%95%E5%99%A8"><span class="nav-text">3. loc索引器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%83%E4%B8%80%E7%BB%83"><span class="nav-text">【练一练】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iloc%E7%B4%A2%E5%BC%95%E5%99%A8"><span class="nav-text">4. iloc索引器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#query%E6%96%B9%E6%B3%95"><span class="nav-text">5. query方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%8A%BD%E6%A0%B7"><span class="nav-text">6. 随机抽样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%A4%9A%E7%BA%A7%E7%B4%A2%E5%BC%95"><span class="nav-text">二、多级索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%B4%A2%E5%BC%95%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">三、索引的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%B1%82%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%92%8C%E5%88%A0%E9%99%A4"><span class="nav-text">1. 索引层的交换和删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-text">2. 索引属性的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E9%87%8D%E7%BD%AE"><span class="nav-text">3. 索引的设置与重置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8F%98%E5%BD%A2"><span class="nav-text">4. 索引的变形</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E7%B4%A2%E5%BC%95%E8%BF%90%E7%AE%97"><span class="nav-text">四、索引运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-text">1. 集合的运算法则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E7%9A%84%E7%B4%A2%E5%BC%95%E8%BF%90%E7%AE%97"><span class="nav-text">2. 一般的索引运算</span></a></li></ol></li></ol></li></ol>
+</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%B4%A2%E5%BC%95%E5%99%A8"><span class="nav-text">一、索引器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E7%9A%84%E5%88%97%E7%B4%A2%E5%BC%95"><span class="nav-text">1. 表的列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E7%9A%84%E8%A1%8C%E7%B4%A2%E5%BC%95"><span class="nav-text">2. 序列的行索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loc%E7%B4%A2%E5%BC%95%E5%99%A8"><span class="nav-text">3. loc索引器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%83%E4%B8%80%E7%BB%83"><span class="nav-text">【练一练】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iloc%E7%B4%A2%E5%BC%95%E5%99%A8"><span class="nav-text">4. iloc索引器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#query%E6%96%B9%E6%B3%95"><span class="nav-text">5. query方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%8A%BD%E6%A0%B7"><span class="nav-text">6. 随机抽样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%A4%9A%E7%BA%A7%E7%B4%A2%E5%BC%95"><span class="nav-text">二、多级索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E7%B4%A2%E5%BC%95%E5%8F%8A%E5%85%B6%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-text">1. 多级索引及其表的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E7%B4%A2%E5%BC%95%E4%B8%AD%E7%9A%84loc%E7%B4%A2%E5%BC%95%E5%99%A8"><span class="nav-text">2. 多级索引中的loc索引器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexslice%E5%AF%B9%E8%B1%A1"><span class="nav-text">3. IndexSlice对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9E%84%E9%80%A0"><span class="nav-text">4. 多级索引的构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%B4%A2%E5%BC%95%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">三、索引的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%B1%82%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%92%8C%E5%88%A0%E9%99%A4"><span class="nav-text">1. 索引层的交换和删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-text">2. 索引属性的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E9%87%8D%E7%BD%AE"><span class="nav-text">3. 索引的设置与重置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8F%98%E5%BD%A2"><span class="nav-text">4. 索引的变形</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E7%B4%A2%E5%BC%95%E8%BF%90%E7%AE%97"><span class="nav-text">四、索引运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-text">1. 集合的运算法则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E7%9A%84%E7%B4%A2%E5%BC%95%E8%BF%90%E7%AE%97"><span class="nav-text">2. 一般的索引运算</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
