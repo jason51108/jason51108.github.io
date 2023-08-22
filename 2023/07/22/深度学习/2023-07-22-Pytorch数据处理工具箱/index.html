@@ -276,116 +276,116 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h1 id="pytorch数据处理工具箱">Pytorch数据处理工具箱</h1>
-<h2 id="概述">概述</h2>
-<p>本章节的数据处理工具箱包括utils.data和torchvision。如图所示，该图展示了utils.data、torchvision。接下来更详细的介绍各部分。</p>
-<figure>
-<img src="https://img1.imgtp.com/2023/07/18/7CjbGEwx.png" alt="图1" />
-<figcaption aria-hidden="true">图1</figcaption>
-</figure>
+                <h1 id="Pytorch数据处理工具箱"><a href="#Pytorch数据处理工具箱" class="headerlink" title="Pytorch数据处理工具箱"></a>Pytorch数据处理工具箱</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本章节的数据处理工具箱包括utils.data和torchvision。如图所示，该图展示了utils.data、torchvision。接下来更详细的介绍各部分。</p>
+<p><img src="https://img1.imgtp.com/2023/07/18/7CjbGEwx.png" alt="图1"></p>
 <p>上图的左边是torch.utils.data工具包，它主要包括以下4类。</p>
 <ul>
 <li><strong>Dataset：</strong>抽象类，其他数据集需要继承此类，并且必须覆写其中的两个方法(__getitem__、__len__)。</li>
 <li><strong>DataLoader：</strong>定义一个新的迭代器，实现批量(batch)读写，打乱数据(shuffle)并提供<strong>并行加速</strong>相关供能。</li>
-<li><strong>random_split：</strong>把数据集随机拆分为给定长度的非重叠数据集。<strong>(不做介绍)</strong></li>
-<li>*<strong>Sampler：</strong>多种采样工具。<strong>(不做介绍)</strong></li>
+<li><strong>random_split：</strong>把数据集随机拆分为给定长度的非重叠数据集。**(不做介绍)**</li>
+<li><em><strong>Sampler：</strong>多种采样工具。</em><em>(不做介绍)</em>*</li>
 </ul>
 <p>上图的右边是torchvision，他是pytorch的视觉处理工具包，独立于Pytorch，需要另外安装，可使用pip或conda安装即可：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torchvision <span class="comment">#或 conda install torchvision</span></span><br></pre></td></tr></table></figure>
+
 <p>torchvison包括4个类，各类的主要功能如下。</p>
 <ul>
-<li><p><strong>datasets：</strong>提供常用的数据集加载，设计上都是继承torch.utils.data.Dataset，主要包括MNIST、CIFAR10/100、ImageNet、COCO等图像分类数据集</p></li>
-<li><p><strong>models：</strong>提供深度学习中各种经典的网络结果以及训练好的模型(如果要选择训练模型，则设置pretrained=True)，包括AlexNet、VGG系列、ResNet系列、Inception系列等。</p></li>
-<li><p><strong>transforms：</strong>常用的数据预处理操作，主要包括对Tensor及PIL
-Image对象的操作。</p></li>
-<li><p><strong>utils：</strong>包含两个函数.</p></li>
-<li><p><strong>make_grid：</strong>将多张图像拼接在一个网络中</p></li>
-<li><p><strong>save_img：</strong>它能保存Tensor为图像</p></li>
+<li><p><strong>datasets：</strong>提供常用的数据集加载，设计上都是继承torch.utils.data.Dataset，主要包括MNIST、CIFAR10&#x2F;100、ImageNet、COCO等图像分类数据集</p>
+</li>
+<li><p><strong>models：</strong>提供深度学习中各种经典的网络结果以及训练好的模型(如果要选择训练模型，则设置pretrained&#x3D;True)，包括AlexNet、VGG系列、ResNet系列、Inception系列等。</p>
+</li>
+<li><p><strong>transforms：</strong>常用的数据预处理操作，主要包括对Tensor及PIL Image对象的操作。</p>
+</li>
+<li><p><strong>utils：</strong>包含两个函数.</p>
+</li>
+<li><p><strong>make_grid：</strong>将多张图像拼接在一个网络中</p>
+</li>
+<li><p><strong>save_img：</strong>它能保存Tensor为图像</p>
+</li>
 </ul>
-<h2 id="utils.data">utils.data</h2>
-<h3 id="dataset">Dataset</h3>
-<ul>
-<li><p>自定义数据集合DataSet(必须定义len和getitem两个魔法函数！不然会报错)</p></li>
+<h2 id="utils-data"><a href="#utils-data" class="headerlink" title="utils.data"></a>utils.data</h2><h3 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h3><ul>
+<li><p>自定义数据集合DataSet(必须定义len和getitem两个魔法函数！不然会报错)</p>
+</li>
 <li><p><strong>通用模板</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#需要导入的模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils <span class="keyword">import</span> data</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义获取数据集的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CustomDataset</span>(<span class="title class_ inherited__">Dataset</span>):</span><br><span class="line">    <span class="comment">#类的初始化，通常传递特征和标签值</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,x,y</span>):</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">    <span class="comment">#魔法函数len，定义数据集长度</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.x)</span><br><span class="line">    <span class="comment">#魔法函数getitem，根据索引取值</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self,index</span>):</span><br><span class="line">        <span class="keyword">return</span> self.x[index], self.y[index]</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#需要导入的模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils <span class="keyword">import</span> data</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义获取数据集的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CustomDataset</span>(<span class="title class_ inherited__">Dataset</span>):</span><br><span class="line">    <span class="comment">#类的初始化，通常传递特征和标签值</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,x,y</span>):</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">    <span class="comment">#魔法函数len，定义数据集长度</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.x)</span><br><span class="line">    <span class="comment">#魔法函数getitem，根据索引取值</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self,index</span>):</span><br><span class="line">        <span class="keyword">return</span> self.x[index], self.y[index]</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><strong>例1：</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#需要导入的模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils <span class="keyword">import</span> data</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义获取数据的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestDataset</span>(data.Dataset): <span class="comment">#继承Dataset基类</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.Data = np.asarray([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">2</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">4</span>,<span class="number">5</span>]]) <span class="comment">#特征</span></span><br><span class="line">        self.Label = np.asarray([<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>]) <span class="comment">#标签     </span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.Data)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self,index</span>):</span><br><span class="line">        <span class="comment"># 把numpy转化为Tensor</span></span><br><span class="line">        txt = torch.from_numpy(self.Data[index])</span><br><span class="line">        label = torch.tensor(self.Label[index])</span><br><span class="line">        <span class="keyword">return</span> txt,label</span><br><span class="line"><span class="comment">#获取数据集中的数据</span></span><br><span class="line">Test = TestDataset()</span><br><span class="line"><span class="built_in">print</span>(Test[<span class="number">2</span>]) <span class="comment">#相当于调用__getitem__(2)</span></span><br><span class="line"><span class="built_in">print</span>(Test.__len__())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line"><span class="comment">#tensor([2,1]),tensor(0)</span></span><br><span class="line"><span class="comment">#5</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>Tips：</p>
 <ul>
 <li>array和asarray都可以将结构数据转化为ndarray，但是主要区别就是当数据源是ndarray时，array仍然会copy出一个副本，占用新的内存，但asarray不会。<strong>建议转化的时候使用asarray函数</strong></li>
 <li>当输入数据不是Tensor类型时，最好在魔法函数中__getitem__转化为Tensor类型，因为每次取数据是通过这个函数进行拿取数据</li>
 </ul>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
-<h3 id="dataloader">DataLoader</h3>
-<p>上述获取数据的方法只能每次拿出其中的一个数据，通常为了效率而言，深度学习采用小批量随机梯度下降算法求解最优值。因此需要一个函数每次拿出一批次的数据出来，同时进行数据打乱和并行加速等操作，DataLoader函数正是如此。DataLoader的函数格式如下：</p>
+<h3 id="DataLoader"><a href="#DataLoader" class="headerlink" title="DataLoader"></a>DataLoader</h3><p>上述获取数据的方法只能每次拿出其中的一个数据，通常为了效率而言，深度学习采用小批量随机梯度下降算法求解最优值。因此需要一个函数每次拿出一批次的数据出来，同时进行数据打乱和并行加速等操作，DataLoader函数正是如此。DataLoader的函数格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data.DataLoader(</span><br><span class="line">	dataset,</span><br><span class="line">	batch_size = 1,</span><br><span class="line">	shuffle = Fales,</span><br><span class="line">	sampler = None,</span><br><span class="line">	batch_sampler = None,</span><br><span class="line">	num_works = 0,</span><br><span class="line">	collate_fn = &lt;function default_collate as 0x7f108ee01620&gt;,</span><br><span class="line">	pin_memory = False,</span><br><span class="line">	drop_last = Fasle,</span><br><span class="line">	time_out = 0,</span><br><span class="line">	work_init_fn = NOne,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <p>主要参数说明如下：</p>
 <ul>
-<li><p><strong>dataset：</strong>加载的数据集，一般为继承data.Dataset自定义的类</p></li>
-<li><p><strong>batchz_size：</strong>批大小</p></li>
-<li><p><strong>shuffle：</strong>是否将数据打乱</p></li>
-<li><p><strong>sampler：</strong>样本抽样</p></li>
-<li><p><strong>num_works：</strong>多进程加载的进程数，0代表不使用多进程</p></li>
-<li><p><strong>collate_fn：</strong>是否将多个样本拼接为一个批量，一般采用默认拼接方式</p></li>
-<li><p><strong>pin_memory：</strong>是否将数据保存在锁页内存(pin_memory)区，pin_memory中的数据转化都GPU会快一些(类似与缓存)</p></li>
-<li><p><strong>drop_last：</strong>当dataset数据集数量不是batch_size的整数倍的时候，将drop_last设置为True会将多出来不到一个批量的数据丢弃</p></li>
+<li><p><strong>dataset：</strong>加载的数据集，一般为继承data.Dataset自定义的类</p>
+</li>
+<li><p><strong>batchz_size：</strong>批大小</p>
+</li>
+<li><p><strong>shuffle：</strong>是否将数据打乱</p>
+</li>
+<li><p><strong>sampler：</strong>样本抽样</p>
+</li>
+<li><p><strong>num_works：</strong>多进程加载的进程数，0代表不使用多进程</p>
+</li>
+<li><p><strong>collate_fn：</strong>是否将多个样本拼接为一个批量，一般采用默认拼接方式</p>
+</li>
+<li><p><strong>pin_memory：</strong>是否将数据保存在锁页内存(pin_memory)区，pin_memory中的数据转化都GPU会快一些(类似与缓存)</p>
+</li>
+<li><p><strong>drop_last：</strong>当dataset数据集数量不是batch_size的整数倍的时候，将drop_last设置为True会将多出来不到一个批量的数据丢弃</p>
+</li>
 </ul>
 <p><strong>例2：</strong></p>
-<p>​ 在例1的基础上调用DataLoader函数：</p>
+<p>​	在例1的基础上调用DataLoader函数：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">test_loader = data.DataLoader(Test,batchz_size=<span class="number">2</span>,shuffle=<span class="literal">False</span>,num_works=<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i,traindata <span class="keyword">in</span> <span class="built_in">enumerate</span>(test_loader):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;i:&#x27;</span>,i)</span><br><span class="line">    Data,Label = traindata</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;data:&#x27;</span>,Data)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Label:&#x27;</span>,Labe;)</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line"><span class="comment">#i:0</span></span><br><span class="line"><span class="comment">#data:tensor([[1,2],</span></span><br><span class="line">			 [<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line"><span class="comment">#Label:tensor([0,1])</span></span><br><span class="line"><span class="comment">#i:1</span></span><br><span class="line"><span class="comment">#data:tensor([[2,1],</span></span><br><span class="line">			 [<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line"><span class="comment">#Label:tensor([0,1])</span></span><br><span class="line"><span class="comment">#i:2</span></span><br><span class="line"><span class="comment">#data:tensor([[4,5]])</span></span><br><span class="line"><span class="comment">#Label:tensor([2])</span></span><br></pre></td></tr></table></figure>
+
 <p>结果来看，可以批量读取数据。我们可以像迭代器一样使用它。不过它不是迭代器，可以通过iter命令转化为迭代器。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dataiter = <span class="built_in">iter</span>(test_loader)</span><br><span class="line">imgs,labels = <span class="built_in">next</span>(dataiter)</span><br></pre></td></tr></table></figure>
-<h3 id="总结">总结</h3>
-<p>一般用data.Dataset处理同一个目录下的数据。如果数据在不同目录下(这种情况比较普遍)，使用data.Dataset来处理数据不是很方便。通常我们可以借助另一种可视化工具(即torchvision)，不但可以自动获取标签，还提供了很多预处理、数据增强等转换函数。</p>
-<h2 id="torchvison">torchvison</h2>
-<h3 id="transforms">transforms</h3>
-<p>transforms提供了对PIL Image对象和Tensor对象的常用操作：</p>
-<ol type="1">
-<li>对PIL Image的常见操作如下
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>一般用data.Dataset处理同一个目录下的数据。如果数据在不同目录下(这种情况比较普遍)，使用data.Dataset来处理数据不是很方便。通常我们可以借助另一种可视化工具(即torchvision)，不但可以自动获取标签，还提供了很多预处理、数据增强等转换函数。</p>
+<h2 id="torchvison"><a href="#torchvison" class="headerlink" title="torchvison"></a>torchvison</h2><h3 id="transforms"><a href="#transforms" class="headerlink" title="transforms"></a>transforms</h3><p>transforms提供了对PIL Image对象和Tensor对象的常用操作：</p>
+<ol>
+<li><p>对PIL Image的常见操作如下</p>
 <ul>
-<li><strong>Scale/Resize：</strong>调整尺寸，长度比保持不变。</li>
+<li><strong>Scale&#x2F;Resize：</strong>调整尺寸，长度比保持不变。</li>
 <li><strong>CenterCrop、RandomCrop、RandomSizedCrop：</strong>裁剪图像，CenterCrop和RandomCrop表示裁剪为固定大小，RandomSizedCrop表示裁剪为随机大小。</li>
 <li><strong>Pad：</strong>填充</li>
-<li><strong>ToTensor：</strong>把一个取值范围为[0,255]的PIL
-Image转换程Tensor。如把形状为(H,W,C)的numpy.ndarray转化成形状为[C,H,W]，取值范围是[0,1,0]的torch.FloatTensor</li>
+<li><strong>ToTensor：</strong>把一个取值范围为[0,255]的PIL Image转换程Tensor。如把形状为(H,W,C)的numpy.ndarray转化成形状为[C,H,W]，取值范围是[0,1,0]的torch.FloatTensor</li>
 <li><strong>RandomHorizontalFlip：</strong>图像随机水平翻转，翻转概率为0.5</li>
 <li><strong>RandomVerticalFlip：</strong>图像随机垂直翻转</li>
 <li><strong>ColorJitter：</strong>修改亮度、对比度和饱和度</li>
-</ul></li>
-<li>对Tensor的常见操作如下：
+</ul>
+</li>
+<li><p>对Tensor的常见操作如下：</p>
 <ul>
 <li><strong>Normalize：</strong>标准化，即减均值，除以标准差；</li>
 <li><strong>ToPILImage：</strong>将Tensor转为PIL Image。</li>
-</ul></li>
+</ul>
+</li>
 </ol>
 <p>如果要对数据集进行多个操作，可通过Compose将这些操作像管道一样拼接起来，类似于nn.Sequential。以下为示例代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"><span class="comment">#使用transforms.Compose将操作拼接</span></span><br><span class="line">transforms.Compose([</span><br><span class="line">    <span class="comment">#将给定的 PIL.Image 进行中心切割，得到给定的 size，</span></span><br><span class="line">    <span class="comment">#size 可以是 tuple，(target_height, target_width)。</span></span><br><span class="line">    <span class="comment">#size 也可以是一个 Integer，在这种情况下，切出来的图片形状是正方形。            </span></span><br><span class="line">    transforms.CenterCrop(<span class="number">10</span>), </span><br><span class="line">    <span class="comment">#切割中心点的位置随机选取</span></span><br><span class="line">    transforms.RandomCrop(<span class="number">20</span>, padding=<span class="number">0</span>),</span><br><span class="line">    <span class="comment">#把一个取值范围是 [0, 255] 的 PIL.Image 或者 shape 为 (H, W, C) 的 numpy.ndarray，</span></span><br><span class="line">    <span class="comment">#转换为形状为 (C, H, W)，取值范围是 [0, 1] 的 torch.FloatTensor</span></span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    <span class="comment">#规范化到[-1,1]</span></span><br><span class="line">    transforms.Normalize(mean = (<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>), std = (<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>))</span><br><span class="line">])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>Tips：可以自定义函数<code>transforms.Lambda(lambda x:x.add(10))</code>
-#将所有元素像素加10</p>
+<p>Tips：可以自定义函数<code>transforms.Lambda(lambda x:x.add(10)) </code> #将所有元素像素加10</p>
 </blockquote>
-<h3 id="imagefolder">ImageFolder</h3>
-<p>当文件依据标签处于不同文件下时，如：</p>
-<p>─── data<br />
-├────zhangliu<br />
-│ ├── 001.jpg<br />
-│ └── 002.jpg<br />
-├──── wuhua<br />
-│ ├── 001.jpg<br />
-│ └── 002.jpg<br />
-……………………………</p>
-<p>我们可以利用 torchvision.datasets.ImageFolder 来直接构造出
-dataset，ImageFolder
-会将目录中的文件夹名自动转化成序列，那么DataLoader载入时，标签自动就是整数序列了。</p>
+<h3 id="ImageFolder"><a href="#ImageFolder" class="headerlink" title="ImageFolder"></a>ImageFolder</h3><p>当文件依据标签处于不同文件下时，如：</p>
+<p>─── data<br>    ├────zhangliu<br>    │ ├── 001.jpg<br>    │ └── 002.jpg<br>    ├──── wuhua<br>    │ ├── 001.jpg<br>    │ └── 002.jpg<br>……………………………</p>
+<p>我们可以利用 torchvision.datasets.ImageFolder 来直接构造出 dataset，ImageFolder 会将目录中的文件夹名自动转化成序列，那么DataLoader载入时，标签自动就是整数序列了。</p>
 <p>下面我们利用ImageFolder读取不同目录下图片数据，然后使用transorms进行图像预处理，预处理有多个，我们用compose把这些操作拼接在一起。然后使用DataLoader加载。</p>
 <p>对处理后的数据用torchvision.utils中的save_image保存为一个png格式文件，然后用Image.open打开该png文件，详细代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms, utils</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对图像的操作</span></span><br><span class="line">my_trans=transforms.Compose([</span><br><span class="line">    transforms.RandomResizedCrop(<span class="number">224</span>),</span><br><span class="line">    transforms.RandomHorizontalFlip(),</span><br><span class="line">    transforms.ToTensor()</span><br><span class="line">])</span><br><span class="line"><span class="comment"># 载入一个文件夹的数据</span></span><br><span class="line">train_data = datasets.ImageFolder(<span class="string">&#x27;../data/torchvision_data&#x27;</span>, transform=my_trans)</span><br><span class="line">train_loader = data.DataLoader(train_data,batch_size=<span class="number">8</span>,shuffle=<span class="literal">True</span>,)</span><br><span class="line">                                            </span><br><span class="line"><span class="keyword">for</span> i_batch, img <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_loader):</span><br><span class="line">    <span class="keyword">if</span> i_batch == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(img[<span class="number">1</span>])</span><br><span class="line">        fig = plt.figure()</span><br><span class="line">        grid = utils.make_grid(img[<span class="number">0</span>])</span><br><span class="line">        plt.imshow(grid.numpy().transpose((<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>)))</span><br><span class="line">        plt.show()</span><br><span class="line">        utils.save_image(grid,<span class="string">&#x27;test01.png&#x27;</span>)</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>Tips:
-<code>plt.imshow(grid.numpy().transpose((1, 2, 0)))</code>。因为在plt.imshow在现实的时候输入的是（imagesize,imagesize,channels）,而def
-imshow(img,text,should_save=False)中，参数img的格式为（channels,imagesize,imagesize）,这两者的格式不一致，我们需要调用一次transpose函数，将数据格式由（channels,imagesize,imagesize）转化为（imagesize,imagesize,channels）,进行格式的转换后方可进行显示。</p>
+<p>Tips: <code>plt.imshow(grid.numpy().transpose((1, 2, 0)))</code>。因为在plt.imshow在现实的时候输入的是（imagesize,imagesize,channels）,而def imshow(img,text,should_save&#x3D;False)中，参数img的格式为（channels,imagesize,imagesize）,这两者的格式不一致，我们需要调用一次transpose函数，将数据格式由（channels,imagesize,imagesize）转化为（imagesize,imagesize,channels）,进行格式的转换后方可进行显示。</p>
 </blockquote>
 <p>打开测试文件test01.png</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">Image.<span class="built_in">open</span>(<span class="string">&#x27;test01.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
@@ -511,7 +511,7 @@ imshow(img,text,should_save=False)中，参数img的格式为（channels,imagesi
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pytorch%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="nav-text">Pytorch数据处理工具箱</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#utils.data"><span class="nav-text">utils.data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset"><span class="nav-text">Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataloader"><span class="nav-text">DataLoader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torchvison"><span class="nav-text">torchvison</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transforms"><span class="nav-text">transforms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#imagefolder"><span class="nav-text">ImageFolder</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pytorch%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="nav-text">Pytorch数据处理工具箱</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#utils-data"><span class="nav-text">utils.data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dataset"><span class="nav-text">Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataLoader"><span class="nav-text">DataLoader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torchvison"><span class="nav-text">torchvison</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transforms"><span class="nav-text">transforms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageFolder"><span class="nav-text">ImageFolder</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
