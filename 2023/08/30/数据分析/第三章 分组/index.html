@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Brainiaccc">
+    
+    <title>
+        
+            第三章 分组 |
+        
+        Brainiaccc&#39;blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://pic1.zhimg.com/80/v2-7f824408347c06f049291d5d90066ad8_1440w.webp">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/self.jpg","favicon":"https://pic1.zhimg.com/80/v2-7f824408347c06f049291d5d90066ad8_1440w.webp","avatar":"/images/self.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":true},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"jason51108","github_admins":"jason51108","repository":"jason51108.github.io","client_id":"7fcd8af2f0ac7c60cf9d","client_secret":"a32278ac01922c5a3ba4f3185444c2fb56f5ff0a","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":false,"custom_label_list":["小菜一枚"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/self.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Brainiaccc&#39;blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">第三章 分组</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/self.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Brainiaccc</span>
+                            
+                                <span class="author-label">小菜一枚</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-08-30 00:00:00</span>
+        <span class="mobile">2023-08-30 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-08-30 22:40:35</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Pandas/">Pandas</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>4.6k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>19 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="第三章-分组">第三章 分组</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<h2 id="一分组模式及其对象">一、分组模式及其对象</h2>
+<h3 id="分组的一般模式">1. 分组的一般模式</h3>
+<p>分组操作在日常生活中使用极其广泛，例如：</p>
+<ul>
+<li>依据<strong>性别</strong>分组，统计全国人口寿命的平均值</li>
+<li>依据<strong>季节</strong>分组，对每一个季节的温度进行组内标准化</li>
+<li>依据<strong>班级</strong>筛选出组内数学分数的平均值超过80分的班级</li>
+</ul>
+<p>从上述的几个例子中不难看出，想要实现分组操作，必须明确三个要素：<strong>分组依据、数据来源、操作及其返回结果。</strong>同时从充分性的角度来说，如果明确了这三方面，就能确定一个分组操作，从而分组代码的一般模式即：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.groupby(分组依据)[数据来源].使用操作</span><br></pre></td></tr></table></figure>
+<p>例如第一个例子中的代码就应该如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.groupby(<span class="string">'Gender'</span>)[<span class="string">'Longevity'</span>].mean()</span><br></pre></td></tr></table></figure>
+<p>现在返回到学生体测的数据集上，如果想要按照性别统计身高中位数，就可以如下写出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'../data/learn_pandas.csv'</span>)</span><br><span class="line">df.groupby(<span class="string">'Gender'</span>)[<span class="string">'Height'</span>].median()</span><br><span class="line"><span class="comment">#Gender</span></span><br><span class="line"><span class="comment">#,Female    159.6</span></span><br><span class="line"><span class="comment">#,Male      173.4</span></span><br><span class="line"><span class="comment">#,Name: Height, dtype: float64</span></span><br></pre></td></tr></table></figure>
+<h3 id="分组依据的本质">2. 分组依据的本质</h3>
+<p>前面提到的若干例子都是以单一维度进行分组的，比如根据性别，如果现在需要根据多个维度进行分组，该如何做？事实上，只需在<code>groupby</code>中传入相应列名构成的列表即可。例如，现希望根据学校和性别进行分组，统计身高的均值就可以如下写出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df.groupby([<span class="string">'School'</span>, <span class="string">'Gender'</span>])[<span class="string">'Height'</span>].mean()</span><br><span class="line"><span class="comment">#School                         Gender</span></span><br><span class="line"><span class="comment">#,Fudan University               Female    158.776923</span></span><br><span class="line"><span class="comment">#,                               Male      174.212500</span></span><br><span class="line"><span class="comment">#,Peking University              Female    158.666667</span></span><br><span class="line"><span class="comment">#,                               Male      172.030000</span></span><br><span class="line"><span class="comment">#,Shanghai Jiao Tong University  Female    159.122500</span></span><br><span class="line"><span class="comment">#,                               Male      176.760000</span></span><br><span class="line"><span class="comment">#,Tsinghua University            Female    159.753333</span></span><br><span class="line"><span class="comment">#,                               Male      171.638889</span></span><br><span class="line"><span class="comment">#,Name: Height, dtype: float64</span></span><br></pre></td></tr></table></figure>
+<p>目前为止，<code>groupby</code>的分组依据都是直接可以从列中按照名字获取的，那如果希望通过一定的复杂逻辑来分组，例如根据学生体重是否超过总体均值来分组，同样还是计算身高的均值。</p>
+<p>首先应该先写出分组条件，然后将其传入<code>groupby</code>中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">condition = df.Weight &gt; df.Weight.mean()</span><br><span class="line">df.groupby(condition)[<span class="string">'Height'</span>].mean()</span><br><span class="line"><span class="comment">#Weight</span></span><br><span class="line"><span class="comment">#,False    159.034646</span></span><br><span class="line"><span class="comment">#,True     172.705357</span></span><br><span class="line"><span class="comment">#,Name: Height, dtype: float64</span></span><br></pre></td></tr></table></figure>
+<p>从索引可以看出，其实最后产生的结果就是按照条件列表中元素的值（此处是<code>True</code>和<code>False</code>）来分组，下面用随机传入字母序列来验证这一想法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">item = np.random.choice(<span class="built_in">list</span>(<span class="string">'abc'</span>), df.shape[<span class="number">0</span>])</span><br><span class="line">df.groupby(item)[<span class="string">'Height'</span>].mean()</span><br><span class="line"><span class="comment">#a    163.094828</span></span><br><span class="line"><span class="comment">#,b    163.874603</span></span><br><span class="line"><span class="comment">#,c    162.666129</span></span><br><span class="line"><span class="comment">#,Name: Height, dtype: float64</span></span><br></pre></td></tr></table></figure>
+<p>此处的索引就是原先item中的元素，如果传入多个序列进入<code>groupby</code>，那么最后分组的依据就是这两个序列对应行的唯一组合：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df.groupby([condition, item])[<span class="string">'Height'</span>].mean()</span><br><span class="line"><span class="comment">#Weight   </span></span><br><span class="line"><span class="comment">#,False   a    159.334146</span></span><br><span class="line"><span class="comment">#,        b    159.257143</span></span><br><span class="line"><span class="comment">#,        c    158.543182</span></span><br><span class="line"><span class="comment">#,True    a    172.164706</span></span><br><span class="line"><span class="comment">#,        b    173.109524</span></span><br><span class="line"><span class="comment">#,        c    172.744444</span></span><br><span class="line"><span class="comment">#,Name: Height, dtype: float64</span></span><br></pre></td></tr></table></figure>
+<p>由此可以看出，之前传入列名只是一种简便的记号，事实上等价于传入的是一个或多个列，最后分组的依据来自于数据来源组合的unique值，通过<code>drop_duplicates</code>就能知道具体的组类别：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[[<span class="string">'School'</span>, <span class="string">'Gender'</span>]].drop_duplicates()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">School</th>
+<th>Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">Shanghai Jiao Tong University</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Peking University</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Shanghai Jiao Tong University</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Fudan University</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Fudan University</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Tsinghua University</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Peking University</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">Tsinghua University</td>
+<td>Male</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df.groupby([df[<span class="string">'School'</span>], df[<span class="string">'Gender'</span>]])[<span class="string">'Height'</span>].mean()</span><br><span class="line"><span class="comment">#School                         Gender</span></span><br><span class="line"><span class="comment">#,Fudan University               Female    158.776923</span></span><br><span class="line"><span class="comment">#,                               Male      174.212500</span></span><br><span class="line"><span class="comment">#,Peking University              Female    158.666667</span></span><br><span class="line"><span class="comment">#,                               Male      172.030000</span></span><br><span class="line"><span class="comment">#,Shanghai Jiao Tong University  Female    159.122500</span></span><br><span class="line"><span class="comment">#,                               Male      176.760000</span></span><br><span class="line"><span class="comment">#,Tsinghua University            Female    159.753333</span></span><br><span class="line"><span class="comment">#,                               Male      171.638889</span></span><br><span class="line"><span class="comment">#,Name: Height, dtype: float64</span></span><br></pre></td></tr></table></figure>
+<h3 id="groupby对象">3. Groupby对象</h3>
+<p>能够注意到，最终具体做分组操作时，所调用的方法都来自于<code>pandas</code>中的<code>groupby</code>对象，这个对象上定义了许多方法，也具有一些方便的属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gb = df.groupby([<span class="string">'School'</span>, <span class="string">'Grade'</span>])</span><br><span class="line">gb</span><br><span class="line"><span class="comment"># &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x000001C1E7AB1408&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过<code>ngroups</code>属性，可以得到分组个数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gb.ngroups</span><br><span class="line"><span class="comment"># 16</span></span><br></pre></td></tr></table></figure>
+<p>通过<code>groups</code>属性，可以返回从组名组名映射到组索引列表组索引列表的字典：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res = gb.groups</span><br><span class="line">res.keys() <span class="comment"># 字典的值由于是索引，元素个数过多，此处只展示字典的键</span></span><br><span class="line"><span class="comment">#dict_keys([('Fudan University', 'Freshman'), ('Fudan University', 'Junior'), ('Fudan University', 'Senior'), ('Fudan University', 'Sophomore'), ('Peking University', 'Freshman'), ('Peking University', 'Junior'), ('Peking University', 'Senior'), ('Peking University', 'Sophomore'), ('Shanghai Jiao Tong University', 'Freshman'), ('Shanghai Jiao Tong University', 'Junior'), ('Shanghai Jiao Tong University', 'Senior'), ('Shanghai Jiao Tong University', 'Sophomore'), ('Tsinghua University', 'Freshman'), ('Tsinghua University', 'Junior'), ('Tsinghua University', 'Senior'), ('Tsinghua University', 'Sophomore')])</span></span><br></pre></td></tr></table></figure>
+<p>当<code>size</code>作为<code>DataFrame</code>的属性时，返回的是表长乘以表宽的大小，但在<code>groupby</code>对象上表示统计每个组的元素个数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">gb.size()</span><br><span class="line"><span class="comment">#School                         Grade    </span></span><br><span class="line"><span class="comment">#,Fudan University               Freshman      9</span></span><br><span class="line"><span class="comment">#,                               Junior       12</span></span><br><span class="line"><span class="comment">#,                               Senior       11</span></span><br><span class="line"><span class="comment">#,                               Sophomore     8</span></span><br><span class="line"><span class="comment">#,Peking University              Freshman     13</span></span><br><span class="line"><span class="comment">#,                               Junior        8</span></span><br><span class="line"><span class="comment">#,                               Senior        8</span></span><br><span class="line"><span class="comment">#,                               Sophomore     5</span></span><br><span class="line"><span class="comment">#,Shanghai Jiao Tong University  Freshman     13</span></span><br><span class="line"><span class="comment">#,                               Junior       17</span></span><br><span class="line"><span class="comment">#,                               Senior       22</span></span><br><span class="line"><span class="comment">#,                               Sophomore     5</span></span><br><span class="line"><span class="comment">#,Tsinghua University            Freshman     17</span></span><br><span class="line"><span class="comment">#,                               Junior       22</span></span><br><span class="line"><span class="comment">#,                               Senior       14</span></span><br><span class="line"><span class="comment">#,                               Sophomore    16</span></span><br><span class="line"><span class="comment">#,dtype: int64</span></span><br></pre></td></tr></table></figure>
+<p>通过<code>get_group</code>方法可以直接获取所在组对应的行，此时必须知道组的具体名字：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.get_group((<span class="string">'Fudan University'</span>, <span class="string">'Freshman'</span>))</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 3%">
+<col style="width: 15%">
+<col style="width: 7%">
+<col style="width: 14%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">School</th>
+<th style="text-align: left;">Grade</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Height</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Transfer</th>
+<th style="text-align: left;">Test_Number</th>
+<th style="text-align: left;">Test_Date</th>
+<th>Time_Record</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Changqiang Yang</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">156.0</td>
+<td style="text-align: left;">49.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">2020/1/1</td>
+<td>0:05:25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Gaoqiang Qin</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">170.2</td>
+<td style="text-align: left;">63.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">2020/1/7</td>
+<td>0:05:24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">63</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Gaofeng Zhao</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">152.2</td>
+<td style="text-align: left;">43.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">2019/10/31</td>
+<td>0:04:00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">70</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Yanquan Wang</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">163.5</td>
+<td style="text-align: left;">55.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2019/11/19</td>
+<td>0:04:07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">73</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Feng Wang</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">176.3</td>
+<td style="text-align: left;">74.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2019/9/26</td>
+<td>0:03:31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">105</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Qiang Shi</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">164.5</td>
+<td style="text-align: left;">52.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2019/12/11</td>
+<td>0:04:23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">108</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Yanqiang Xu</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">152.4</td>
+<td style="text-align: left;">38.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2019/12/8</td>
+<td>0:05:03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">157</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Xiaoli Lv</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">152.5</td>
+<td style="text-align: left;">45.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">2019/9/11</td>
+<td>0:04:17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">186</td>
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">Freshman</td>
+<td style="text-align: left;">Yanjuan Zhao</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">NaN</td>
+<td style="text-align: left;">53.0</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">2019/10/9</td>
+<td>0:04:21</td>
+</tr>
+</tbody>
+</table>
+<p>这里列出了2个属性和2个方法，而先前的<code>mean</code>、<code>median</code>都是<code>groupby</code>对象上的方法，这些函数和许多其他函数的操作具有高度相似性，将在之后的小节进行专门介绍。</p>
+<h3 id="分组的三大操作">4. 分组的三大操作</h3>
+<p>熟悉了一些分组的基本知识后，重新回到开头举的三个例子，可能会发现一些端倪，即这三种类型分组返回的数据型态并不一样：</p>
+<ul>
+<li>第一个例子中，每一个组返回一个标量值，可以是平均值、中位数、组容量<code>size</code>等</li>
+<li>第二个例子中，做了原序列的标准化处理，也就是说每组返回的是一个<code>Series</code>类型</li>
+<li>第三个例子中，既不是标量也不是序列，返回的整个组所在行的本身，即返回了<code>DataFrame</code>类型</li>
+</ul>
+<p>由此，引申出分组的三大操作：聚合、变换和过滤，分别对应了三个例子的操作，下面就要分别介绍相应的<code>agg</code>、<code>transform</code>和<code>filter</code>函数及其操作。</p>
+<h2 id="二聚合函数">二、聚合函数</h2>
+<h3 id="内置聚合函数">1. 内置聚合函数</h3>
+<p>在介绍agg之前，首先要了解一些直接定义在groupby对象的聚合函数，因为它的速度基本都会经过内部的优化，使用功能时应当优先考虑。根据返回标量值的原则，包括如下函数：<code>max/min/mean/median/count/all/any/idxmax/idxmin/mad/nunique/skew/quantile/sum/std/var/sem/size/prod</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gb = df.groupby(<span class="string">'Gender'</span>)[<span class="string">'Height'</span>]</span><br><span class="line">gb.idxmin()</span><br><span class="line"><span class="comment">#Gender</span></span><br><span class="line"><span class="comment">#,Female    143</span></span><br><span class="line"><span class="comment">#,Male      199</span></span><br><span class="line"><span class="comment">#,Name: Height, dtype: int64</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gb.quantile(<span class="number">0.95</span>)</span><br><span class="line"><span class="comment">#Gender</span></span><br><span class="line"><span class="comment">#,Female    166.8</span></span><br><span class="line"><span class="comment">#,Male      185.9</span></span><br><span class="line"><span class="comment">#,Name: Height, dtype: float6</span></span><br></pre></td></tr></table></figure>
+<p>这些聚合函数当传入的数据来源包含多个列时，将按照列进行迭代计算：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gb = df.groupby(<span class="string">'Gender'</span>)[[<span class="string">'Height'</span>, <span class="string">'Weight'</span>]]</span><br><span class="line">gb.<span class="built_in">max</span>()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Height</th>
+<th style="text-align: left;">Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">170.2</td>
+<td style="text-align: left;">63.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">193.9</td>
+<td style="text-align: left;">89.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="agg方法">2. agg方法</h3>
+<p>虽然在<code>groupby</code>对象上定义了许多方便的函数，但仍然有以下不便之处：</p>
+<ul>
+<li>无法同时使用多个函数</li>
+<li>无法对特定的列使用特定的聚合函数</li>
+<li>无法使用自定义的聚合函数</li>
+<li>无法直接对结果的列名在聚合前进行自定义命名</li>
+</ul>
+<p>下面说明如何通过<code>agg</code>函数解决这四类问题：</p>
+<p>【a】使用多个函数</p>
+<p>当使用多个聚合函数时，需要用列表的形式把内置聚合函数对应的字符串传入，先前提到的所有字符串都是合法的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.agg([<span class="string">'sum'</span>, <span class="string">'idxmax'</span>, <span class="string">'skew'</span>])</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Height</th>
+<th></th>
+<th></th>
+<th>Weight</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>sum</td>
+<td>idxmax</td>
+<td>skew</td>
+<td>sum</td>
+<td>idxmax</td>
+<td>skew</td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Female</td>
+<td>21014.0</td>
+<td>28</td>
+<td>-0.219253</td>
+<td>6469.0</td>
+<td>28</td>
+<td>-0.268482</td>
+</tr>
+<tr class="even">
+<td>Male</td>
+<td>8854.9</td>
+<td>193</td>
+<td>0.437535</td>
+<td>3929.0</td>
+<td>2</td>
+<td>-0.332393</td>
+</tr>
+</tbody>
+</table>
+<p>从结果看，此时的列索引为多级索引，第一层为数据源，第二层为使用的聚合方法，分别逐一对列使用聚合，因此结果为6列。</p>
+<p>【b】对特定的列使用特定的聚合函数</p>
+<p>对于方法和列的特殊对应，可以通过构造字典传入<code>agg</code>中实现，其中字典以列名为键，以聚合字符串或字符串列表为值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.agg({<span class="string">'Height'</span>:[<span class="string">'mean'</span>,<span class="string">'max'</span>], <span class="string">'Weight'</span>:<span class="string">'count'</span>})</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Height</th>
+<th>Weight</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>mean</td>
+<td>max</td>
+<td>count</td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Female</td>
+<td>159.19697</td>
+<td>170.2</td>
+<td>135</td>
+</tr>
+<tr class="even">
+<td>Male</td>
+<td>173.62549</td>
+<td>193.9</td>
+<td>54</td>
+</tr>
+</tbody>
+</table>
+<p>【c】使用自定义函数</p>
+<p>在<code>agg</code>中可以使用具体的自定义函数，需要注意传入函数的参数是之前数据源中的列，逐列进行计算。下面分组计算身高和体重的极差：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.agg(<span class="keyword">lambda</span> x: x.mean()-x.<span class="built_in">min</span>())</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Height</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gender</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Female</td>
+<td>13.79697</td>
+<td>13.918519</td>
+</tr>
+<tr class="odd">
+<td>Male</td>
+<td>17.92549</td>
+<td>21.759259</td>
+</tr>
+</tbody>
+</table>
+<p>由于传入的是序列，因此序列上的方法和属性都是可以在函数中使用的，只需保证返回值是标量即可。下面的例子是指，如果组的指标均值，超过该指标的总体均值，返回High，否则返回Low。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_func</span>(<span class="params">s</span>):</span><br><span class="line">    res = <span class="string">'High'</span></span><br><span class="line">    <span class="keyword">if</span> s.mean() &lt;= df[s.name].mean():</span><br><span class="line">        res = <span class="string">'Low'</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">gb.agg(my_func)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Height</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gender</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Female</td>
+<td>Low</td>
+<td>Low</td>
+</tr>
+<tr class="odd">
+<td>Male</td>
+<td>High</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>【d】聚合结果重命名</p>
+<p>如果想要对聚合结果的列名进行重命名，只需要将上述函数的位置改写成元组，元组的第一个元素为新的名字，第二个位置为原来的函数，包括聚合字符串和自定义函数，现举若干例子说明：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.agg([(<span class="string">'range'</span>, <span class="keyword">lambda</span> x: x.<span class="built_in">max</span>()-x.<span class="built_in">min</span>()), (<span class="string">'my_sum'</span>, <span class="string">'sum'</span>)])</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Height</th>
+<th></th>
+<th>Weight</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>range</td>
+<td>my_sum</td>
+<td>range</td>
+<td>my_sum</td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Female</td>
+<td>24.8</td>
+<td>21014.0</td>
+<td>29.0</td>
+<td>6469.0</td>
+</tr>
+<tr class="even">
+<td>Male</td>
+<td>38.2</td>
+<td>8854.9</td>
+<td>38.0</td>
+<td>3929.0</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.agg({<span class="string">'Height'</span>: [(<span class="string">'my_func'</span>, my_func), <span class="string">'sum'</span>], <span class="string">'Weight'</span>: <span class="keyword">lambda</span> x:x.<span class="built_in">max</span>()})</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Height</th>
+<th></th>
+<th><strong>Weight</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>my_func</td>
+<td>sum</td>
+<td><lambda></lambda></td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Female</td>
+<td>Low</td>
+<td>21014.0</td>
+<td>63.0</td>
+</tr>
+<tr class="even">
+<td>Male</td>
+<td>High</td>
+<td>8854.9</td>
+<td>89.0</td>
+</tr>
+</tbody>
+</table>
+<p>另外需要注意，使用对一个或者多个列使用单个聚合的时候，重命名需要加方括号，否则就不知道是新的名字还是手误输错的内置函数字符串：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.agg([(<span class="string">'my_sum'</span>, <span class="string">'sum'</span>)])</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Height</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>my_sum</td>
+<td>my_sum</td>
+</tr>
+<tr class="even">
+<td>Gender</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Female</td>
+<td>21014.0</td>
+<td>6469.0</td>
+</tr>
+<tr class="even">
+<td>Male</td>
+<td>8854.9</td>
+<td>3929.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三变换和过滤">三、变换和过滤</h2>
+<h3 id="变换函数与transform方法">1. 变换函数与transform方法</h3>
+<p>变换函数的返回值为同长度的序列，最常用的内置变换函数是累计函数：<code>cumcount/cumsum/cumprod/cummax/cummin</code>，它们的使用方式和聚合函数类似，只不过完成的是组内累计操作。此外在<code>groupby</code>对象上还定义了填充类和滑窗类的变换函数，这些函数的一般形式将会分别在第七章和第十章中讨论，此处略过。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.cummax().head()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Height</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">158.9</td>
+<td>46.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">166.5</td>
+<td>70.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">188.9</td>
+<td>89.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">NaN</td>
+<td>46.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">188.9</td>
+<td>89.0</td>
+</tr>
+</tbody>
+</table>
+<p>当用自定义变换时需要使用<code>transform</code>方法，被调用的自定义函数，其传入值为数据源的序列其传入值为数据源的序列，与<code>agg</code>的传入类型是一致的，其最后的返回结果是行列索引与数据源一致的<code>DataFrame</code>。</p>
+<p>现对身高和体重进行分组标准化，即减去组均值后除以组的标准差：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.transform(<span class="keyword">lambda</span> x: (x-x.mean())/x.std()).head()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Height</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-0.058760</td>
+<td>-0.354888</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">-1.010925</td>
+<td>-0.355000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">2.167063</td>
+<td>2.089498</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">NaN</td>
+<td>-1.279789</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">0.053133</td>
+<td>0.159631</td>
+</tr>
+</tbody>
+</table>
+<p>前面提到了<code>transform</code>只能返回同长度的序列，但事实上还可以返回一个标量，这会使得结果被广播到其所在的整个组，这种标量广播标量广播的技巧在特征工程中是非常常见的。例如，构造两列新特征来分别表示样本所在性别组的身高均值和体重均值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.transform(<span class="string">'mean'</span>).head() <span class="comment"># 传入返回标量的函数也是可以的</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Height</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">159.19697</td>
+<td>47.918519</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">173.62549</td>
+<td>72.759259</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">173.62549</td>
+<td>72.759259</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">159.19697</td>
+<td>47.918519</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">173.62549</td>
+<td>72.759259</td>
+</tr>
+</tbody>
+</table>
+<h3 id="组索引与过滤">2. 组索引与过滤</h3>
+<p>在上一章中介绍了索引的用法，那么索引和过滤有什么区别呢？</p>
+<p>过滤在分组中是对于组的过滤，而索引是对于行的过滤，在第二章中的返回值，无论是布尔列表还是元素列表或者位置列表，本质上都是对于行的筛选，即如果符合筛选条件的则选入结果表，否则不选入。</p>
+<p>组过滤作为行过滤的推广，指的是如果对一个组的全体所在行进行统计的结果返回<code>True</code>则会被保留，<code>False</code>则该组会被过滤，最后把所有未被过滤的组其对应的所在行拼接起来作为<code>DataFrame</code>返回。</p>
+<p>在<code>groupby</code>对象中，定义了<code>filter</code>方法进行组的筛选，其中自定义函数的输入参数为数据源构成的<code>DataFrame</code>本身，在之前例子中定义的<code>groupby</code>对象中，传入的就是<code>df[['Height', 'Weight']]</code>，因此所有表方法和属性都可以在自定义函数中相应地使用，同时只需保证自定义函数的返回为布尔值即可。</p>
+<p>例如，在原表中通过过滤得到所有容量大于100的组：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.<span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x.shape[<span class="number">0</span>] &gt; <span class="number">100</span>).head()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Height</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">158.9</td>
+<td>46.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">NaN</td>
+<td>41.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">158.0</td>
+<td>51.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">162.5</td>
+<td>52.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">161.9</td>
+<td>50.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四跨列分组">四、跨列分组</h2>
+<h3 id="apply的引入">1. apply的引入</h3>
+<p>之前几节介绍了三大分组操作，但事实上还有一种常见的分组场景，无法用前面介绍的任何一种方法处理，例如现在如下定义身体质量指数BMI：BMI=WeightHeight2BMI=WeightHeight2其中体重和身高的单位分别为千克和米，需要分组计算组BMI的均值。</p>
+<p>首先，这显然不是过滤操作，因此<code>filter</code>不符合要求；其次，返回的均值是标量而不是序列，因此<code>transform</code>不符合要求；最后，似乎使用<code>agg</code>函数能够处理，但是之前强调过聚合函数是逐列处理的，而不能够多列数据同时处理多列数据同时处理。由此，引出了<code>apply</code>函数来解决这一问题。</p>
+<h3 id="apply的使用">2. apply的使用</h3>
+<p>在设计上，<code>apply</code>的自定义函数传入参数与<code>filter</code>完全一致，只不过后者只允许返回布尔值。现如下解决上述计算问题：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">BMI</span>(<span class="params">x</span>):</span><br><span class="line">    Height = x[<span class="string">'Height'</span>]/<span class="number">100</span></span><br><span class="line">    Weight = x[<span class="string">'Weight'</span>]</span><br><span class="line">    BMI_value = Weight/Height**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> BMI_value.mean()</span><br><span class="line">gb.apply(BMI)</span><br><span class="line"><span class="comment">#Gender</span></span><br><span class="line"><span class="comment">#,Female    18.860930</span></span><br><span class="line"><span class="comment">#,Male      24.318654</span></span><br><span class="line"><span class="comment">#,dtype: float64</span></span><br></pre></td></tr></table></figure>
+<p>除了返回标量之外，<code>apply</code>方法还可以返回一维<code>Series</code>和二维<code>DataFrame</code>，但它们产生的数据框维数和多级索引的层数应当如何变化？下面举三组例子就非常容易明白结果是如何生成的：</p>
+<p>【a】标量情况：结果得到的是 <code>Series</code> ，索引与
+<code>agg</code> 的结果一致</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gb = df.groupby([<span class="string">'Gender'</span>,<span class="string">'Test_Number'</span>])[[<span class="string">'Height'</span>,<span class="string">'Weight'</span>]]</span><br><span class="line">gb.apply(<span class="keyword">lambda</span> x: <span class="number">0</span>)</span><br><span class="line"><span class="comment">#Gender  Test_Number</span></span><br><span class="line"><span class="comment">#,Female  1              0</span></span><br><span class="line"><span class="comment">#,        2              0</span></span><br><span class="line"><span class="comment">#,        3              0</span></span><br><span class="line"><span class="comment">#,Male    1              0</span></span><br><span class="line"><span class="comment">#,        2              0</span></span><br><span class="line"><span class="comment">#,        3              0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gb.apply(<span class="keyword">lambda</span> x: [<span class="number">0</span>, <span class="number">0</span>]) <span class="comment"># 虽然是列表，但是作为返回值仍然看作标量</span></span><br><span class="line"><span class="comment">#Gender  Test_Number</span></span><br><span class="line"><span class="comment">#,Female  1              [0, 0]</span></span><br><span class="line"><span class="comment">#,        2              [0, 0]</span></span><br><span class="line"><span class="comment">#,        3              [0, 0]</span></span><br><span class="line"><span class="comment">#,Male    1              [0, 0]</span></span><br><span class="line"><span class="comment">#,        2              [0, 0]</span></span><br><span class="line"><span class="comment">#,        3              [0, 0]</span></span><br></pre></td></tr></table></figure>
+<p>【b】<code>Series</code>情况：得到的是<code>DataFrame</code>，行索引与标量情况一致，列索引为<code>Series</code>的索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.apply(<span class="keyword">lambda</span> x: pd.Series([<span class="number">0</span>,<span class="number">0</span>],index=[<span class="string">'a'</span>,<span class="string">'b'</span>]))</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">a</th>
+<th style="text-align: left;">b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: left;">Test_Number</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+<p>【c】<code>DataFrame</code>情况：得到的是<code>DataFrame</code>，行索引最内层在每个组原先<code>agg</code>的结果索引上，再加一层返回的<code>DataFrame</code>行索引，同时分组结果<code>DataFrame</code>的列索引和返回的<code>DataFrame</code>列索引一致。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gb.apply(<span class="keyword">lambda</span> x: pd.DataFrame(np.ones((<span class="number">2</span>,<span class="number">2</span>)), index = [<span class="string">'a'</span>,<span class="string">'b'</span>], columns=pd.Index([(<span class="string">'w'</span>,<span class="string">'x'</span>),(<span class="string">'y'</span>,<span class="string">'z'</span>)])))</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"><strong>w</strong></th>
+<th style="text-align: left;"><strong>y</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">z</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: left;">Test_Number</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+</tbody>
+</table>
+<p>最后需要强调的是，<code>apply</code>函数的灵活性是以牺牲一定性能为代价换得的，除非需要使用跨列处理的分组处理，否则应当使用其他专门设计的<code>groupby</code>对象方法，否则在性能上会存在较大的差距。同时，在使用聚合函数和变换函数时，也应当优先使用内置函数，它们经过了高度的性能优化，一般而言在速度上都会快于用自定义函数来实现。</p>
+<h2 id="五练习">五、练习</h2>
+<h3 id="ex1汽车数据集">Ex1：汽车数据集</h3>
+<p>现有一份汽车数据集，其中<code>Brand, Disp., HP</code>分别代表汽车品牌、发动机蓄量、发动机输出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'../data/car.csv'</span>)</span><br><span class="line">df.head(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 20%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Brand</th>
+<th style="text-align: left;">Price</th>
+<th style="text-align: left;">Country</th>
+<th style="text-align: left;">Reliability</th>
+<th style="text-align: left;">Mileage</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Weight</th>
+<th style="text-align: left;">Disp.</th>
+<th>HP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">Eagle Summit 4</td>
+<td style="text-align: left;">8895</td>
+<td style="text-align: left;">USA</td>
+<td style="text-align: left;">4.0</td>
+<td style="text-align: left;">33</td>
+<td style="text-align: left;">Small</td>
+<td style="text-align: left;">2560</td>
+<td style="text-align: left;">97</td>
+<td>113</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Ford Escort 4</td>
+<td style="text-align: left;">7402</td>
+<td style="text-align: left;">USA</td>
+<td style="text-align: left;">2.0</td>
+<td style="text-align: left;">33</td>
+<td style="text-align: left;">Small</td>
+<td style="text-align: left;">2345</td>
+<td style="text-align: left;">114</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Ford Festiva 4</td>
+<td style="text-align: left;">6319</td>
+<td style="text-align: left;">Korea</td>
+<td style="text-align: left;">4.0</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">Small</td>
+<td style="text-align: left;">1845</td>
+<td style="text-align: left;">81</td>
+<td>63</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>先过滤出所属<code>Country</code>数超过2个的汽车，即若该汽车的<code>Country</code>在总体数据集中出现次数不超过2则剔除，再按<code>Country</code>分组计算价格均值、价格变异系数、该<code>Country</code>的汽车数量，其中变异系数的计算方法是标准差除以均值，并在结果中把变异系数重命名为<code>CoV</code>。</li>
+<li>按照表中位置的前三分之一、中间三分之一和后三分之一分组，统计<code>Price</code>的均值。</li>
+<li>对类型<code>Type</code>分组，对<code>Price</code>和<code>HP</code>分别计算最大值和最小值，结果会产生多级索引，请用下划线把多级列索引合并为单层索引。</li>
+<li>对类型<code>Type</code>分组，对<code>HP</code>进行组内的<code>min-max</code>归一化。</li>
+<li>对类型<code>Type</code>分组，计算<code>Disp.</code>与<code>HP</code>的相关系数。</li>
+</ol>
+<h3 id="ex2实现transform函数">Ex2：实现transform函数</h3>
+<ul>
+<li><code>groupby</code>对象的构造方法是<code>my_groupby(df, group_cols)</code></li>
+<li>支持单列分组与多列分组</li>
+<li>支持带有标量广播的<code>my_groupby(df)[col].transform(my_func)</code>功能</li>
+<li><code>pandas</code>的<code>transform</code>不能跨列计算，请支持此功能，即仍返回<code>Series</code>但<code>col</code>参数为多列</li>
+<li>无需考虑性能与异常处理，只需实现上述功能，在给出测试样例的同时与<code>pandas</code>中的<code>transform</code>对比结果是否一致</li>
+</ul>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Pandas/">#Pandas</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">#数据分析</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/08/13/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E7%BB%83%E4%B9%A0%E8%A7%A3%E7%AD%94/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">pandas练习解答(一)</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;评论
+    </div>
+    
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+        <script data-pjax>
+          function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+              __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+              Gitalk && new Gitalk({
+                clientID: '7fcd8af2f0ac7c60cf9d',
+                clientSecret: 'a32278ac01922c5a3ba4f3185444c2fb56f5ff0a',
+                repo: 'jason51108.github.io',
+                owner: 'jason51108',
+                admin: 'jason51108',
+                id: __gitalk__pathname,
+                proxy: '',
+                language: 'zh-CN'
+              }).render('gitalk-container');
+            } catch (e) {
+              window.Gitalk = null;
+            }
+          }
+
+          if ('true' === 'true') {
+            const loadGitalkTimeout = setTimeout(() => {
+              loadGitalk();
+              clearTimeout(loadGitalkTimeout);
+            }, 1000);
+          } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+          }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%88%86%E7%BB%84"><span class="nav-text">第三章 分组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%88%86%E7%BB%84%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%85%B6%E5%AF%B9%E8%B1%A1"><span class="nav-text">一、分组模式及其对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E7%9A%84%E4%B8%80%E8%88%AC%E6%A8%A1%E5%BC%8F"><span class="nav-text">1. 分组的一般模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E4%BE%9D%E6%8D%AE%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-text">2. 分组依据的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#groupby%E5%AF%B9%E8%B1%A1"><span class="nav-text">3. Groupby对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E7%9A%84%E4%B8%89%E5%A4%A7%E6%93%8D%E4%BD%9C"><span class="nav-text">4. 分组的三大操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-text">二、聚合函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-text">1. 内置聚合函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#agg%E6%96%B9%E6%B3%95"><span class="nav-text">2. agg方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%8F%98%E6%8D%A2%E5%92%8C%E8%BF%87%E6%BB%A4"><span class="nav-text">三、变换和过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E6%8D%A2%E5%87%BD%E6%95%B0%E4%B8%8Etransform%E6%96%B9%E6%B3%95"><span class="nav-text">1. 变换函数与transform方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%B4%A2%E5%BC%95%E4%B8%8E%E8%BF%87%E6%BB%A4"><span class="nav-text">2. 组索引与过滤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E8%B7%A8%E5%88%97%E5%88%86%E7%BB%84"><span class="nav-text">四、跨列分组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apply%E7%9A%84%E5%BC%95%E5%85%A5"><span class="nav-text">1. apply的引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">2. apply的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E7%BB%83%E4%B9%A0"><span class="nav-text">五、练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex1%E6%B1%BD%E8%BD%A6%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">Ex1：汽车数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex2%E5%AE%9E%E7%8E%B0transform%E5%87%BD%E6%95%B0"><span class="nav-text">Ex2：实现transform函数</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2022</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Brainiaccc</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
