@@ -261,7 +261,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Mar 31 2024 17:10:08 GMT+0800">2024-03-31 17:10:08</span>
+                <span class="datetime" data-updated="Sun Mar 31 2024 17:20:06 GMT+0800">2024-03-31 17:20:06</span>
             </span>
         
 
@@ -345,7 +345,7 @@ s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
 </li>
 <li><p>拉格朗日乘子法<strong>需要满足一定的条件(灰常的玄学)</strong>，就本问题而言，拉格朗日乘子法不能写成如下形式。</p>
 <script type="math/tex; mode=display">
-L(\mathbf{Q},\lambda) = \sum_{i=1}^{n} \| \theta_i^*-\mathbf{Q}\tilde{\theta_i^*}\|^2 + \lambda \|\mathbf{Q}^T\mathbf{Q}-\mathbf{I_k}\|_F^2</script><p>对矩阵$\mathbf{Q}$求导后很容易看出矛盾所在，$\frac{\partial L(\mathbf{Q},\lambda)}{\partial \mathbf{Q}}=\mathbf{\Theta}^* \tilde{\mathbf{\Theta}^\star}+4\lambda(\mathbf{Q}\mathbf{Q}^{T}\mathbf{Q}-\mathbf{Q})=0$，对$\lambda$的偏导说明了是正交矩阵，因此会有$\mathbf{\Theta}^\star \tilde{\mathbf{\Theta}^{\starT}}=0$，显然出现了矛盾！</p>
+L(\mathbf{Q},\lambda) = \sum_{i=1}^{n} \| \theta_i^*-\mathbf{Q}\tilde{\theta_i^*}\|^2 + \lambda \|\mathbf{Q}^T\mathbf{Q}-\mathbf{I_k}\|_F^2</script><p>对矩阵$\mathbf{Q}$求导后很容易看出矛盾所在，$\frac{\partial L(\mathbf{Q},\lambda)}{\partial \mathbf{Q}}=\mathbf{\Theta}^* \tilde{\mathbf{\Theta}^\star}+4\lambda(\mathbf{Q}\mathbf{Q}^{T}\mathbf{Q}-\mathbf{Q})=0$，对$\lambda$的偏导说明了是正交矩阵，因此会有$\mathbf{\Theta}^\star \tilde{\mathbf{\Theta}^{\star T}}=0$，显然出现了矛盾！</p>
 </li>
 </ul>
 <p>这里的约束条件可以考虑写成基向量与$\mathbf{Q}\mathbf{Q}^T$相乘再求和的形式，但不管怎么样用拉格朗日乘子法求解在这个问题中都比较复杂。</p>
