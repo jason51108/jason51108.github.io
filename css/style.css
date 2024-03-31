@@ -1082,123 +1082,123 @@ img[lazyload]::after {
   border-radius: 0.3rem;
 }
 :root {
-  --toolbar-foreground: #b5b5b5;
-  --toolbar-background: #3a3f40;
+  --toolbar-foreground: #50505c;
+  --toolbar-background: #f0f0f0;
   --code-foreground: #585865;
   --code-background: rgba(0,102,204,0.15);
   --code-border-color: #2994ff;
-  --highlight-background: #273036;
-  --highlight-foreground: #faf5d6;
-  --highlight-comment: #76888e;
-  --highlight-red: #ee5758;
-  --highlight-orange: #ec7600;
-  --highlight-yellow: #ffcd22;
-  --highlight-green: #93c763;
-  --highlight-aqua: #458383;
-  --highlight-blue: #6e95bd;
-  --highlight-purple: #b18bb7;
-  --highlight-gutter-color: #7a979a;
-  --highlight-gutter-bg-color: #273130;
+  --highlight-background: #fafafa;
+  --highlight-foreground: #535360;
+  --highlight-comment: #8e908c;
+  --highlight-red: #c82829;
+  --highlight-orange: #f5871f;
+  --highlight-yellow: #eab700;
+  --highlight-green: #718c00;
+  --highlight-aqua: #3e999f;
+  --highlight-blue: #4271ae;
+  --highlight-purple: #8959a8;
+  --highlight-gutter-color: #585865;
+  --highlight-gutter-bg-color: #f2f2f2;
   --mac-toolbar-background-color: #21252b;
-  --shrink-line-foreground: #6c8397;
-  --shrink-line-background-1: rgba(40,40,40,0.9);
-  --shrink-line-background-2: rgba(40,40,40,0.6);
+  --shrink-line-foreground: #808091;
+  --shrink-line-background-1: rgba(210,210,210,0.9);
+  --shrink-line-background-2: rgba(225,225,225,0.6);
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --toolbar-foreground: #b5b5b5;
-    --toolbar-background: #3a3f40;
+    --toolbar-foreground: #50505c;
+    --toolbar-background: #f0f0f0;
     --code-foreground: #585865;
     --code-background: rgba(0,102,204,0.15);
     --code-border-color: #2994ff;
-    --highlight-background: #273036;
-    --highlight-foreground: #faf5d6;
-    --highlight-comment: #76888e;
-    --highlight-red: #ee5758;
-    --highlight-orange: #ec7600;
-    --highlight-yellow: #ffcd22;
-    --highlight-green: #93c763;
-    --highlight-aqua: #458383;
-    --highlight-blue: #6e95bd;
-    --highlight-purple: #b18bb7;
-    --highlight-gutter-color: #7a979a;
-    --highlight-gutter-bg-color: #273130;
+    --highlight-background: #fafafa;
+    --highlight-foreground: #535360;
+    --highlight-comment: #8e908c;
+    --highlight-red: #c82829;
+    --highlight-orange: #f5871f;
+    --highlight-yellow: #eab700;
+    --highlight-green: #718c00;
+    --highlight-aqua: #3e999f;
+    --highlight-blue: #4271ae;
+    --highlight-purple: #8959a8;
+    --highlight-gutter-color: #585865;
+    --highlight-gutter-bg-color: #f2f2f2;
     --mac-toolbar-background-color: #21252b;
-    --shrink-line-foreground: #6c8397;
-    --shrink-line-background-1: rgba(40,40,40,0.9);
-    --shrink-line-background-2: rgba(40,40,40,0.6);
+    --shrink-line-foreground: #808091;
+    --shrink-line-background-1: rgba(210,210,210,0.9);
+    --shrink-line-background-2: rgba(225,225,225,0.6);
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --toolbar-foreground: #b1b1b1;
-    --toolbar-background: #393e3f;
+    --toolbar-foreground: #adbac5;
+    --toolbar-background: #313842;
     --code-foreground: #b5c1cb;
     --code-background: rgba(0,102,204,0.15);
     --code-border-color: #003d7a;
-    --highlight-background: #262f35;
-    --highlight-foreground: #f5ebad;
-    --highlight-comment: #76888e;
-    --highlight-red: #ed5152;
-    --highlight-orange: #e77400;
-    --highlight-yellow: #ffcc1c;
-    --highlight-green: #90c55f;
-    --highlight-aqua: #448080;
-    --highlight-blue: #6a92bb;
-    --highlight-purple: #ae87b5;
-    --highlight-gutter-color: #7b989b;
-    --highlight-gutter-bg-color: #26302f;
+    --highlight-background: #1f242a;
+    --highlight-foreground: #afbbc6;
+    --highlight-comment: #969896;
+    --highlight-red: #c66;
+    --highlight-orange: #de935f;
+    --highlight-yellow: #f0c674;
+    --highlight-green: #b5bd68;
+    --highlight-aqua: #8abeb7;
+    --highlight-blue: #81a2be;
+    --highlight-purple: #b294bb;
+    --highlight-gutter-color: #b1bdc8;
+    --highlight-gutter-bg-color: #1f2329;
     --mac-toolbar-background-color: #1f2021;
     --shrink-line-foreground: #6c8397;
-    --shrink-line-background-1: rgba(40,40,40,0.9);
-    --shrink-line-background-2: rgba(40,40,40,0.6);
+    --shrink-line-background-1: rgba(38,38,38,0.9);
+    --shrink-line-background-2: rgba(52,52,52,0.6);
   }
 }
 .light-mode {
-  --toolbar-foreground: #b5b5b5;
-  --toolbar-background: #3a3f40;
+  --toolbar-foreground: #50505c;
+  --toolbar-background: #f0f0f0;
   --code-foreground: #585865;
   --code-background: rgba(0,102,204,0.15);
   --code-border-color: #2994ff;
-  --highlight-background: #273036;
-  --highlight-foreground: #faf5d6;
-  --highlight-comment: #76888e;
-  --highlight-red: #ee5758;
-  --highlight-orange: #ec7600;
-  --highlight-yellow: #ffcd22;
-  --highlight-green: #93c763;
-  --highlight-aqua: #458383;
-  --highlight-blue: #6e95bd;
-  --highlight-purple: #b18bb7;
-  --highlight-gutter-color: #7a979a;
-  --highlight-gutter-bg-color: #273130;
+  --highlight-background: #fafafa;
+  --highlight-foreground: #535360;
+  --highlight-comment: #8e908c;
+  --highlight-red: #c82829;
+  --highlight-orange: #f5871f;
+  --highlight-yellow: #eab700;
+  --highlight-green: #718c00;
+  --highlight-aqua: #3e999f;
+  --highlight-blue: #4271ae;
+  --highlight-purple: #8959a8;
+  --highlight-gutter-color: #585865;
+  --highlight-gutter-bg-color: #f2f2f2;
   --mac-toolbar-background-color: #21252b;
-  --shrink-line-foreground: #6c8397;
-  --shrink-line-background-1: rgba(40,40,40,0.9);
-  --shrink-line-background-2: rgba(40,40,40,0.6);
+  --shrink-line-foreground: #808091;
+  --shrink-line-background-1: rgba(210,210,210,0.9);
+  --shrink-line-background-2: rgba(225,225,225,0.6);
 }
 .dark-mode {
-  --toolbar-foreground: #b1b1b1;
-  --toolbar-background: #393e3f;
+  --toolbar-foreground: #adbac5;
+  --toolbar-background: #313842;
   --code-foreground: #b5c1cb;
   --code-background: rgba(0,102,204,0.15);
   --code-border-color: #003d7a;
-  --highlight-background: #262f35;
-  --highlight-foreground: #f5ebad;
-  --highlight-comment: #76888e;
-  --highlight-red: #ed5152;
-  --highlight-orange: #e77400;
-  --highlight-yellow: #ffcc1c;
-  --highlight-green: #90c55f;
-  --highlight-aqua: #448080;
-  --highlight-blue: #6a92bb;
-  --highlight-purple: #ae87b5;
-  --highlight-gutter-color: #7b989b;
-  --highlight-gutter-bg-color: #26302f;
+  --highlight-background: #1f242a;
+  --highlight-foreground: #afbbc6;
+  --highlight-comment: #969896;
+  --highlight-red: #c66;
+  --highlight-orange: #de935f;
+  --highlight-yellow: #f0c674;
+  --highlight-green: #b5bd68;
+  --highlight-aqua: #8abeb7;
+  --highlight-blue: #81a2be;
+  --highlight-purple: #b294bb;
+  --highlight-gutter-color: #b1bdc8;
+  --highlight-gutter-bg-color: #1f2329;
   --mac-toolbar-background-color: #1f2021;
   --shrink-line-foreground: #6c8397;
-  --shrink-line-background-1: rgba(40,40,40,0.9);
-  --shrink-line-background-2: rgba(40,40,40,0.6);
+  --shrink-line-background-1: rgba(38,38,38,0.9);
+  --shrink-line-background-2: rgba(52,52,52,0.6);
 }
 .code-block,
 pre,
@@ -1467,6 +1467,7 @@ pre .javascript .function {
   font-weight: 600;
   font-size: 0.9rem;
   font-family: "Source Code Pro", consolas, Menlo;
+  color: var(--text-color-3);
 }
 .highlight-container .code-tools-box .tool {
   -moz-user-select: none;
@@ -1477,6 +1478,7 @@ pre .javascript .function {
 }
 .highlight-container .code-tools-box .tool i {
   font-size: 0.9rem;
+  color: var(--text-color-3);
 }
 .highlight-container .code-tools-box .fold {
   padding: 0 0.4rem 0 0.2rem;
@@ -1515,123 +1517,123 @@ figure.highlight .shrink-line:hover::before {
   font-size: 1.1rem;
 }
 :root {
-  --toolbar-foreground: #b5b5b5;
-  --toolbar-background: #3a3f40;
+  --toolbar-foreground: #50505c;
+  --toolbar-background: #f0f0f0;
   --code-foreground: #585865;
   --code-background: rgba(0,102,204,0.15);
   --code-border-color: #2994ff;
-  --highlight-background: #273036;
-  --highlight-foreground: #faf5d6;
-  --highlight-comment: #76888e;
-  --highlight-red: #ee5758;
-  --highlight-orange: #ec7600;
-  --highlight-yellow: #ffcd22;
-  --highlight-green: #93c763;
-  --highlight-aqua: #458383;
-  --highlight-blue: #6e95bd;
-  --highlight-purple: #b18bb7;
-  --highlight-gutter-color: #7a979a;
-  --highlight-gutter-bg-color: #273130;
+  --highlight-background: #fafafa;
+  --highlight-foreground: #535360;
+  --highlight-comment: #8e908c;
+  --highlight-red: #c82829;
+  --highlight-orange: #f5871f;
+  --highlight-yellow: #eab700;
+  --highlight-green: #718c00;
+  --highlight-aqua: #3e999f;
+  --highlight-blue: #4271ae;
+  --highlight-purple: #8959a8;
+  --highlight-gutter-color: #585865;
+  --highlight-gutter-bg-color: #f2f2f2;
   --mac-toolbar-background-color: #21252b;
-  --shrink-line-foreground: #6c8397;
-  --shrink-line-background-1: rgba(40,40,40,0.9);
-  --shrink-line-background-2: rgba(40,40,40,0.6);
+  --shrink-line-foreground: #808091;
+  --shrink-line-background-1: rgba(210,210,210,0.9);
+  --shrink-line-background-2: rgba(225,225,225,0.6);
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --toolbar-foreground: #b5b5b5;
-    --toolbar-background: #3a3f40;
+    --toolbar-foreground: #50505c;
+    --toolbar-background: #f0f0f0;
     --code-foreground: #585865;
     --code-background: rgba(0,102,204,0.15);
     --code-border-color: #2994ff;
-    --highlight-background: #273036;
-    --highlight-foreground: #faf5d6;
-    --highlight-comment: #76888e;
-    --highlight-red: #ee5758;
-    --highlight-orange: #ec7600;
-    --highlight-yellow: #ffcd22;
-    --highlight-green: #93c763;
-    --highlight-aqua: #458383;
-    --highlight-blue: #6e95bd;
-    --highlight-purple: #b18bb7;
-    --highlight-gutter-color: #7a979a;
-    --highlight-gutter-bg-color: #273130;
+    --highlight-background: #fafafa;
+    --highlight-foreground: #535360;
+    --highlight-comment: #8e908c;
+    --highlight-red: #c82829;
+    --highlight-orange: #f5871f;
+    --highlight-yellow: #eab700;
+    --highlight-green: #718c00;
+    --highlight-aqua: #3e999f;
+    --highlight-blue: #4271ae;
+    --highlight-purple: #8959a8;
+    --highlight-gutter-color: #585865;
+    --highlight-gutter-bg-color: #f2f2f2;
     --mac-toolbar-background-color: #21252b;
-    --shrink-line-foreground: #6c8397;
-    --shrink-line-background-1: rgba(40,40,40,0.9);
-    --shrink-line-background-2: rgba(40,40,40,0.6);
+    --shrink-line-foreground: #808091;
+    --shrink-line-background-1: rgba(210,210,210,0.9);
+    --shrink-line-background-2: rgba(225,225,225,0.6);
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --toolbar-foreground: #b1b1b1;
-    --toolbar-background: #393e3f;
+    --toolbar-foreground: #adbac5;
+    --toolbar-background: #313842;
     --code-foreground: #b5c1cb;
     --code-background: rgba(0,102,204,0.15);
     --code-border-color: #003d7a;
-    --highlight-background: #262f35;
-    --highlight-foreground: #f5ebad;
-    --highlight-comment: #76888e;
-    --highlight-red: #ed5152;
-    --highlight-orange: #e77400;
-    --highlight-yellow: #ffcc1c;
-    --highlight-green: #90c55f;
-    --highlight-aqua: #448080;
-    --highlight-blue: #6a92bb;
-    --highlight-purple: #ae87b5;
-    --highlight-gutter-color: #7b989b;
-    --highlight-gutter-bg-color: #26302f;
+    --highlight-background: #1f242a;
+    --highlight-foreground: #afbbc6;
+    --highlight-comment: #969896;
+    --highlight-red: #c66;
+    --highlight-orange: #de935f;
+    --highlight-yellow: #f0c674;
+    --highlight-green: #b5bd68;
+    --highlight-aqua: #8abeb7;
+    --highlight-blue: #81a2be;
+    --highlight-purple: #b294bb;
+    --highlight-gutter-color: #b1bdc8;
+    --highlight-gutter-bg-color: #1f2329;
     --mac-toolbar-background-color: #1f2021;
     --shrink-line-foreground: #6c8397;
-    --shrink-line-background-1: rgba(40,40,40,0.9);
-    --shrink-line-background-2: rgba(40,40,40,0.6);
+    --shrink-line-background-1: rgba(38,38,38,0.9);
+    --shrink-line-background-2: rgba(52,52,52,0.6);
   }
 }
 .light-mode {
-  --toolbar-foreground: #b5b5b5;
-  --toolbar-background: #3a3f40;
+  --toolbar-foreground: #50505c;
+  --toolbar-background: #f0f0f0;
   --code-foreground: #585865;
   --code-background: rgba(0,102,204,0.15);
   --code-border-color: #2994ff;
-  --highlight-background: #273036;
-  --highlight-foreground: #faf5d6;
-  --highlight-comment: #76888e;
-  --highlight-red: #ee5758;
-  --highlight-orange: #ec7600;
-  --highlight-yellow: #ffcd22;
-  --highlight-green: #93c763;
-  --highlight-aqua: #458383;
-  --highlight-blue: #6e95bd;
-  --highlight-purple: #b18bb7;
-  --highlight-gutter-color: #7a979a;
-  --highlight-gutter-bg-color: #273130;
+  --highlight-background: #fafafa;
+  --highlight-foreground: #535360;
+  --highlight-comment: #8e908c;
+  --highlight-red: #c82829;
+  --highlight-orange: #f5871f;
+  --highlight-yellow: #eab700;
+  --highlight-green: #718c00;
+  --highlight-aqua: #3e999f;
+  --highlight-blue: #4271ae;
+  --highlight-purple: #8959a8;
+  --highlight-gutter-color: #585865;
+  --highlight-gutter-bg-color: #f2f2f2;
   --mac-toolbar-background-color: #21252b;
-  --shrink-line-foreground: #6c8397;
-  --shrink-line-background-1: rgba(40,40,40,0.9);
-  --shrink-line-background-2: rgba(40,40,40,0.6);
+  --shrink-line-foreground: #808091;
+  --shrink-line-background-1: rgba(210,210,210,0.9);
+  --shrink-line-background-2: rgba(225,225,225,0.6);
 }
 .dark-mode {
-  --toolbar-foreground: #b1b1b1;
-  --toolbar-background: #393e3f;
+  --toolbar-foreground: #adbac5;
+  --toolbar-background: #313842;
   --code-foreground: #b5c1cb;
   --code-background: rgba(0,102,204,0.15);
   --code-border-color: #003d7a;
-  --highlight-background: #262f35;
-  --highlight-foreground: #f5ebad;
-  --highlight-comment: #76888e;
-  --highlight-red: #ed5152;
-  --highlight-orange: #e77400;
-  --highlight-yellow: #ffcc1c;
-  --highlight-green: #90c55f;
-  --highlight-aqua: #448080;
-  --highlight-blue: #6a92bb;
-  --highlight-purple: #ae87b5;
-  --highlight-gutter-color: #7b989b;
-  --highlight-gutter-bg-color: #26302f;
+  --highlight-background: #1f242a;
+  --highlight-foreground: #afbbc6;
+  --highlight-comment: #969896;
+  --highlight-red: #c66;
+  --highlight-orange: #de935f;
+  --highlight-yellow: #f0c674;
+  --highlight-green: #b5bd68;
+  --highlight-aqua: #8abeb7;
+  --highlight-blue: #81a2be;
+  --highlight-purple: #b294bb;
+  --highlight-gutter-color: #b1bdc8;
+  --highlight-gutter-bg-color: #1f2329;
   --mac-toolbar-background-color: #1f2021;
   --shrink-line-foreground: #6c8397;
-  --shrink-line-background-1: rgba(40,40,40,0.9);
-  --shrink-line-background-2: rgba(40,40,40,0.6);
+  --shrink-line-background-1: rgba(38,38,38,0.9);
+  --shrink-line-background-2: rgba(52,52,52,0.6);
 }
 .keep-note {
   position: relative;
@@ -3592,6 +3594,85 @@ figure.highlight .shrink-line:hover::before {
 .home-content-container {
   background: var(--background-color-1);
 }
+.home-content-container .website-announcement {
+  box-sizing: border-box;
+  margin-bottom: 1.8rem;
+  padding: 1rem;
+  background: var(--content-background-color);
+  border-radius: var(--box-border-radius);
+  box-shadow: 0 0 8px var(--shadow-color);
+  transition-delay: 0s, 0s, 0s, 0s, 0s;
+  transition-timing-function: ease, ease, ease, ease, linear;
+  transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
+  transition-property: color, background, box-shadow, border-color, transform;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -0.6rem;
+}
+.home-content-container .website-announcement:hover {
+  transform: scale(var(--home-post-hover-scale));
+  box-shadow: 0 0 12px var(--shadow-hover-color);
+}
+@media (max-width: 800px) {
+  .home-content-container .website-announcement {
+    margin-bottom: 1.44rem;
+    padding: 0.8rem;
+    border-radius: calc(var(--box-border-radius) * 0.8);
+  }
+}
+@media (max-width: 500px) {
+  .home-content-container .website-announcement {
+    margin-bottom: 1.08rem;
+    padding: 0.6rem;
+    border-radius: calc(var(--box-border-radius) * 0.6);
+  }
+}
+@media (max-width: 800px) {
+  .home-content-container .website-announcement {
+    margin-top: -0.4rem;
+  }
+}
+@media (max-width: 500px) {
+  .home-content-container .website-announcement {
+    margin-top: -0.2rem;
+  }
+  .home-content-container .website-announcement .announcement {
+    font-size: 0.9rem;
+  }
+  .home-content-container .website-announcement .icon {
+    font-size: 1rem !important;
+  }
+}
+.home-content-container .website-announcement .announcement {
+  width: 100%;
+  padding: 0 0.5rem;
+  color: var(--text-color-3);
+}
+.home-content-container .website-announcement .announcement p {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.home-content-container .website-announcement .icon {
+  flex-shrink: 0;
+  padding: 0.2rem;
+  font-size: 1.2rem;
+}
+.home-content-container .website-announcement .icon.left {
+  color: var(--keep-danger-color);
+  font-size: 1.5rem;
+  transform-origin: left bottom;
+  animation: shake 1s ease infinite;
+}
+.home-content-container .website-announcement .icon.right {
+  color: var(--text-color-4);
+  cursor: pointer;
+}
+.home-content-container .website-announcement .icon.right:hover {
+  color: var(--text-color-3);
+}
 .home-content-container .home-post-list .home-post-item {
   position: relative;
   box-sizing: border-box;
@@ -4475,18 +4556,6 @@ figure.highlight .shrink-line:hover::before {
   margin-top: 0.4rem;
   color: var(--text-color-4);
   font-size: 1rem;
-}
-.page-template-container .photo-album-box {
-  column-count: 3;
-  column-gap: 0.8rem;
-}
-.page-template-container .photo-album-box img.photo {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.8rem;
-  background: var(--background-color-2);
-  border-radius: 0.6rem;
-  cursor: zoom-in;
 }
 .tagcloud-container {
   box-sizing: border-box;

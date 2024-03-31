@@ -9,7 +9,7 @@
     
     <title>
         
-            MathJax Test |
+            实变函数(一)——实变函数引论 |
         
         Brainiaccc&#39;blog
     </title>
@@ -230,7 +230,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        MathJax Test
+                        实变函数(一)——实变函数引论
                     </div>
                 
 
@@ -256,12 +256,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2022-01-01 00:00:00</span>
+                <span class="datetime">2024-03-31 13:07:18</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Thu Jan 25 2024 21:15:34 GMT+0800">2024-01-25 21:15:34</span>
+                <span class="datetime" data-updated="Sun Mar 31 2024 13:20:14 GMT+0800">2024-03-31 13:20:14</span>
             </span>
         
 
@@ -269,7 +269,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/categories/MathJax/">MathJax</a></li>
+                            <li class="category-item"><a href="/categories/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/">实变函数笔记</a></li>
                         
                     
                 </ul>
@@ -280,7 +280,13 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/MathJax/">MathJax</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/">实变函数</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E9%BB%8E%E6%9B%BC%E7%A7%AF%E5%88%86/">黎曼积分</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%8B%92%E8%B4%9D%E6%A0%BC%E7%A7%AF%E5%88%86/">勒贝格积分</a></li>
                         
                     
                 </ul>
@@ -304,9 +310,88 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <p><strong>薛定谔方程如下:</strong></p>
+                    <p><strong>写在前面：</strong>本博客笔记主要摘录长安大学mooc上的讲解，同时也参考了程其襄的《<strong>实变函数与泛函数分析基础(第三版)</strong>》、郭懋正的《<strong>实变函数与泛函分析</strong>》等教材。</p>
+<h2 id="实变函数的目的"><a href="#实变函数的目的" class="headerlink" title="实变函数的目的"></a>实变函数的目的</h2><p>为什么要创立实变函数这门课程呢？实变函数的出现是为了克服黎曼积分的不足和缺陷，改善在数学分析中黎曼(Riemann)积分的不足，使得更加完善，成为实变函数中的勒贝格(Lebesgue)积分。</p>
+<h2 id="黎曼积分"><a href="#黎曼积分" class="headerlink" title="黎曼积分"></a>黎曼积分</h2><p>波恩哈德·黎曼，德国数学家、物理学家，对数学分析和微分几何做出了重要贡献。黎曼积分是数学分析的重要内容。黎曼积分的<strong>主要思想</strong>是：分割定义域 $\rightarrow$ 作积分和 $\rightarrow$ 取极限。用稍微数学一点的语言的表达如下：</p>
+<p>设$f(x)$是闭区间$[a,b]$上的有界函数。对区间$[a,b]$作分割，得到分割的小区间：$[x_{i-1},x_i]$，记$T=\{\Delta_1,\Delta_2,…,\Delta_n\},\quad\Delta x_i=x_i-x_{i-1},\left|T\right|=\max_{1\leq i\leq n}\left\{\Delta x_{i}\right\}$。黎曼和：$\sum_{i=1}^nf^{-1}(\xi_i)\Delta x_i$，有了这些符号的定义，黎曼积分的定义如下：$\forall\varepsilon&gt;0,\exists\delta&gt;0$，使得对任意的的分割T和任意点$\xi_{i}$，只要$\left|T\right|&lt;\delta$，有:</p>
 <script type="math/tex; mode=display">
-i\hbar\frac{\partial}{\partial t}\psi=-\frac{\hbar^2}{2m}\nabla^2\psi+V\psi</script>
+\left|\sum_{i=1}^nf\left(\xi_i\right)\Delta x_i-J\right|<\varepsilon</script><p>称$J$为函数在$[a,b]$​上的黎曼积分，记为</p>
+<script type="math/tex; mode=display">
+J=\int_a^bf(x)dx</script><script type="math/tex; mode=display">
+\begin{aligned}\int_a^bf(x)dx&=\lim_{\|T\|\to0}\sum_{i=1}^nf(\xi_i)\Delta x_i\end{aligned}</script><p>当然，判断是否黎曼可积可以用定义的形式进行判断，但每次都这样进行判断会显得十分的繁琐，通常黎曼积分的存在与达布上和和达布下和有关。</p>
+<h3 id="达布上下和"><a href="#达布上下和" class="headerlink" title="达布上下和"></a>达布上下和</h3><div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/Real-function/达布上积分.2h82tzj2ss.webp"  ></div>
+
+<script type="math/tex; mode=display">
+\begin{gathered}M_i=\sup\left\{f(x):x_{i-1}\leq x\leq x_i\right\}\\\bar{S}=:\sum_{i=1}^nM_i\Delta x_i\\\overline{\int_a^b}f(x)dx=:\lim_{\|T\|\to0}\sum_{i=1}^nM_i\Delta x_i\end{gathered}</script><div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/Real-function/达布下积分.51dx6mj1f2.webp"  ></div>
+
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\begin{aligned}m_i=\inf\{f(x):x_{i-1}\leq x\leq x_i\}\end{aligned} \\
+&\underline{s}=:\sum_{i=1}^{n}m_{i}\Delta x_{i} \\
+&\underline{\int_a^b}f\left(x\right)dx=:\lim_{|||T||\to0}\sum_{i=1}^nm_i\Delta x_i
+\end{aligned}</script><p>通俗解释就是，达布上积分表示对于每个小区间$[x_{i-1},x_i]$都取最大值$\max_{x_{i-1} \leq x \leq x_i}f(x)$作为长方形的高，再进行求和。达布上积分表示对于每个小区间$[x_{i-1},x_i]$都取最小值$\min_{x_{i-1} \leq x \leq x_i}f(x)$作为长方形的高，再进行求和。如果我们说一个函数是黎曼可积的，那么有$\Leftrightarrow\overline{\int_a^b}f(x)dx=\underline{\int_a^b}f(x)dx$。哪些函数是黎曼可积的呢？</p>
+<ul>
+<li>闭区间上的连续逯数一致连续黎曼可积</li>
+<li>闭区间上具有有限个间断点的有界函数黎曼可积</li>
+</ul>
+<blockquote>
+<p>达布上下积分与黎曼可积实际上是用了一个简单的夹逼定理</p>
+<script type="math/tex; mode=display">
+\underline{s}=\sum_{i=1}^{n}m_{i}\Delta x_{i} \leq \sum_{i=1}^{n}f(\xi_i)\Delta x_{i}\leq\sum_{i=1}^{n}M_{i}\Delta x_{i}=\bar{S}</script></blockquote>
+<p>有黎曼可积的函数，同时一定有黎曼不可积的函数，常见的返例是狄利克雷函数，狄利克雷函数定义如下</p>
+<script type="math/tex; mode=display">
+D(x)=\begin{cases}{}1,&x \in [0,1] \cap Q^C\\
+                0\text{,}&x \in [0,1] \cap Q&
+      \end{cases}</script><p>狄利克雷函数在区间$[0,1]$上有界但不黎曼可积，原因在于</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\overline{\int_a^b}f(x)dx=\lim_{||T||\to0}\sum_{i=1}^nM_i\Delta x_i=1\\
+&\underline{\int_a^b}f(x)dx=\lim_{||T||\to0}\sum_{i=1}^nm_i\Delta x_i=0
+\end{aligned}</script><p>根据达布定理，该函数黎曼不可积。<strong>这也反映了黎曼可积的条件太为苛刻了，导致了很多函数都不可积。</strong></p>
+<h3 id="黎曼可积的缺陷"><a href="#黎曼可积的缺陷" class="headerlink" title="黎曼可积的缺陷"></a>黎曼可积的缺陷</h3><ul>
+<li><p><strong>积分与极限交换次序要求苛刻且不必要</strong></p>
+<p>设函数序列$\{f_n(x)\}$的每一项$f_n(x)$在区间$[a,b]$上连续，且在$[a,b]$上一致收敛于$f(x)$,则$[a,b]$在$f(x)$上可积且</p>
+<script type="math/tex; mode=display">
+\int_a^b\lim_{n\to\infty}f_n(x)dx=\lim_{n\to\infty}\int_a^bf_n(x)dx</script><p>考虑函数$f_n(x){=}x^n\left(0{\leq}x{\leq}1\right)$​，显然该函数列逐点收敛而不是一致收敛于</p>
+<script type="math/tex; mode=display">
+f(x)=\begin{cases}0,&0\leq x<1,\\
+        1,&x=1.&\end{cases}</script><script type="math/tex; mode=display">
+\lim_{n\to\infty}\int_0^1f_n(x)dx=0=\int_0^1f(x)dx=\int_0^1\lim_{n\to\infty}f_n(x)dx</script><p>因此，在黎曼可积的定义下：<strong>一致收敛不是极很与积分交换的必要条件</strong></p>
+</li>
+<li><p><strong>积分和微分运算不完全互逆</strong></p>
+<p>设$f(x$)在$[a,b]$上是可微函数，且$f’(x)$在$[a,b]$​上是<strong>黎曼可积</strong>的，则由微积分基本定理可知</p>
+<script type="math/tex; mode=display">
+\int_a^xf^{\prime}(t)dt=f(x)-f(a),\quad x\in[a,b]</script><blockquote>
+<p>注意，一定要是黎曼可积才能有上式子成立，否则是可能存在返例的</p>
+</blockquote>
+</li>
+<li><p><strong>黎曼回积極数空间不完备</strong></p>
+<p>记$[0,1]$区间上黎曼可积函数的全体：$R([0,1])$。定义距离：</p>
+<script type="math/tex; mode=display">
+d(f,g)=\int_0^1\lvert f(x)-g(x)\rvert dx,\quad f,g\in R([0,1]).</script><p>称$R([0,1])$不完备是指当$f_n\in R([0,1])$且$\lim_{n\to\infty,m\to\infty}d(f_{n},f_{m})=0$时，并不一定存在函数$f\in R([0,1])$，使得</p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}d\left(f_n,f\right)=0</script></li>
+</ul>
+<h2 id="勒贝格积分"><a href="#勒贝格积分" class="headerlink" title="勒贝格积分"></a>勒贝格积分</h2><p>勒贝格积分从分割函数的值域入手，任给$\delta &gt; 0$，作划分$m=y_0&lt;y_1&lt;y_2&lt;\cdots&lt;y_n=M,y_i-y_{i-1}&lt;\delta $。取点集$E=\{x:y_{i-1}&lt;f(x)&lt;y_i\}$。</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/Real-function/外包法.92pwl0n4ru.webp"  ></div>
+
+<p>求和，$s=\sum_{i=1}^n(y_i-y_{i-1})\big|E_i\big|=\sum_{i=1}^n\big|I_i\big|$，其中$\big|I_i\big|=矩形面积=(y_i-y_{i-1})(高)\times\big|E_i\big|(底边长度)$，令$\delta \rightarrow 0$，</p>
+<script type="math/tex; mode=display">
+\int_{[a,b]}f(x)dx:=\lim_{\delta\to\infty}\sum_{i=1}^n{(y_i-y_{i-1})}|E_i|(\text{若极限存在})</script><p>$E=\{x:y_{i-1}&lt;f(x)&lt;y_i\}$，$m(E_i)$刻画集合的“长度”，勒贝格想得到如下形式的定理：</p>
+<ul>
+<li>$\lim_{n\to\infty}\int f_n=\int\lim_{n\to\infty}f_n$(区间有限，函数列一致有界)</li>
+<li>$\int\sum_{n=1}^\infty f_n=\sum_{n=1}^\infty\int f_n$(积分是可加的)</li>
+<li>$m(\sum_{n=1}^\infty E_n)=\sum_{n=1}^\infty m(E_n)$(测度的可数可加性)</li>
+</ul>
+<p>对于刚才的迪利克雷函数：</p>
+<script type="math/tex; mode=display">
+D(x)=\begin{cases}{}1,&x \in [0,1] \cap Q^C\\
+                0\text{,}&x \in [0,1] \cap Q&
+      \end{cases}</script><p>区间$[0,1]$中的无理数集为$I \quad \longrightarrow m(I)=1$</p>
+<p>区间$[0,1]$中的有理数集为$Q \quad \longrightarrow m(Q)=0$</p>
+<script type="math/tex; mode=display">
+S=1\times m(Q)+0\times m(I)</script><p>如何确定$I$和$Q$的长度是关键问题！</p>
+
                 </div>
                 
 
@@ -316,7 +401,15 @@ i\hbar\frac{\partial}{\partial t}\psi=-\frac{\hbar^2}{2m}\nabla^2\psi+V\psi</scr
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/MathJax/">MathJax</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/">实变函数</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E9%BB%8E%E6%9B%BC%E7%A7%AF%E5%88%86/">黎曼积分</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%8B%92%E8%B4%9D%E6%A0%BC%E7%A7%AF%E5%88%86/">勒贝格积分</a>
                                     </li>
                                 
                             </ul>
@@ -355,22 +448,22 @@ i\hbar\frac{\partial}{\partial t}\psi=-\frac{\hbar^2}{2m}\nabla^2\psi+V\psi</scr
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/03/08/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6/Latent%20Space%20Model/"
-                                   title="Latent Space Approaches to Social Network Analysis"
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/03/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E6%B1%82%E5%92%8C%E5%90%91%E9%87%8F%E5%92%8C%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5/"
+                                   title="求和向量和中心化矩阵"
                                 >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Latent Space Approaches to Social Network Analysis</span>
-                                        <span class="post-nav-item">Prev posts</span>
+                                        <span class="post-nav-title-item text-ellipsis">求和向量和中心化矩阵</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
                                     </span>
                                 </a>
                             </div>
-                        
                         
                     </div>
                 
@@ -383,7 +476,7 @@ i\hbar\frac{\partial}{\partial t}\psi=-\frac{\hbar^2}{2m}\nabla^2\psi+V\psi</scr
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">实变函数的目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%8E%E6%9B%BC%E7%A7%AF%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">黎曼积分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%BE%E5%B8%83%E4%B8%8A%E4%B8%8B%E5%92%8C"><span class="nav-number">2.1.</span> <span class="nav-text">达布上下和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">2.2.</span> <span class="nav-text">黎曼可积的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%92%E8%B4%9D%E6%A0%BC%E7%A7%AF%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">勒贝格积分</span></a></li></ol>
     </div>
 </div>
 
@@ -563,7 +656,7 @@ i\hbar\frac{\partial}{\partial t}\psi=-\frac{\hbar^2}{2m}\nabla^2\psi+V\psi</scr
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">实变函数的目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%8E%E6%9B%BC%E7%A7%AF%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">黎曼积分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%BE%E5%B8%83%E4%B8%8A%E4%B8%8B%E5%92%8C"><span class="nav-number">2.1.</span> <span class="nav-text">达布上下和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">2.2.</span> <span class="nav-text">黎曼可积的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%92%E8%B4%9D%E6%A0%BC%E7%A7%AF%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">勒贝格积分</span></a></li></ol>
     </div>
 </div>
 
