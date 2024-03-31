@@ -261,7 +261,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Mar 31 2024 13:20:14 GMT+0800">2024-03-31 13:20:14</span>
+                <span class="datetime" data-updated="Sun Mar 31 2024 17:27:45 GMT+0800">2024-03-31 17:27:45</span>
             </span>
         
 
@@ -331,7 +331,7 @@ J=\int_a^bf(x)dx</script><script type="math/tex; mode=display">
 &\underline{\int_a^b}f\left(x\right)dx=:\lim_{|||T||\to0}\sum_{i=1}^nm_i\Delta x_i
 \end{aligned}</script><p>通俗解释就是，达布上积分表示对于每个小区间$[x_{i-1},x_i]$都取最大值$\max_{x_{i-1} \leq x \leq x_i}f(x)$作为长方形的高，再进行求和。达布上积分表示对于每个小区间$[x_{i-1},x_i]$都取最小值$\min_{x_{i-1} \leq x \leq x_i}f(x)$作为长方形的高，再进行求和。如果我们说一个函数是黎曼可积的，那么有$\Leftrightarrow\overline{\int_a^b}f(x)dx=\underline{\int_a^b}f(x)dx$。哪些函数是黎曼可积的呢？</p>
 <ul>
-<li>闭区间上的连续逯数一致连续黎曼可积</li>
+<li>闭区间上的连续函数一致连续黎曼可积</li>
 <li>闭区间上具有有限个间断点的有界函数黎曼可积</li>
 </ul>
 <blockquote>
@@ -365,7 +365,7 @@ f(x)=\begin{cases}0,&0\leq x<1,\\
 <p>注意，一定要是黎曼可积才能有上式子成立，否则是可能存在返例的</p>
 </blockquote>
 </li>
-<li><p><strong>黎曼回积極数空间不完备</strong></p>
+<li><p><strong>黎曼回积函数空间不完备</strong></p>
 <p>记$[0,1]$区间上黎曼可积函数的全体：$R([0,1])$。定义距离：</p>
 <script type="math/tex; mode=display">
 d(f,g)=\int_0^1\lvert f(x)-g(x)\rvert dx,\quad f,g\in R([0,1]).</script><p>称$R([0,1])$不完备是指当$f_n\in R([0,1])$且$\lim_{n\to\infty,m\to\infty}d(f_{n},f_{m})=0$时，并不一定存在函数$f\in R([0,1])$，使得</p>
@@ -377,7 +377,10 @@ d(f,g)=\int_0^1\lvert f(x)-g(x)\rvert dx,\quad f,g\in R([0,1]).</script><p>称$R
 
 <p>求和，$s=\sum_{i=1}^n(y_i-y_{i-1})\big|E_i\big|=\sum_{i=1}^n\big|I_i\big|$，其中$\big|I_i\big|=矩形面积=(y_i-y_{i-1})(高)\times\big|E_i\big|(底边长度)$，令$\delta \rightarrow 0$，</p>
 <script type="math/tex; mode=display">
-\int_{[a,b]}f(x)dx:=\lim_{\delta\to\infty}\sum_{i=1}^n{(y_i-y_{i-1})}|E_i|(\text{若极限存在})</script><p>$E=\{x:y_{i-1}&lt;f(x)&lt;y_i\}$，$m(E_i)$刻画集合的“长度”，勒贝格想得到如下形式的定理：</p>
+\int_{[a,b]}f(x)dx:=\lim_{\delta\to\infty}\sum_{i=1}^n{(y_i-y_{i-1})}|E_i|(\text{若极限存在})</script><blockquote>
+<p>$:=$表示定义为，设为。有些写做$\triangleq$或者$\stackrel{\mathrm{def}}{=}$。在数学的发展中有许多自创的符号！！</p>
+</blockquote>
+<p>$E=\{x:y_{i-1}&lt;f(x)&lt;y_i\}$，$m(E_i)$刻画集合的“长度”，勒贝格想得到如下形式的定理：</p>
 <ul>
 <li>$\lim_{n\to\infty}\int f_n=\int\lim_{n\to\infty}f_n$(区间有限，函数列一致有界)</li>
 <li>$\int\sum_{n=1}^\infty f_n=\sum_{n=1}^\infty\int f_n$(积分是可加的)</li>
