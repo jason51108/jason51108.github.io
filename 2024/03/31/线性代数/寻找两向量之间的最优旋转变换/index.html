@@ -9,7 +9,7 @@
     
     <title>
         
-            Category: paper |
+            寻找两向量之间的最优旋转变换 |
         
         Brainiaccc&#39;blog
     </title>
@@ -115,7 +115,7 @@
                     
                         
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/categories"
                             >
                                 
@@ -187,7 +187,7 @@
             
                 
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/categories"
                     >CATEGORIES</a>
                 </li>
@@ -221,39 +221,237 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="category-container border-box">
-        <div class="category-name">
-            <i class="fas fa-folder"></i>&nbsp;paper
-        </div>
-        <div class="category-post-list">
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
             
-<div class="archive-list-container border-box">
-    
-        <section class="archive-item border-box">
-            <div class="archive-item-header border-box">
-                <span class="archive-year">2024</span>
-            </div>
-            <ul class="archive-item-body border-box">
+
+            <div class="post-content-bottom border-box">
                 
-                    <li class="post-item border-box">
-                        <span class="post-date border-box">03-08</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2024/03/08/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6/Latent%20Space%20Model/"
-                        >Latent Space Approaches to Social Network Analysis</a>
-                    </li>
+                    <div class="post-title">
+                        寻找两向量之间的最优旋转变换
+                    </div>
                 
-            </ul>
-        </section>
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/self.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Brainiaccc</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-03-31 14:17:28</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Sun Mar 31 2024 17:10:08 GMT+0800">2024-03-31 17:10:08</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC/">最优旋转</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
     
 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body">
+                    
+
+                    <p>本文的原文来自: <a class="link"   target="_blank" rel="noopener" href="http://nghiaho.com/?page_id=671" >Finding optimal rotation and translation between corresponding 3D points<i class="fas fa-external-link-alt"></i></a></p>
+<p>这里我们要达成的目标是给定两组点，要尝试找到最优的旋转+位移操作，将这两组点叠在一起，而误差最小。如下图所示。</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/Linear-algebra/旋转变换.6m3o65tn1i.webp"  ></div>
+
+<p>图中的颜色代表了点之间的对应关系。在最优操作下，两组点之间的位置误差的 MSE 最小。变换保留了形状特征和大小特征。不同于仿射变换，仿射变换还包括了缩放与剪切变换。</p>
+<h2 id="解法概览"><a href="#解法概览" class="headerlink" title="解法概览"></a>解法概览</h2><p>这里涉及的求解方法会涉及两种情况：有噪声和无噪声。需要注意的是，向量$\mathbf{\theta}$的维度$k$与向量个数需要满足一定的条件才有唯一解！</p>
+<ul>
+<li><p>对于无噪声环境，求解过程等价于解方程。</p>
+<script type="math/tex; mode=display">
+\mathbf{\theta_i} = \mathbf{Q}\tilde{\mathbf{\theta_i}}+\mathbf{b}, \quad i=1,\ldots,n</script><p>其中矩阵$\mathbf{Q} \in \mathbb{R}^{n \times n}$为正交矩阵，$\mathbf{b} \in \mathbb{R}^{n}$为列向量。</p>
+</li>
+<li><p>对于存在噪声的环境，求解过程为最小化下面的误差</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\operatorname*{argmin}_{\mathbf{Q} \in \mathbb R^{k \times k}} &\sum_{i=1}^{n}  \| \theta_i-\mathbf{Q}\tilde{\theta_i}-\mathbf{b}\|^2\\
+s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
+\end{align}</script><p>求解完整的变化过程可以分解为下面三个步骤：</p>
+<ul>
+<li>数据中心化</li>
+<li>寻找最优旋转矩阵$\mathbf{Q}$</li>
+<li>寻找向量$\mathbf{b}$ </li>
+</ul>
+</li>
+</ul>
+<h2 id="数据中心化"><a href="#数据中心化" class="headerlink" title="数据中心化"></a>数据中心化</h2><p>所谓数据中心化，即把所有向量都放在原点附近，使得向量的每个分量之和的值为0，通常而言会用中心化矩阵进行左乘。假设向量$\mathbf{\Theta}=(\mathbf{\theta_1},\ldots,\mathbf{\theta_n})^T_{n \times k}$，中心化矩阵$\mathbf{C_n}=\mathbf{I_n}-\frac{1}{n}\mathbf{1}\mathbf{1}^T$，中心化即有：</p>
+<script type="math/tex; mode=display">
+\mathbf{\Theta}^* = \mathbf{C_n}\mathbf{\Theta}</script><blockquote>
+<p>一般而言的向量都默认为列向量，通常将向量进行排列的时候会按照一行一行进行排列，因此排列成矩阵的形式为$n \times k$，$n$为向量样本个数，$k$为向量的维度</p>
+</blockquote>
+<p>对中心化后的数据而言，我们暂时不需要考虑其平移操作，只需要寻找最优旋转矩阵$\mathbf{Q}$就好。</p>
+<h2 id="寻找最优旋转矩阵-mathbf-Q"><a href="#寻找最优旋转矩阵-mathbf-Q" class="headerlink" title="寻找最优旋转矩阵$\mathbf{Q}$"></a>寻找最优旋转矩阵$\mathbf{Q}$</h2><ul>
+<li><p><strong>方法一：拉格朗日乘子法</strong></p>
+<p>由线代知识可知，矩阵的旋转变换即是通过乘以正交矩阵进行，由于这里限制了矩阵是正交矩阵，因此这是一个典型的约束优化问题，自然想到了拉格朗日乘子法。但需要注意的情况有两点：</p>
+<ul>
+<li><p>$L(·)$函数的值是一个数，因此如果存在矩阵的约束条件可能需要写成Frobenius范数的形式</p>
+</li>
+<li><p>拉格朗日乘子法<strong>需要满足一定的条件(灰常的玄学)</strong>，就本问题而言，拉格朗日乘子法不能写成如下形式。</p>
+<script type="math/tex; mode=display">
+L(\mathbf{Q},\lambda) = \sum_{i=1}^{n} \| \theta_i^*-\mathbf{Q}\tilde{\theta_i^*}\|^2 + \lambda \|\mathbf{Q}^T\mathbf{Q}-\mathbf{I_k}\|_F^2</script><p>对矩阵$\mathbf{Q}$求导后很容易看出矛盾所在，$\frac{\partial L(\mathbf{Q},\lambda)}{\partial \mathbf{Q}}=\mathbf{\Theta}^* \tilde{\mathbf{\Theta}^\star}+4\lambda(\mathbf{Q}\mathbf{Q}^{T}\mathbf{Q}-\mathbf{Q})=0$，对$\lambda$的偏导说明了是正交矩阵，因此会有$\mathbf{\Theta}^\star \tilde{\mathbf{\Theta}^{\starT}}=0$，显然出现了矛盾！</p>
+</li>
+</ul>
+<p>这里的约束条件可以考虑写成基向量与$\mathbf{Q}\mathbf{Q}^T$相乘再求和的形式，但不管怎么样用拉格朗日乘子法求解在这个问题中都比较复杂。</p>
+<blockquote>
+<p>​    这里的$\theta^*$表示已经数据中心化后的$\theta$，$\tilde{\theta}$同理。</p>
+</blockquote>
+</li>
+<li><p><strong>方法二：奇异值分解</strong></p>
+<p>对优化的问题进行化简，原优化问题等价于：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\operatorname*{argmax}_{\mathbf{Q} \in \mathbb R^{k \times k}} &\sum_{i=1}^{n}\mathbf{\theta_i}^T\mathbf{Q}\mathbf{\tilde{\theta_i}}=  tr(\mathbf{Q}\mathbf{\Theta}^{*T} \tilde{\mathbf{\Theta^*}})\\
+s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
+\end{align}</script><p>令矩阵$\mathbf{C}=\mathbf{\Theta}^{\star T} \tilde{\mathbf{\Theta}^{\star}}$，对矩阵进行奇异值分解有：$\mathbf{C}=\mathbf{U}\Sigma\mathbf{V}^T$，因此$tr(\mathbf{Q}\mathbf{\Theta}^{*T} \tilde{\mathbf{\Theta^\star}})=tr(\mathbf{Q}\mathbf{U}\Sigma\mathbf{V}^T)=tr(\Sigma \mathbf{V}^T \mathbf{Q} \mathbf{U})$，由约束条件知道矩阵$\mathbf{Q}$是正交矩阵，$\mathbf{V}^T \mathbf{Q} \mathbf{U}$也是正交矩阵。因为对于矩阵$\mathbf{V}^T \mathbf{Q} \mathbf{U}$的主对角的每一个元素有$|a_{ii}|\leq1, i=1,2,\ldots,k$，且$\Sigma=diag(\sigma_1,\ldots,\sigma_n)$，当$\mathbf{Q}=\mathbf{V}\mathbf{U}^T$的时候有最大值$\sigma_1+\ldots+\sigma_n$，当且仅当$a_{ii}=1, i=1,2,\ldots,k$。</p>
+</li>
+</ul>
+<h2 id="寻找向量-mathbf-b"><a href="#寻找向量-mathbf-b" class="headerlink" title="寻找向量$\mathbf{b}$"></a>寻找向量$\mathbf{b}$</h2><p>在利用奇异值分解寻找到最优旋转矩阵$\mathbf{Q}$后，向量$\mathbf{b}$的求解不在困难</p>
+<script type="math/tex; mode=display">
+\mathbf{b} = \mathbf{\Theta} - \mathbf{Q}\tilde{\mathbf{\Theta}}</script>
+                </div>
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC/">最优旋转</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/03/31/Hexo/Hexo-%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D/"
+                                   title="Hexo 备份和恢复"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Hexo 备份和恢复</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+            </div>
         </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">解法概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">数据中心化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5-mathbf-Q"><span class="nav-number">3.</span> <span class="nav-text">寻找最优旋转矩阵$\mathbf{Q}$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E5%90%91%E9%87%8F-mathbf-b"><span class="nav-number">4.</span> <span class="nav-text">寻找向量$\mathbf{b}$</span></a></li></ol>
     </div>
-    
+</div>
 
-
-
+            </div>
+        
+    </div>
 </div>
 
 
@@ -314,6 +512,28 @@
 
     <!-- post tools -->
     
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
 
     <!-- side tools -->
     <div class="side-tools">
@@ -340,6 +560,10 @@
     </ul>
 
     <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
         
 
         
@@ -397,6 +621,17 @@
 
     <!-- tablet toc -->
     
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">解法概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">数据中心化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5-mathbf-Q"><span class="nav-number">3.</span> <span class="nav-text">寻找最优旋转矩阵$\mathbf{Q}$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E5%90%91%E9%87%8F-mathbf-b"><span class="nav-number">4.</span> <span class="nav-text">寻找向量$\mathbf{b}$</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
 </main>
 
 
@@ -414,10 +649,24 @@
 
 <div class="pjax">
     
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/post/share.min.js"></script>
+        
+    
 
     <!-- categories page -->
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/page/category-page.min.js"></script>
     
 
     <!-- links page -->
