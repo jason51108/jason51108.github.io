@@ -9,7 +9,7 @@
     
     <title>
         
-            求和向量和中心化矩阵 |
+            广义线性模型(Generalized Linear Model) |
         
         Brainiaccc&#39;blog
     </title>
@@ -231,7 +231,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        求和向量和中心化矩阵
+                        广义线性模型(Generalized Linear Model)
                     </div>
                 
 
@@ -257,12 +257,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-03-28 20:49:47</span>
+                <span class="datetime">2024-04-10 16:57:29</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Mar 31 2024 12:33:59 GMT+0800">2024-03-31 12:33:59</span>
+                <span class="datetime" data-updated="Wed Apr 10 2024 21:47:29 GMT+0800">2024-04-10 21:47:29</span>
             </span>
         
 
@@ -270,7 +270,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="category-item"><a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li>
                         
                     
                 </ul>
@@ -281,10 +281,10 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">广义线性模型</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5/">中心化矩阵</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%8C%87%E6%95%B0%E6%97%8F/">指数族</a></li>
                         
                     
                 </ul>
@@ -308,39 +308,97 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <h2 id="求和向量"><a href="#求和向量" class="headerlink" title="求和向量"></a><strong>求和向量</strong></h2><p>所有元素等于1 的向量称为求和向量（summuing vector）。记为$\mathbf{1}=[1,1,\cdots,1]^{\mathbf{T}}$。求和向量$\mathbf{1}=[1,1,\cdots,1]^{\mathbf{T}}$之所以称为求和向量，是因为$n$ 个标量的求和都可以表示为求和向量与另外一个向量之间的内积。</p>
-<p>求和向量与自己的内积是一个等于该向量维数的标量，即有：</p>
+                    <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在刚接触回归分析的时候，通常会遇到两类回归模型：<strong>线性回归模型和逻辑回归模型</strong></p>
+<ul>
+<li><p>线性回归模型</p>
+<center>
+    <img   style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+      src="https://github.com/jason51108/picx-images-hosting/raw/master/Probability-theory/线性回归模型.2dohat80yx.webp"  >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">二维情况下的线性回归模型</div>
+</center>
+
+</li>
+</ul>
+<p>这种回归模型的公式一般是：</p>
 <script type="math/tex; mode=display">
-1_n^\text{T}1_n=n</script><p>求和向量之间的外积是一个所有元素为1 的矩阵，例如：</p>
-<script type="math/tex; mode=display">
-\mathbf{1}_2\mathbf{1}_3^\mathrm{T}=\begin{bmatrix}1\\1\end{bmatrix}[1,1,1]=\begin{bmatrix}1&1&1\\1&1&1\end{bmatrix}=\boldsymbol{J}_{2\times3}</script><p>更一般地，有：$\mathbf{1}_{p}\mathbf{1}_{\mathbf{q}}^{\mathrm{T}}=J_{\boldsymbol{p}\times\boldsymbol{q}}$</p>
-<p><strong>中心化矩阵</strong></p>
-<p>矩阵$C_n=I_n-\overline{J}_n=I_n-\frac1nJ_n$称为中心化矩阵（centering matrix）。</p>
-<p>容易验证，中心化矩阵既是对称矩阵，又是幂等矩阵，即有：</p>
-<script type="math/tex; mode=display">
-C_n=C_n^\mathrm{T}=C_n^2</script><p>此外，中心化矩阵还具有以下特性：</p>
-<script type="math/tex; mode=display">
-\left\{\left.
-\begin{array}{c}
-C_n1=0\\C_nJ_n=J_nC_n=0
-\end{array}\right.\right.</script><p>首先，一组数据$x_1,\ldots,x_n$的均值可以用求和向量表示，即有：</p>
-<script type="math/tex; mode=display">
-\overline{x}=\frac{1}{n}\sum_{i=1}^nx_i=\frac{1}{n}(x_1+\cdots+x_n)=\frac{1}{n}x^\mathrm{T}\mathbf{1}=\frac{1}{n}\mathbf{1}^\mathrm{T}x</script><p>式中，$\boldsymbol{x}=[x_1,\cdots,x_n]^\mathbf{T}$为数据向量。</p>
-<p>其次，利用中心化矩阵的定义式及其性质公式，可以得到：</p>
+y = \theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n</script><p>其中，$\mathbf{x}=(x_1,x_2,\cdots,x_n)$为观测向量，$\mathbf{\theta}=(\theta_1,\theta_2,\cdots,\theta_n)$为待估参数</p>
+<ul>
+<li>逻辑回归模型</li>
+</ul>
+<center>
+    <img   style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+      src="https://github.com/jason51108/picx-images-hosting/raw/master/Probability-theory/逻辑回归模型.4uappqey41.webp"  >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">二维情况下的逻辑回归模型</div>
+</center>
+
+<p>逻辑回归模型的公式为：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
-&=\left[x_{1}-\overline{x},\cdots,x_{n}-\overline{x}\right]^{\mathrm{T}}
-\end{aligned}</script><p>换言之，矩阵$\mathbf{C}$对数据向量$\mathbf{x}$的线性变换$\mathbf{Cx}$是原数据向量的各个元素减去$n$个数据的均值的结果。这就是中心化矩阵的数学含义所在。</p>
-<p>此外，如果求向量$\mathbf{Cx}$​的内积，则有</p>
+y = \sigma(\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n), \quad\text{其中}\sigma(x) = \frac{1}{1+e^{-x}}
+
+\end{aligned}</script><p>以上两种回归模型，是否有可能统一到一种更加抽象的模型中？这两种形式完全不一样的模型，是不是只是某种更加广义的模型的特例？答案是肯定的，这种广义的模型被称为广义线性模型(Generalized Linear Model)，以下简称为GLM，而常见的回归模型、逻辑回归和Possion回归模型等都是GLM的特例。基于广义模型的视角，我们便能明白为什么在逻辑回归中是采用sigmoid函数。</p>
+<h2 id="广义线性模型的定义"><a href="#广义线性模型的定义" class="headerlink" title="广义线性模型的定义"></a>广义线性模型的定义</h2><p>广义线性模型建立在三个定义的基础上，分别为：</p>
+<ul>
+<li><p>定义线性预测算子</p>
+<script type="math/tex; mode=display">
+m = \mathbf{\theta}^\top\mathbf{x}</script></li>
+<li><p>定义$y $​的估计值</p>
+<script type="math/tex; mode=display">
+h(x,\theta)=E(y|\mathbf{x},\mathbf{\theta})</script></li>
+<li><p>定义$ y$ 的估值概率分布属于某种指数分布族</p>
+<script type="math/tex; mode=display">
+p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y,\varphi\right)\right\}</script></li>
+</ul>
+<h3 id="定义一：线性预测算子"><a href="#定义一：线性预测算子" class="headerlink" title="定义一：线性预测算子"></a>定义一：线性预测算子</h3><p>广义线性模型的名字中有<strong>线性</strong>两个字，自然它包含了线性计算的过程，也就是它的假设之一，定义线性预测算子(linear predictor)为：</p>
+<script type="math/tex; mode=display">
+m = \mathbf{\theta}^\top\mathbf{x}</script><p>这里的$\theta$和$\mathbf{x}$都表示向量，写成标量形式就是：</p>
+<script type="math/tex; mode=display">
+m=\theta_0x_0+\theta_1x_1+\cdots+\theta_nx_n</script><h3 id="定义二：期望估计"><a href="#定义二：期望估计" class="headerlink" title="定义二：期望估计"></a>定义二：期望估计</h3><p>如果以概率论的方式解释回归（regression）这一过程，我们可以把通过给定的自变量 $x$ ，和相关的线性参数$\theta$估计因变量 y 的过程。 理解为求解条件概率$p(y\mid \mathbf{x},\mathbf{\theta})$的过程。 也就是在给定了$m = \mathbf{\theta}^\top\mathbf{x}$的条件下，求解因变量 $y$ 的概率分布曲线。 然后，计算这个概率分布的期望值$E(y\mid \mathbf{x},\mathbf{\theta})$ ，作为 $y $的估计值，同时这个概率分布的方差$Var(y|\mathbf{x},\mathbf{\theta})$作为$y$的估计值的方差。</p>
+<h3 id="定义三：指数分布族"><a href="#定义三：指数分布族" class="headerlink" title="定义三：指数分布族"></a>定义三：指数分布族</h3><p>在毫无头绪的情况下，要求解$p(y\mid \mathbf{x},\mathbf{\theta})$的具体表达式是不太行的。因此广义线性模型做出假设$p(y\mid \mathbf{x},\mathbf{\theta})$的概率分布服从如下的形式：</p>
+<script type="math/tex; mode=display">
+p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y,\varphi\right)\right\}</script><p>其中，$m = \mathbf{\theta}^\top\mathbf{x}$被称为<strong>自然参数(natural parameter)</strong>，$\varphi$为<strong>讨厌参数(dispersion parameter )</strong>，函数$b(m)$和$c\left(y,\varphi\right)$为预先知道的函数。以下举出几个例子进行推导：</p>
+<ul>
+<li><p><strong>伯努利分布(Binomial model)</strong></p>
+<p>在这种情况下，$y \sim b(1,\gamma)$，其概率为$p(y\mid\gamma)=\gamma^{y}\left({1-\gamma}\right)^{1-y}$，令$m=\log (\gamma/{1-\gamma})$带入上式条件概率有：$p\left(y\mid m\right)=\exp\{y_{ij}m-\log\left(1+e^{m}\right)\}$，此时就写成了指数族的这种形式。$\varphi=1$，$b(m) = \log\left(1+e^{m}\right)\}$ 以及 $c(y,\varphi)=1$。</p>
+</li>
+<li><p><strong>泊松分布( Poisson model)</strong></p>
+<p>此时，$y \sim possion(\gamma)$，概率$p(y\mid \gamma)=e^{-\gamma}\gamma^{y}/y! =\exp\{y\log \gamma - \gamma - \log (y!)\}$，令$m=\log \gamma$ 带入上式有$p(y\mid m) = \exp\{ym - e^{m} -\log (y!)\}$，按照指数族分布的写法，有$\varphi=1$, $b(m)=e^{m}$ and $c(y,\varphi)=-\log(y!)$.</p>
+</li>
+<li><p><strong>正态分布(Normal model)</strong></p>
+<p>对于连续型随机变量 $y$， $\varphi$表示正态分布的方差，$b(m)=m^2/2$ and $c(y,\varphi)=-y^2/(2\varphi)-(\log (2\pi \varphi))/2$。</p>
+</li>
+</ul>
+<h4 id="指数族分布的期望"><a href="#指数族分布的期望" class="headerlink" title="指数族分布的期望"></a>指数族分布的期望</h4><script type="math/tex; mode=display">
+E(Y)=b^\prime(m)</script><p><strong>Proff</strong>：由于Score函数的期望为0，加上积分和求导可换序这两个条件可以很容易求出其期望</p>
+<script type="math/tex; mode=display">
+0=\frac{\partial}{\partial m}E\left[\log p\left(y|\theta,\varphi\right)\right]=E\left[\frac{\partial}{\partial m}\log p\left(y|m,\varphi\right)\right]=E\left[\frac{y-b^{\prime}\left(m\right)}{\varphi}\right]</script><h4 id="指数族分布的方差"><a href="#指数族分布的方差" class="headerlink" title="指数族分布的方差"></a>指数族分布的方差</h4><script type="math/tex; mode=display">
+Var\left(Y\right)=E[Y-b^{\prime}\left(m\right)]^2=\varphi b^{\prime\prime}\left(m\right).</script><p><strong>Proff</strong>：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-(C\boldsymbol{x})^{\mathrm{T}}C\boldsymbol{x}& =\left[\boldsymbol{x}_1-\overline{\boldsymbol{x}},\cdots,\boldsymbol{x}_n-\overline{\boldsymbol{x}}\right]\left[x_1-\overline{\boldsymbol{x}},\cdots,\boldsymbol{x}_n-\overline{\boldsymbol{x}}\right]^1  \\
-&=\sum_{i=1}^n\left(x_i-\overline{\boldsymbol{x}}\right)^2
-\end{aligned}</script><p>根据幂等矩阵和对称矩阵的性质可知$C^TC=CC=C$​，上式又可简化为</p>
-<script type="math/tex; mode=display">
-\boldsymbol{x^\mathrm{T}}\boldsymbol{Cx}=\sum_{i=1}^\mathbf{n}{\left(x_i-\overline{\boldsymbol{x}}\right)^2}</script><p>右式是我们熟悉的数据$x_1,\dots,x_n$的协方差。即是说，一组数据的协方差可以用该矩阵的中心化矩阵的二次型</p>
-<p>$\boldsymbol{x^\mathrm{T}}\boldsymbol{Cx}$。</p>
+E\biggl[\frac{y-b^{\prime}\left(m\right)}{\varphi}\biggr]^{2}=E\biggl(\frac{\partial}{\partial m}\mathrm{log}f\left(y|m,\varphi\right)\biggr)^{2} =E\left(\frac{\partial^{2}}{\partial m^{2}}\mathrm{log}f\left(y|m,\varphi\right)\right)=b^{\prime\prime}\left(m\right)/\varphi \\
+Var\left(Y\right)/\varphi^2 = b^{\prime\prime}\left(m\right)/\varphi\\
+Var\left(Y\right)=\varphi b^{\prime\prime}\left(m\right).
+\end{aligned}</script><h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><ul>
+<li><p>Binomial的期望为$b^\prime(m)=e^m/(1+e^m)=\gamma$，方差为$\varphi b^{\prime\prime}\left(m\right)=e^m/(1+e^m)\cdot 1/(1+e^m)=\gamma(1-\gamma)$</p>
+</li>
+<li><p>Poisson的期望为$b^\prime(m)=e^m=\gamma$，方差为$\varphi b^{\prime\prime}(m)=e^m=\gamma$</p>
+</li>
+<li>Normal的期望为$b^\prime(m)=m=\gamma$，方差为$\varphi b^{\prime\prime}(m)=\varphi$</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>GLM模型是形如$p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y,\varphi\right)\right\}$的模型，其中$m = \mathbf{\theta}^\top\mathbf{x}$是自变量的线性组合，conditional mean $E(y\mid \mathbf{x},\mathbf{\theta})$ 为概率密度函数的真实参数，即$b^\prime(m)$，因此在逻辑回归的情况下，sigmoid函数为$(1+e^x)/e^x$。在GLM中，他总能把$\mathbb{R}$通过合理的映射投影到真的概率分布参数上！例如：在possion中，我们都知道参数$\gamma \in (0,+\infty)$，GLM中把$m \in \mathbb{R}$通过$e^m$完美地投影到$(0,+\infty)$这个合理的区间上。</p>
+<blockquote>
+<p>注意：这个投影函数不一定为$b^\prime(m)$，当期望等于其参数的时候才成立。以上三者情况都是特例，如果是$\Gamma$分布的情况就不成立。</p>
+</blockquote>
 
                 </div>
                 
@@ -351,11 +409,11 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">广义线性模型</a>
                                     </li>
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5/">中心化矩阵</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%8C%87%E6%95%B0%E6%97%8F/">指数族</a>
                                     </li>
                                 
                             </ul>
@@ -394,31 +452,15 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/03/31/Hexo/Hexo-%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D/"
-                                   title="Hexo 备份和恢复"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Hexo 备份和恢复</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/03/08/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6/Latent%20Space%20Model/"
-                                   title="Latent Space Approaches to Social Network Analysis"
+                                   href="/2024/04/03/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/"
+                                   title="向量范数和矩阵范数"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Latent Space Approaches to Social Network Analysis</span>
+                                        <span class="post-nav-title-item text-ellipsis">向量范数和矩阵范数</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -431,6 +473,98 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
                 
 
                 
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initGitalk = () => {
+            let gitalkPathname = decodeURI(location.pathname)
+            const gitalkPathnameLength = gitalkPathname.length
+            const gitalkPathnameMaxLength = 50
+            if (gitalkPathnameLength > gitalkPathnameMaxLength) {
+              gitalkPathname = gitalkPathname.substring(0, gitalkPathnameMaxLength - 3) + '...'
+            }
+
+            if (window?.Gitalk) {
+              new Gitalk({
+                clientID: '7fcd8af2f0ac7c60cf9d',
+                clientSecret: 'a32278ac01922c5a3ba4f3185444c2fb56f5ff0a',
+                repo: 'jason51108.github.io',
+                owner: 'jason51108',
+                admin: 'jason51108',
+                id: gitalkPathname,
+                proxy: '',
+                language: 'en'
+              }).render('gitalk-container')
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initGitalk()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initGitalk()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initGitalk)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
             </div>
         </div>
 
@@ -438,7 +572,7 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E5%92%8C%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">求和向量</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">广义线性模型的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%EF%BC%9A%E7%BA%BF%E6%80%A7%E9%A2%84%E6%B5%8B%E7%AE%97%E5%AD%90"><span class="nav-number">2.1.</span> <span class="nav-text">定义一：线性预测算子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%BA%8C%EF%BC%9A%E6%9C%9F%E6%9C%9B%E4%BC%B0%E8%AE%A1"><span class="nav-number">2.2.</span> <span class="nav-text">定义二：期望估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%89%EF%BC%9A%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F"><span class="nav-number">2.3.</span> <span class="nav-text">定义三：指数分布族</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E6%97%8F%E5%88%86%E5%B8%83%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">2.3.1.</span> <span class="nav-text">指数族分布的期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E6%97%8F%E5%88%86%E5%B8%83%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">2.3.2.</span> <span class="nav-text">指数族分布的方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">2.3.3.</span> <span class="nav-text">验证</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol>
     </div>
 </div>
 
@@ -517,6 +651,11 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
 
         <!-- PC go comment -->
         
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
 
         <!-- PC full screen -->
         <li class="tools-item flex-center full-screen">
@@ -568,6 +707,10 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
             </li>
         
 
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
         
 
         <li class="tools-item tool-toggle-show flex-center">
@@ -627,7 +770,7 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E5%92%8C%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">求和向量</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">广义线性模型的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%EF%BC%9A%E7%BA%BF%E6%80%A7%E9%A2%84%E6%B5%8B%E7%AE%97%E5%AD%90"><span class="nav-number">2.1.</span> <span class="nav-text">定义一：线性预测算子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%BA%8C%EF%BC%9A%E6%9C%9F%E6%9C%9B%E4%BC%B0%E8%AE%A1"><span class="nav-number">2.2.</span> <span class="nav-text">定义二：期望估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%89%EF%BC%9A%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83%E6%97%8F"><span class="nav-number">2.3.</span> <span class="nav-text">定义三：指数分布族</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E6%97%8F%E5%88%86%E5%B8%83%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">2.3.1.</span> <span class="nav-text">指数族分布的期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E6%97%8F%E5%88%86%E5%B8%83%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">2.3.2.</span> <span class="nav-text">指数族分布的方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">2.3.3.</span> <span class="nav-text">验证</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol>
     </div>
 </div>
 

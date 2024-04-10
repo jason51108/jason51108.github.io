@@ -9,7 +9,7 @@
     
     <title>
         
-            求和向量和中心化矩阵 |
+            实变函数(一)——集合论 |
         
         Brainiaccc&#39;blog
     </title>
@@ -231,7 +231,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        求和向量和中心化矩阵
+                        实变函数(一)——集合论
                     </div>
                 
 
@@ -257,12 +257,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-03-28 20:49:47</span>
+                <span class="datetime">2024-04-02 09:09:59</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Mar 31 2024 12:33:59 GMT+0800">2024-03-31 12:33:59</span>
+                <span class="datetime" data-updated="Wed Apr 10 2024 16:53:57 GMT+0800">2024-04-10 16:53:57</span>
             </span>
         
 
@@ -270,7 +270,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="category-item"><a href="/categories/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/">实变函数笔记</a></li>
                         
                     
                 </ul>
@@ -281,10 +281,10 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/">实变函数</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5/">中心化矩阵</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E9%9B%86%E5%90%88%E8%AE%BA/">集合论</a></li>
                         
                     
                 </ul>
@@ -308,39 +308,186 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <h2 id="求和向量"><a href="#求和向量" class="headerlink" title="求和向量"></a><strong>求和向量</strong></h2><p>所有元素等于1 的向量称为求和向量（summuing vector）。记为$\mathbf{1}=[1,1,\cdots,1]^{\mathbf{T}}$。求和向量$\mathbf{1}=[1,1,\cdots,1]^{\mathbf{T}}$之所以称为求和向量，是因为$n$ 个标量的求和都可以表示为求和向量与另外一个向量之间的内积。</p>
-<p>求和向量与自己的内积是一个等于该向量维数的标量，即有：</p>
+                    <h1 id="集合的初步概念"><a href="#集合的初步概念" class="headerlink" title="集合的初步概念"></a>集合的初步概念</h1><h2 id="集合的表示"><a href="#集合的表示" class="headerlink" title="集合的表示"></a>集合的表示</h2><ul>
+<li><p><strong>集合的定义</strong></p>
+<ol>
+<li>具有某种特性的不同对象(或事物)组成的整体称为<strong>集合</strong>，每个对象叫做该集合的<strong>元素</strong>。一般用大写字母$A,B,X,Y,\dots$表示集合，小写字母$a,b,x,y, \dots$表示集合的元素。</li>
+<li>如果$x$是集合$A$的元素，则称$x$属于$A$，记作$x \in A$；如果$x$不是集合$A$的元素，则称$x$不属于$A$,记作$x \notin A$。</li>
+</ol>
+</li>
+<li><p><strong>集合的表示</strong></p>
+<p><strong>列举法：</strong>把集合的元素全部列举出来，例如$A={a,b,c,\dots}$</p>
+<p><strong>描述法：</strong>用元素所满足的某种性质来描述，例如集合$A$由具有性质$P$的元素全体组成，则$A=\{x:x具有性质P\}$。</p>
+<p><strong>几个特殊的集合：</strong>自然数集$N$，整数集$Z$，有理数集$Q$，实数集$R$，复数集$C$，不含任何元素的集合称为空集，记为$\emptyset $，设$f(x)$是定义在集合$E$上的函数，称$f(E)=\{f(x):x \in E\}$为$f$的值域，若$D \in R$,则称$f^{-1}(D)=\{x:x\in E,f(x) \in D\}$为$D$的原像。</p>
+</li>
+<li><p><strong>集合间的关系：</strong></p>
+<ul>
+<li><strong>子集：</strong>设$A$，$B$是两个集合，如果对任意的$x \in A$，都有$x \in B$，则称$A$是$B$的子集。记为$A \subset B$或$B \supset A$。</li>
+<li><strong>真子集：</strong>$A$是$B$的子集，且$B$中至少有一个元素不属于$A$，则称$A$为$B$的真子集。</li>
+<li><strong>相等：</strong>如果$A \subset B$，且$B \subset A$则称$A$与$B$相等，记为$A=B$。</li>
+</ul>
+</li>
+</ul>
+<h2 id="集合的运算"><a href="#集合的运算" class="headerlink" title="集合的运算"></a>集合的运算</h2><ul>
+<li><p><strong>并集：</strong>由所有属于$A$或者属于$B$的元素组成的集合称为$A$和$B$​的并集</p>
 <script type="math/tex; mode=display">
-1_n^\text{T}1_n=n</script><p>求和向量之间的外积是一个所有元素为1 的矩阵，例如：</p>
+A\cup B=\{x|x\in A\text{ 或 }x\in B\}</script><p><strong>”无限并“：</strong>对于一族集合$\{A_\alpha\}_{\alpha\in\Lambda}$或$\{A_\alpha|\alpha\in\Lambda\}$（简称为集族），其中$\Lambda$为指标集，由<strong>一切</strong>$A_\alpha(\alpha\in\Lambda)$​的<strong>所有元素</strong>组成的集合称为该族集合的<strong>并集</strong></p>
 <script type="math/tex; mode=display">
-\mathbf{1}_2\mathbf{1}_3^\mathrm{T}=\begin{bmatrix}1\\1\end{bmatrix}[1,1,1]=\begin{bmatrix}1&1&1\\1&1&1\end{bmatrix}=\boldsymbol{J}_{2\times3}</script><p>更一般地，有：$\mathbf{1}_{p}\mathbf{1}_{\mathbf{q}}^{\mathrm{T}}=J_{\boldsymbol{p}\times\boldsymbol{q}}$</p>
-<p><strong>中心化矩阵</strong></p>
-<p>矩阵$C_n=I_n-\overline{J}_n=I_n-\frac1nJ_n$称为中心化矩阵（centering matrix）。</p>
-<p>容易验证，中心化矩阵既是对称矩阵，又是幂等矩阵，即有：</p>
+\bigcup_{\alpha\in\Lambda}A_\alpha=\{x{:}\exists\alpha\in\Lambda,s.t.x\in A_\alpha\}</script><p>当$\Lambda=\{1,2,\ldots,k\}$为<strong>有限集</strong>时，$\mathrm{A}=\cup_{\alpha\in\Lambda}A_\alpha $写成$A=\cup_{n=1}^kA_n$。</p>
+<p>当$\Lambda=N$时，集簇称为<strong>集列</strong>，记为$\{A_n\}_{\alpha\in\mathbb{N}}$，其并写成$A=\cup_{n\in N}A_n$或$A=\cup_{n=1}^\infty A_n$。</p>
+</li>
+</ul>
+<blockquote>
+<p>例：</p>
+<ol>
+<li>$(a,b)=\cup_{n=1}^\infty\left[a+\frac1n,b-\frac1n\right]$</li>
+<li>若记$\boldsymbol{Q}_n=\left\{\frac{m}{n}\colon m\in\mathbf{Z}\right\},\mathrm{n=1,2,\dots}$，则$Q=\cup_{n=1}^\infty Q_n$</li>
+<li>若$\{I_\alpha:\alpha\in\Lambda\}$是一族开区间，而$[a,b]\subset\cup_{\alpha\in\Lambda}I_\alpha$，则存在$\{\alpha_1,\alpha_2,\cdotp\cdotp\cdotp,\alpha_k\}\subset\Lambda $，使得$[a,b]\subset\cup_{i=1}^kI_{\alpha_i}$（有限覆盖定理）</li>
+</ol>
+</blockquote>
+<ul>
+<li><p><strong>交集：</strong>由所有既属于$A$又属于$B$的元素组成的集合称为$A$和$B$​的交集</p>
 <script type="math/tex; mode=display">
-C_n=C_n^\mathrm{T}=C_n^2</script><p>此外，中心化矩阵还具有以下特性：</p>
+A\cap B=\{x|x\in A\text{ 且 }x\in B\}</script><p><strong>”无限交“：</strong>对于一族集合$\{A_\alpha\}_{\alpha\in\Lambda}$或$\{A_\alpha|\alpha\in\Lambda\}$（简称为集族），由同时属于每个$A_\alpha(\alpha\in\Lambda)$​的<strong>所有元素</strong>组成的集合称为该集族的<strong>交集</strong></p>
 <script type="math/tex; mode=display">
-\left\{\left.
-\begin{array}{c}
-C_n1=0\\C_nJ_n=J_nC_n=0
-\end{array}\right.\right.</script><p>首先，一组数据$x_1,\ldots,x_n$的均值可以用求和向量表示，即有：</p>
+\bigcap_{\alpha\in I}A_\alpha=\{x{:}\forall\alpha\in\Lambda,\text{有}x\in A_\alpha\}</script><p>当$\Lambda=\{1,2,\ldots,k\}$为<strong>有限集</strong>时，$A=\bigcap_{\alpha\in\Lambda}A_\alpha$写成$A=\cap_{n=1}^kA_n$。</p>
+<p>当$\Lambda=N$时，集列$\{A_n\}_{\alpha\in\mathbb{N}}$的交为$A=\bigcap_{n\in N}A_{n}$或$A=\bigcap_{n=1}^{\infty}A_{n}$。</p>
+</li>
+<li><p><strong>差集与余集：</strong></p>
+<p><strong>差集：</strong>由所有属于$A$不属于$B$的元素组成的集合称为$A$和$B$​的差集。</p>
 <script type="math/tex; mode=display">
-\overline{x}=\frac{1}{n}\sum_{i=1}^nx_i=\frac{1}{n}(x_1+\cdots+x_n)=\frac{1}{n}x^\mathrm{T}\mathbf{1}=\frac{1}{n}\mathbf{1}^\mathrm{T}x</script><p>式中，$\boldsymbol{x}=[x_1,\cdots,x_n]^\mathbf{T}$为数据向量。</p>
-<p>其次，利用中心化矩阵的定义式及其性质公式，可以得到：</p>
+A-B\text{ 或 }A\backslash\mathcal{B}=\{x{:}x\in A\text{ 但 }x\notin B\}</script><p><strong>余集：</strong>设$A$是全集$S$的子集，则由属于$S$但不属于$A$的元素组成的集合称为$A$​的余集。</p>
+<script type="math/tex; mode=display">
+C_SA=S-A=\{x\colon x\in S\text{但}x\notin A\},\text{简记为}A^c</script><blockquote>
+<p>例：</p>
+<ol>
+<li><p>若$[a_n,b_n] \subset[a_{n-1},b_{n-1}], n = 1,2, \cdots$，且$\operatorname*{lim}_{n\rightarrow\infty}(b_{n}-a_{n})=0$，则存在唯一的$a \in R$，使得$a\in[a_n,b_n],n=1,2,\cdots$，即$\{a\}=\cap_{n=1}^\infty[a_n,b_n]$（闭区间套定理）</p>
+</li>
+<li><p>设$f(x)$定义在集合$E$上，且$S=E$，则</p>
+<script type="math/tex; mode=display">
+\{x{:}f(x)>a\}^c=\{x{:}f(x)\leq a\}</script></li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h2 id="集合的运算性质"><a href="#集合的运算性质" class="headerlink" title="集合的运算性质"></a>集合的运算性质</h2><ul>
+<li><strong>定理一</strong><ol>
+<li>$A\cup A=A,A\cap A=A$</li>
+<li>$A\cup\emptyset=A,A-\emptyset=A,A\cap\emptyset=\emptyset$</li>
+<li>$\text{若}A\subset B\text{,则}A\cap B=A,A\cup B=B$</li>
+<li>$\begin{aligned}A\cup B&amp;=B\cup A,A\cap B=B\cap A\end{aligned}$（交换律）</li>
+<li>$\begin{aligned}A\cup(B\cup C)&amp;=(A\cup B)\cup C\\A\cap(B\cap C)&amp;=(A\cap B)\cap C\end{aligned}$（结合律）</li>
+<li>$\begin{gathered}<br>A\cap(B\cup C)=(A\cap B)\cup(A\cap C) \\<br>A\cap(\cup_{\alpha\in\Lambda}B_\alpha)=\cup_{\alpha\in\Lambda}(A\cap B_\alpha).<br>\end{gathered}$（分配律）</li>
+</ol>
+</li>
+</ul>
+<!--集合运算的分配律在“无限并”的情况下仍然成立-->
+<ul>
+<li><p><strong>定理二：德摩根(De Morgan)公式</strong></p>
+<p>若$\{A_\alpha\colon\alpha\in\Lambda\}$是一族集合，则</p>
+<ol>
+<li>$(\cup_{\alpha\in\Lambda}A_\alpha)^c=\cap_{\alpha\in\Lambda}A_\alpha^c$</li>
+<li>$(\cap_{\alpha\in\Lambda}A_\alpha)^c=\cup_{\alpha\in\Lambda}A_\alpha^c$</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>例：</p>
+<ol>
+<li><p>设$\{f_n(x)\}$是定义在$E$上的函数列，若$x \in E$，则$\{f_n(x)\}$有界的充要条件是存在$M&gt;0$，使得对任意的$n$，$|f_n(x)|\leq M$</p>
+<p><strong>集合语言：</strong></p>
+<script type="math/tex; mode=display">
+\{x{:}\{f_n(x)\}\text{有界}\}=\bigcup_{M\in R^+}\bigcap_{n=1}^\infty\{x{:}|f_n(x)|\leq M\}</script><p><strong>由德摩根公式得</strong>：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
-&=\left[x_{1}-\overline{x},\cdots,x_{n}-\overline{x}\right]^{\mathrm{T}}
-\end{aligned}</script><p>换言之，矩阵$\mathbf{C}$对数据向量$\mathbf{x}$的线性变换$\mathbf{Cx}$是原数据向量的各个元素减去$n$个数据的均值的结果。这就是中心化矩阵的数学含义所在。</p>
-<p>此外，如果求向量$\mathbf{Cx}$​的内积，则有</p>
+&\{x{:}\{f_n(x)\}\text{无界}\} \\
+&=(\bigcup_{M\in R^+}\bigcap_{n=1}^\infty\{x{:}|f_n(x)|\leq M\})^c \\
+&=\bigcap_{M\in R^+}\bigcup_{n=1}^\infty\{x{:}|f_n(x)|>M\}
+\end{aligned}</script></li>
+<li><p>设$\{f_n(x)\}$是定义在$E$上的函数列，若$x$是使得$\{f_n(x)\}$收敛于0的点，则对任意$\varepsilon&gt;0$，存在$N\in\mathbb{N}$，使得对任意$n\geq N$，$|f_n(x)|&lt;\varepsilon $，即</p>
+<script type="math/tex; mode=display">
+\left\{x{:}\lim_{n\to\infty}f_n(x)=0\right\}=\bigcap_{\varepsilon\in\mathbb{R}}\bigcup_{N=1}^\infty\bigcap_{n=N}^\infty\{x{:}|f_n(x)|<\varepsilon\}</script><p><strong>由德摩根公式可得：</strong></p>
+<script type="math/tex; mode=display">
+\left\{x{:}\lim_{n\to\infty}f_n(x)\neq0\text{或不存在}\right\}=\bigcup_{\varepsilon\in\mathbb{R}^+}\bigcap_{N=1}^\infty\bigcup_{n=N}^\infty\{x{:}|f_n(x)|\geq\varepsilon\}</script></li>
+</ol>
+</blockquote>
+<h2 id="集合的上下极限"><a href="#集合的上下极限" class="headerlink" title="集合的上下极限"></a>集合的上下极限</h2><ul>
+<li><p><strong>上极限：</strong></p>
+<p>设$A_1,A_2,\dots,A_n,\dots$是一个集合序列，则由<strong>同时</strong>属于<strong>无限多个</strong>集合$A_i$的元素组成的集合称为该集列的<strong>上极限</strong>，记为$\operatorname{\overline{lim}}_{n\to\infty}A_n$ 或$\operatorname{limsup}_{n\to\infty}A_n$</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-(C\boldsymbol{x})^{\mathrm{T}}C\boldsymbol{x}& =\left[\boldsymbol{x}_1-\overline{\boldsymbol{x}},\cdots,\boldsymbol{x}_n-\overline{\boldsymbol{x}}\right]\left[x_1-\overline{\boldsymbol{x}},\cdots,\boldsymbol{x}_n-\overline{\boldsymbol{x}}\right]^1  \\
-&=\sum_{i=1}^n\left(x_i-\overline{\boldsymbol{x}}\right)^2
-\end{aligned}</script><p>根据幂等矩阵和对称矩阵的性质可知$C^TC=CC=C$​，上式又可简化为</p>
+\overline{lim}_{n\rightarrow\infty}A_{n}& =\{x:x\text{属于无限多个集合}A_n\}  \\
+&=\{x{:}\forall N,\exists n\geq N,\text{使得}x\in A_n\} \\
+&=\cap_{N=1}^{\infty}\cup_{n=N}^{\infty}A_{n}
+\end{aligned}</script><blockquote>
+<p>因为是属于<strong>无限多个</strong>，只需要保证从某一项集合$A_n$开始，元素$x$都属于这项以后的集列，这与前面的有限项无关</p>
+</blockquote>
+</li>
+<li><p><strong>下极限：</strong></p>
+<p>设$A_1,A_2,\dots,A_n,\dots$是一个集合序列，<strong>除去有限个集合外，</strong>属于<strong>剩余的每个集合</strong>的元素全体所组成的集合称为该集列的<strong>下极限</strong>，记为$\operatorname*{\underline{lim}}_{n\to\infty}A_{n}$或$\operatorname{liminf}_{n\to\infty}A_{n}$</p>
 <script type="math/tex; mode=display">
-\boldsymbol{x^\mathrm{T}}\boldsymbol{Cx}=\sum_{i=1}^\mathbf{n}{\left(x_i-\overline{\boldsymbol{x}}\right)^2}</script><p>右式是我们熟悉的数据$x_1,\dots,x_n$的协方差。即是说，一组数据的协方差可以用该矩阵的中心化矩阵的二次型</p>
-<p>$\boldsymbol{x^\mathrm{T}}\boldsymbol{Cx}$。</p>
+\begin{aligned}
+\underline{lim}_{n\to\infty}A_{n}& =\{x{:\text{除去有限个集合外}} , x\text{属己剩余的每个}A_n\}  \\
+&=\{x{:}\exists N,\forall n\geq N,\text{有}x\in A_n\} \\
+&=\cup_{N=1}^{\infty}\cap_{\mathrm{n=N}}^{\infty}A_{n}
+\end{aligned}</script></li>
+</ul>
+<p><strong>注：</strong>$\underline{lim}_{n\to\infty}A_n\subset\overline{lim}_{n\to\infty}A_n$</p>
+<blockquote>
+<p>例：设$\{A_n\}$是如下点集，试确定$\{A_n\}$​的上极限和下极限。</p>
+<script type="math/tex; mode=display">
+A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0,1+\frac1{2m}\right],\quad m=1,2,3,\cdots</script><p>Poof：显然$[0,1]$中的每一点都属于$A_n,n=1,2,\dots,$对于$(1,2)$中的每一个点$x$，必存在正整数$N(x)$，使得当$m&gt;N(x)$时，$1 + \frac{1}{2m} &lt; x \leq 2-\frac{1}{2m+1}$，即当$m &gt; N(x)$，$x \notin A_{2m}$，但$x \in A_{2m+1}$。$[0,2)$以外的点都不属于任何$A_n$。因此$\operatorname{\overline{lim}}_{n\to\infty}A_n{=}[0,2),\operatorname{\underline{lim}}_{n\to\infty}A_n{=}[0,1]$</p>
+</blockquote>
+<h2 id="集合的收敛与极限"><a href="#集合的收敛与极限" class="headerlink" title="集合的收敛与极限"></a>集合的收敛与极限</h2><p><strong>定义：</strong>如果集列$\{A_n\}$的上极限和下极限相等，则称集列$\{A_n\}$是<strong>收敛</strong>的，称此共同的极限为该集列的<strong>极限集</strong></p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}A_n=\lim_{n\to\infty}A_n=\overline{\lim_{n\to\infty}}A_n=A</script><p><strong>定义：</strong>若集列$\{A_n\}$满足$A_{n}\subset A_{n+1}(\forall\text{n}\in N)$，则称$\{A_n\}$为单调增加集列；若它满足$A_{n}\supset A_{n+1}(\forall\text{n}\in N)$，则称其为单调减少集列</p>
+<p><strong>定理：</strong></p>
+<ul>
+<li>若$\{A_n\}$单调增加，则${lim}_{n\to\infty}A_n=\cup_{n=1}^{\infty}A_n$</li>
+<li>若$\{A_n\}$单调递减，则${lim}_{n\to\infty}A_n=\cap_{n=1}^\infty A_n$</li>
+</ul>
+<h2 id="集合的直积"><a href="#集合的直积" class="headerlink" title="集合的直积"></a>集合的直积</h2><p>$A\times B=\{(a,b){:}a\in A,b\in B\}$称为集合A和B的直积</p>
+<ul>
+<li>$\prod_{i=1}^nA_i=\{(x_1,x_2,…,x_n){:}x_i\in A_i,i=1{,}2,…,n\}$称为集合$A_i(\mathrm{i}=1,2,\ldots,\mathrm{n})$的直积</li>
+<li>$\prod_{i=1}^\infty A_i=\{(x_1,x_2,\ldots,x_n,\ldots){:}x_i\in A_i,i=1{,}2,\ldots,n,\ldots\}$称为集合$A_{i}(\mathrm{i}=1,2,\ldots,\mathrm{n},\ldots)$的直积</li>
+</ul>
+<h1 id="集合的对等与基数"><a href="#集合的对等与基数" class="headerlink" title="集合的对等与基数"></a>集合的对等与基数</h1><p>本节主要研究集合中元素的“个数”的多少。</p>
+<ul>
+<li>有限集：空集与只含有有限多个元素的集合</li>
+<li>无限集：不是有限集的集合</li>
+</ul>
+<p>有限集元素个数←→数数    $A=\{a_{1},a_{2},…a_{n}\}\longrightarrow\{1,2,…,n\}$</p>
+<p>非空有限集$A$和$B$的元素个数相同$\leftrightarrow$和正整数列的同一截断一一对应$\leftrightarrow$ $A$和$B$彼此一一对应</p>
+<blockquote>
+<p>假设教室里每个人都有一个座位，而且每个座位上都有且只有一个人，不需要去数座位个数和人数我们很容易知道它们是否是相同的。虽然这只针对有限集，但一一对应的思想很容易推广到无限集合。</p>
+</blockquote>
+<p>无限集元素个数←→一一对应 </p>
+<p>以上只是一个朴素的说明，接下来严格给出映射和一一对应的概念</p>
+<hr>
+<p><strong>映射：</strong></p>
+<ul>
+<li><p><strong>定义：</strong>设$A$，$B$是两个非空集合，若依照对应法则$\varphi$，使对每个$x \in A$，均存在唯一确定的$y \in B$与之对应，则称这个对应法则$\varphi$是从$A$到$B$的一个映射，记作$\varphi:A \rightarrow B$，$y$称为$x$在映射$\varphi$下的像，记作$y=\varphi(x)$</p>
+</li>
+<li><p><strong>单射：</strong>对任意的$x,y \in A$，若$\varphi(A)=\varphi(B)$，则$x=y$</p>
+</li>
+<li><p><strong>满射：</strong>对任意的$y \in B$，存在$x \in A$，使得$\varphi(x)=y$</p>
+</li>
+<li><p><strong>一一映射：</strong>既是单射又是满射</p>
+</li>
+</ul>
+<p><strong>集合的对等</strong></p>
+<ul>
+<li><strong>定义：</strong>设$A$，$B$是两非空集合，若存在$A$到$B$的一一映射$\varphi$，则称$A$与$B$对等，记为$A \sim B$</li>
+<li><strong>定理一：</strong>对任意集合$A$，$B$，$C$，均有<ol>
+<li>自反性：$A \sim A$</li>
+<li>对称性：若$A \sim B$，则$B \sim A$</li>
+<li>传递性：若$A \sim B$，$B \sim C$，则$A \sim C$</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>例1：设$A$与$B$是两个同心圆周，则$A \sim B$.</p>
+</blockquote>
 
                 </div>
                 
@@ -351,11 +498,11 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/">实变函数</a>
                                     </li>
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5/">中心化矩阵</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E9%9B%86%E5%90%88%E8%AE%BA/">集合论</a>
                                     </li>
                                 
                             </ul>
@@ -397,14 +544,14 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/03/31/Hexo/Hexo-%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D/"
-                                   title="Hexo 备份和恢复"
+                                   href="/2024/04/02/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(0)-%E7%BB%AA%E8%AE%BA/"
+                                   title="实变函数——实变函数引论"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Hexo 备份和恢复</span>
+                                        <span class="post-nav-title-item text-ellipsis">实变函数——实变函数引论</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -414,11 +561,11 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/03/08/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6/Latent%20Space%20Model/"
-                                   title="Latent Space Approaches to Social Network Analysis"
+                                   href="/2024/03/31/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%AF%BB%E6%89%BE%E4%B8%A4%E5%90%91%E9%87%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2/"
+                                   title="寻找两向量之间的最优旋转变换"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Latent Space Approaches to Social Network Analysis</span>
+                                        <span class="post-nav-title-item text-ellipsis">寻找两向量之间的最优旋转变换</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -438,7 +585,7 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E5%92%8C%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">求和向量</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9D%E6%AD%A5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">集合的初步概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">集合的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">集合的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">集合的运算性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%9E%81%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">集合的上下极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9E%81%E9%99%90"><span class="nav-number">1.5.</span> <span class="nav-text">集合的收敛与极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E7%9B%B4%E7%A7%AF"><span class="nav-number">1.6.</span> <span class="nav-text">集合的直积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89%E4%B8%8E%E5%9F%BA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">集合的对等与基数</span></a></li></ol>
     </div>
 </div>
 
@@ -627,7 +774,7 @@ C_{x}& =x-\overline{J}x=x-\frac1n11^\mathrm{T}x=x-\overline{x}1  \\
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E5%92%8C%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">求和向量</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9D%E6%AD%A5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">集合的初步概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">集合的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">集合的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">集合的运算性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%9E%81%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">集合的上下极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9E%81%E9%99%90"><span class="nav-number">1.5.</span> <span class="nav-text">集合的收敛与极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E7%9B%B4%E7%A7%AF"><span class="nav-number">1.6.</span> <span class="nav-text">集合的直积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89%E4%B8%8E%E5%9F%BA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">集合的对等与基数</span></a></li></ol>
     </div>
 </div>
 
