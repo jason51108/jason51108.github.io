@@ -9,7 +9,7 @@
     
     <title>
         
-            向量范数和矩阵范数 |
+            Python类继承 |
         
         Brainiaccc&#39;blog
     </title>
@@ -231,7 +231,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        向量范数和矩阵范数
+                        Python类继承
                     </div>
                 
 
@@ -257,12 +257,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-04-03 14:22:06</span>
+                <span class="datetime">2024-04-11 12:50:42</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed Apr 03 2024 19:36:48 GMT+0800">2024-04-03 19:36:48</span>
+                <span class="datetime" data-updated="Thu Apr 11 2024 12:53:03 GMT+0800">2024-04-11 12:53:03</span>
             </span>
         
 
@@ -270,7 +270,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="category-item"><a href="/categories/python/">python</a></li>
                         
                     
                 </ul>
@@ -281,10 +281,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E8%8C%83%E6%95%B0/">范数</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%B1%BB-%E7%BB%A7%E6%89%BF-python/">-类 -继承 -python</a></li>
                         
                     
                 </ul>
@@ -308,52 +305,16 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <p>本文参考《矩阵分析与应用》（第二版）（张贤达）</p>
-<h2 id="向量范数"><a href="#向量范数" class="headerlink" title="向量范数"></a>向量范数</h2><ul>
-<li><p>$L_0$​范数(也称0范数)</p>
-<script type="math/tex; mode=display">
-\|x\|_0 := 非零元素的个数</script></li>
-<li><p>$L_1$​范数(也称和范数或1范数)</p>
-<script type="math/tex; mode=display">
-\|x\| := \sum_{i=1}^m|x_i|=|x_1|+\cdots+|x_m|</script></li>
-<li><p>$L_2$​范数(常称Euclidean范数，有时也称Frobenius范数)</p>
-<script type="math/tex; mode=display">
-\|x\|_2=\left(|x_1|^2+\cdots+|x_m|^2\right)^{1/2}</script></li>
-<li><p>$L_{\infty}$​范数(也称无穷范数或极大范数)</p>
-<script type="math/tex; mode=display">
-\|x\|_\infty=\max\{|x_1|,\cdots,|x_m|\}</script></li>
-</ul>
-<blockquote>
-<p>严格上讲，$L_0$范数不满足范数公理中的齐次性，即$\forall \mathbf{x} \in \mathbf{X}, \alpha \in K, |\alpha \mathbf{x}|=\alpha|\mathbf{x}|$，它是一种虚拟的范数，然而，$L_0$范数在稀疏向量与稀疏表示中却起着关键的作用。</p>
-</blockquote>
-<h2 id="矩阵范数"><a href="#矩阵范数" class="headerlink" title="矩阵范数"></a>矩阵范数</h2><p>矩阵范数主要有<strong>三种</strong>类型：诱导范数、元素形式范数和Schatten范数</p>
-<ul>
-<li><p><strong>诱导范数</strong></p>
-<p>待补充……</p>
-</li>
-<li><p><strong>元素范数</strong></p>
-<p>将$m \times n$矩阵先按照列堆栈的形式，排列成一个$mn \times 1$​向量，然后采用向量的范数定义，即得到矩阵的范数。由于这类范数是使用矩阵的元素表示的，故称为元素形式范数。定义如下</p>
-<script type="math/tex; mode=display">
-||x||_p=\left(\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^p\right)^{\frac1p}</script><p>以下是三种典型的元素形式$p$范数</p>
-<ol>
-<li><p>$L_1$范数（和范数）(p=1)</p>
-<script type="math/tex; mode=display">
-\|A\|_1=\sum_{i=1}^{m}\sum_{j=1}^{n}|a_{ij}|</script></li>
-<li><p>Frobenius范数</p>
-<script type="math/tex; mode=display">
-\|A\|_F=(\sum_{i=1}^{m}\sum_{j=1}^{n}|a_{ij}|^2)^{\frac{1}{2}}</script><p>Fronebius范数可以写成矩阵迹的形式：</p>
-<script type="math/tex; mode=display">
-\|A\|_F=\sqrt{tr(A^\top A)}</script></li>
-<li><p>最大范数，定义为</p>
-<script type="math/tex; mode=display">
-\left|\left|x\right|\right|_p=\max\left\{\left|a_{ij}\right|\right\},i=1,\cdots,m;j=1,\cdots,n</script></li>
-</ol>
-<p>元素范数中通常还有一种范数，称为二到无穷范数，假设$\mathbf{X}=(x_{ij})_{n\times m}$，$[n]:=\{1,\cdots,n\}$，$[m]:=\{1,\cdots,m\}$，$|\mathbf{X}|_{2\to\infty}=\max_{i\in[n]}(\sum_{j\in[p]}x_{ij}^2)^{1/2}$。通俗来说就是先对矩阵的每一行求出行向量的二范数，进行这步后原矩阵压缩为一个列向量，然后对这个列向量求无穷范数。感觉不算很正式的定义，因此需要用符号$:=$或$\overline{def}$进行定义说明。</p>
-</li>
-<li><p><strong>Schatten范数</strong></p>
-<p>待补充……</p>
-</li>
-</ul>
+                    <p>python如果我们想要继承一个类的方法，并且不改当前类，我们可以新建一个子类，来继续他的方法</p>
+<p>1、类的继承，我们先来创建一个Animal的父类，我们再来创建一个dog的子类，dog子类继承父类Animal的方法，但是里面没有执行任何代码，这时我们初始化一下dog子类为dog_1，记得也要传入身高还有体重，不然会报错我们可以发现dog_1继承了Animal里面的属性及方法。直接输出一下及调用一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, weight, high</span>):</span><br><span class="line">        self.weight = weight</span><br><span class="line">        self.high = high</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">shout</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;wow&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">dog_1 = Dog(<span class="number">20</span>,<span class="number">40</span>)</span><br><span class="line"><span class="built_in">print</span>(dog_1.high)</span><br><span class="line"><span class="built_in">print</span>(dog_1.weight)</span><br><span class="line">dog_1.shout()</span><br><span class="line"><span class="comment">#输出内容是</span></span><br><span class="line"><span class="number">40</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line">wow</span><br></pre></td></tr></table></figure>
+<p>2、子类的方法的添加，我们同样可以在dog这个子类里添加新的方法，比如我们添加一个run的方法，再初始化一下dog_1，你会发现dog_1也会有run这个方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;running&#x27;</span>)</span><br><span class="line"></span><br><span class="line">dog_1 = Dog(<span class="number">20</span>,<span class="number">40</span>)</span><br><span class="line">dog_1.run()</span><br><span class="line"><span class="comment">#输出结果是</span></span><br><span class="line">running</span><br></pre></td></tr></table></figure>
+<p>3、子类的方法的覆盖，我们再添加一个子类Cat，同样继承Animal，但是你发现Cat不是wow这样叫的，所以我们要重新定义一下shout函数，把父类Animal里的函数覆盖掉。这时我们初始化cat_1调用Cat子类，记得要传入体重和身高，不然会报错，然后调用shout方法，你会发现输出的内容是miao，因为子类里的函数把父类里的函数覆盖掉了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">shout</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;miao&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cat_1 = Cat(<span class="number">20</span>, <span class="number">40</span>)</span><br><span class="line">cat_1.shout()</span><br><span class="line"><span class="comment">#输出结果是</span></span><br><span class="line">miao</span><br></pre></td></tr></table></figure>
+<p>4、子类的属性的添加，及继续父类的属性，如果这时我们要给Cat加一个属性color，同样用__init__来定义属性，但是我们要用super()来继承父类里的weight和high，color 属性的性，同样用self.color赋值，这样我们用cat_2初始化Cat类的时候就要传入三个参数，我们输出一个cat_2.color，可以看到是正常调用的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, weight, high, color</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(weight, high)</span><br><span class="line">        self.color = color</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">shout</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;miao&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cat_2 = Cat(<span class="number">20</span>, <span class="number">40</span>, <span class="string">&#x27;yellow&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(cat_2.color)</span><br><span class="line"><span class="comment">#输出结果是</span></span><br><span class="line">yellow</span><br></pre></td></tr></table></figure>
+<p>这样子看到神经网络中常见的代码框架就不奇怪了，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LogisticRegressionModel</span> (torch.nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span> (self):</span><br><span class="line">        <span class="built_in">super</span>(LogisticRegressionModel,self).__init__() <span class="comment">#从nn.Module类中继承所有初始化属性，并再基础上添加了self.linear属性</span></span><br><span class="line">        self.linear = torch.nn.Linear(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">        y_pred = F.sigmoid(self.linear(x))</span><br><span class="line">        <span class="keyword">return</span> y_pred</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 
                 </div>
                 
@@ -364,11 +325,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E8%8C%83%E6%95%B0/">范数</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%B1%BB-%E7%BB%A7%E6%89%BF-python/">-类 -继承 -python</a>
                                     </li>
                                 
                             </ul>
@@ -407,31 +364,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/04/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"
-                                   title="广义线性模型(Generalized Linear Model)"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">广义线性模型(Generalized Linear Model)</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/04/02/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(1)-%E9%9B%86%E5%90%88%E8%AE%BA/"
-                                   title="实变函数(一)——集合论"
+                                   href="/2024/04/11/Python/Python%E8%A3%85%E9%A5%B0%E5%99%A8/"
+                                   title="Python装饰器"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">实变函数(一)——集合论</span>
+                                        <span class="post-nav-title-item text-ellipsis">Python装饰器</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -444,6 +385,98 @@
                 
 
                 
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initGitalk = () => {
+            let gitalkPathname = decodeURI(location.pathname)
+            const gitalkPathnameLength = gitalkPathname.length
+            const gitalkPathnameMaxLength = 50
+            if (gitalkPathnameLength > gitalkPathnameMaxLength) {
+              gitalkPathname = gitalkPathname.substring(0, gitalkPathnameMaxLength - 3) + '...'
+            }
+
+            if (window?.Gitalk) {
+              new Gitalk({
+                clientID: '7fcd8af2f0ac7c60cf9d',
+                clientSecret: 'a32278ac01922c5a3ba4f3185444c2fb56f5ff0a',
+                repo: 'jason51108.github.io',
+                owner: 'jason51108',
+                admin: 'jason51108',
+                id: gitalkPathname,
+                proxy: '',
+                language: 'en'
+              }).render('gitalk-container')
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initGitalk()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initGitalk()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initGitalk)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
             </div>
         </div>
 
@@ -451,7 +484,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">向量范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">矩阵范数</span></a></li></ol>
+        
     </div>
 </div>
 
@@ -530,6 +563,11 @@
 
         <!-- PC go comment -->
         
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
 
         <!-- PC full screen -->
         <li class="tools-item flex-center full-screen">
@@ -581,6 +619,10 @@
             </li>
         
 
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
         
 
         <li class="tools-item tool-toggle-show flex-center">
@@ -640,7 +682,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">向量范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">矩阵范数</span></a></li></ol>
+        
     </div>
 </div>
 

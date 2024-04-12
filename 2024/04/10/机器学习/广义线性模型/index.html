@@ -262,7 +262,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed Apr 10 2024 21:47:29 GMT+0800">2024-04-10 21:47:29</span>
+                <span class="datetime" data-updated="Thu Apr 11 2024 11:55:27 GMT+0800">2024-04-11 11:55:27</span>
             </span>
         
 
@@ -308,7 +308,7 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在刚接触回归分析的时候，通常会遇到两类回归模型：<strong>线性回归模型和逻辑回归模型</strong></p>
+                    <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在刚接触回归分析的时候，通常会遇到两类回归模型：<strong>线性回归模型(Linear regression)和逻辑回归模型(Logistic regression)</strong></p>
 <ul>
 <li><p>线性回归模型</p>
 <center>
@@ -363,7 +363,7 @@ p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y
 <script type="math/tex; mode=display">
 m = \mathbf{\theta}^\top\mathbf{x}</script><p>这里的$\theta$和$\mathbf{x}$都表示向量，写成标量形式就是：</p>
 <script type="math/tex; mode=display">
-m=\theta_0x_0+\theta_1x_1+\cdots+\theta_nx_n</script><h3 id="定义二：期望估计"><a href="#定义二：期望估计" class="headerlink" title="定义二：期望估计"></a>定义二：期望估计</h3><p>如果以概率论的方式解释回归（regression）这一过程，我们可以把通过给定的自变量 $x$ ，和相关的线性参数$\theta$估计因变量 y 的过程。 理解为求解条件概率$p(y\mid \mathbf{x},\mathbf{\theta})$的过程。 也就是在给定了$m = \mathbf{\theta}^\top\mathbf{x}$的条件下，求解因变量 $y$ 的概率分布曲线。 然后，计算这个概率分布的期望值$E(y\mid \mathbf{x},\mathbf{\theta})$ ，作为 $y $的估计值，同时这个概率分布的方差$Var(y|\mathbf{x},\mathbf{\theta})$作为$y$的估计值的方差。</p>
+m=\theta_0x_0+\theta_1x_1+\cdots+\theta_nx_n</script><h3 id="定义二：期望估计"><a href="#定义二：期望估计" class="headerlink" title="定义二：期望估计"></a>定义二：期望估计</h3><p>如果以概率论的方式解释回归(regression)这一过程，我们可以把通过给定的自变量 $x$ ，和相关的线性参数$\theta$估计因变量 y 的过程。 理解为求解条件概率$p(y\mid \mathbf{x},\mathbf{\theta})$的过程。 也就是在给定了$m = \mathbf{\theta}^\top\mathbf{x}$的条件下，求解因变量 $y$ 的概率分布曲线。 然后，计算这个概率分布的期望值$E(y\mid \mathbf{x},\mathbf{\theta})$ ，作为 $y $的估计值，同时这个概率分布的方差$Var(y|\mathbf{x},\mathbf{\theta})$作为$y$的估计值的方差。</p>
 <h3 id="定义三：指数分布族"><a href="#定义三：指数分布族" class="headerlink" title="定义三：指数分布族"></a>定义三：指数分布族</h3><p>在毫无头绪的情况下，要求解$p(y\mid \mathbf{x},\mathbf{\theta})$的具体表达式是不太行的。因此广义线性模型做出假设$p(y\mid \mathbf{x},\mathbf{\theta})$的概率分布服从如下的形式：</p>
 <script type="math/tex; mode=display">
 p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y,\varphi\right)\right\}</script><p>其中，$m = \mathbf{\theta}^\top\mathbf{x}$被称为<strong>自然参数(natural parameter)</strong>，$\varphi$为<strong>讨厌参数(dispersion parameter )</strong>，函数$b(m)$和$c\left(y,\varphi\right)$为预先知道的函数。以下举出几个例子进行推导：</p>
@@ -395,7 +395,7 @@ Var\left(Y\right)=\varphi b^{\prime\prime}\left(m\right).
 </li>
 <li>Normal的期望为$b^\prime(m)=m=\gamma$，方差为$\varphi b^{\prime\prime}(m)=\varphi$</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>GLM模型是形如$p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y,\varphi\right)\right\}$的模型，其中$m = \mathbf{\theta}^\top\mathbf{x}$是自变量的线性组合，conditional mean $E(y\mid \mathbf{x},\mathbf{\theta})$ 为概率密度函数的真实参数，即$b^\prime(m)$，因此在逻辑回归的情况下，sigmoid函数为$(1+e^x)/e^x$。在GLM中，他总能把$\mathbb{R}$通过合理的映射投影到真的概率分布参数上！例如：在possion中，我们都知道参数$\gamma \in (0,+\infty)$，GLM中把$m \in \mathbb{R}$通过$e^m$完美地投影到$(0,+\infty)$这个合理的区间上。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>GLM模型是形如$p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y,\varphi\right)\right\}$的模型，其中$m = \mathbf{\theta}^\top\mathbf{x}$是自变量的线性组合，在逻辑回归的情况下，sigmoid函数为$(1+e^x)/e^x$。在GLM中，他总能把$\mathbb{R}$通过合理的映射投影到真的概率分布参数上！例如：在possion中，我们都知道参数$\gamma \in (0,+\infty)$，GLM中把$m \in \mathbb{R}$通过$e^m$完美地投影到$(0,+\infty)$这个合理的区间上。</p>
 <blockquote>
 <p>注意：这个投影函数不一定为$b^\prime(m)$，当期望等于其参数的时候才成立。以上三者情况都是特例，如果是$\Gamma$分布的情况就不成立。</p>
 </blockquote>
@@ -451,6 +451,22 @@ Var\left(Y\right)=\varphi b^{\prime\prime}\left(m\right).
 
                 
                     <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/04/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A8%A1%E5%9E%8B/"
+                                   title="感知机模型（Perceptron Model)"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">感知机模型（Perceptron Model)</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
                         
                         
                             <div class="next-post">

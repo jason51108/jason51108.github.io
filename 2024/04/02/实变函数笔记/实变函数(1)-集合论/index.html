@@ -262,7 +262,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed Apr 10 2024 16:53:57 GMT+0800">2024-04-10 16:53:57</span>
+                <span class="datetime" data-updated="Thu Apr 11 2024 20:18:14 GMT+0800">2024-04-11 20:18:14</span>
             </span>
         
 
@@ -308,7 +308,8 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <h1 id="集合的初步概念"><a href="#集合的初步概念" class="headerlink" title="集合的初步概念"></a>集合的初步概念</h1><h2 id="集合的表示"><a href="#集合的表示" class="headerlink" title="集合的表示"></a>集合的表示</h2><ul>
+                    <h1 id="集合的初步概念"><a href="#集合的初步概念" class="headerlink" title="集合的初步概念"></a>集合的初步概念</h1><p><strong>集合的运算</strong></p>
+<ul>
 <li><p><strong>集合的定义</strong></p>
 <ol>
 <li>具有某种特性的不同对象(或事物)组成的整体称为<strong>集合</strong>，每个对象叫做该集合的<strong>元素</strong>。一般用大写字母$A,B,X,Y,\dots$表示集合，小写字母$a,b,x,y, \dots$表示集合的元素。</li>
@@ -328,7 +329,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="集合的运算"><a href="#集合的运算" class="headerlink" title="集合的运算"></a>集合的运算</h2><ul>
+<p><strong>集合的运算</strong></p>
+<ul>
 <li><p><strong>并集：</strong>由所有属于$A$或者属于$B$的元素组成的集合称为$A$和$B$​的并集</p>
 <script type="math/tex; mode=display">
 A\cup B=\{x|x\in A\text{ 或 }x\in B\}</script><p><strong>”无限并“：</strong>对于一族集合$\{A_\alpha\}_{\alpha\in\Lambda}$或$\{A_\alpha|\alpha\in\Lambda\}$（简称为集族），其中$\Lambda$为指标集，由<strong>一切</strong>$A_\alpha(\alpha\in\Lambda)$​的<strong>所有元素</strong>组成的集合称为该族集合的<strong>并集</strong></p>
@@ -370,7 +372,8 @@ C_SA=S-A=\{x\colon x\in S\text{但}x\notin A\},\text{简记为}A^c</script><bloc
 </blockquote>
 </li>
 </ul>
-<h2 id="集合的运算性质"><a href="#集合的运算性质" class="headerlink" title="集合的运算性质"></a>集合的运算性质</h2><ul>
+<p><strong>集合的运算性质</strong></p>
+<ul>
 <li><strong>定理一</strong><ol>
 <li>$A\cup A=A,A\cap A=A$</li>
 <li>$A\cup\emptyset=A,A-\emptyset=A,A\cap\emptyset=\emptyset$</li>
@@ -381,7 +384,9 @@ C_SA=S-A=\{x\colon x\in S\text{但}x\notin A\},\text{简记为}A^c</script><bloc
 </ol>
 </li>
 </ul>
-<!--集合运算的分配律在“无限并”的情况下仍然成立-->
+<blockquote>
+<p>集合运算的分配律在“无限并”的情况下仍然成立</p>
+</blockquote>
 <ul>
 <li><p><strong>定理二：德摩根(De Morgan)公式</strong></p>
 <p>若$\{A_\alpha\colon\alpha\in\Lambda\}$是一族集合，则</p>
@@ -411,7 +416,8 @@ C_SA=S-A=\{x\colon x\in S\text{但}x\notin A\},\text{简记为}A^c</script><bloc
 \left\{x{:}\lim_{n\to\infty}f_n(x)\neq0\text{或不存在}\right\}=\bigcup_{\varepsilon\in\mathbb{R}^+}\bigcap_{N=1}^\infty\bigcup_{n=N}^\infty\{x{:}|f_n(x)|\geq\varepsilon\}</script></li>
 </ol>
 </blockquote>
-<h2 id="集合的上下极限"><a href="#集合的上下极限" class="headerlink" title="集合的上下极限"></a>集合的上下极限</h2><ul>
+<p><strong>集合的上下极限</strong></p>
+<ul>
 <li><p><strong>上极限：</strong></p>
 <p>设$A_1,A_2,\dots,A_n,\dots$是一个集合序列，则由<strong>同时</strong>属于<strong>无限多个</strong>集合$A_i$的元素组成的集合称为该集列的<strong>上极限</strong>，记为$\operatorname{\overline{lim}}_{n\to\infty}A_n$ 或$\operatorname{limsup}_{n\to\infty}A_n$</p>
 <script type="math/tex; mode=display">
@@ -438,7 +444,8 @@ C_SA=S-A=\{x\colon x\in S\text{但}x\notin A\},\text{简记为}A^c</script><bloc
 <script type="math/tex; mode=display">
 A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0,1+\frac1{2m}\right],\quad m=1,2,3,\cdots</script><p>Poof：显然$[0,1]$中的每一点都属于$A_n,n=1,2,\dots,$对于$(1,2)$中的每一个点$x$，必存在正整数$N(x)$，使得当$m&gt;N(x)$时，$1 + \frac{1}{2m} &lt; x \leq 2-\frac{1}{2m+1}$，即当$m &gt; N(x)$，$x \notin A_{2m}$，但$x \in A_{2m+1}$。$[0,2)$以外的点都不属于任何$A_n$。因此$\operatorname{\overline{lim}}_{n\to\infty}A_n{=}[0,2),\operatorname{\underline{lim}}_{n\to\infty}A_n{=}[0,1]$</p>
 </blockquote>
-<h2 id="集合的收敛与极限"><a href="#集合的收敛与极限" class="headerlink" title="集合的收敛与极限"></a>集合的收敛与极限</h2><p><strong>定义：</strong>如果集列$\{A_n\}$的上极限和下极限相等，则称集列$\{A_n\}$是<strong>收敛</strong>的，称此共同的极限为该集列的<strong>极限集</strong></p>
+<p><strong>集合的收敛与极限</strong></p>
+<p><strong>定义：</strong>如果集列$\{A_n\}$的上极限和下极限相等，则称集列$\{A_n\}$是<strong>收敛</strong>的，称此共同的极限为该集列的<strong>极限集</strong></p>
 <script type="math/tex; mode=display">
 \lim_{n\to\infty}A_n=\lim_{n\to\infty}A_n=\overline{\lim_{n\to\infty}}A_n=A</script><p><strong>定义：</strong>若集列$\{A_n\}$满足$A_{n}\subset A_{n+1}(\forall\text{n}\in N)$，则称$\{A_n\}$为单调增加集列；若它满足$A_{n}\supset A_{n+1}(\forall\text{n}\in N)$，则称其为单调减少集列</p>
 <p><strong>定理：</strong></p>
@@ -446,7 +453,8 @@ A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0
 <li>若$\{A_n\}$单调增加，则${lim}_{n\to\infty}A_n=\cup_{n=1}^{\infty}A_n$</li>
 <li>若$\{A_n\}$单调递减，则${lim}_{n\to\infty}A_n=\cap_{n=1}^\infty A_n$</li>
 </ul>
-<h2 id="集合的直积"><a href="#集合的直积" class="headerlink" title="集合的直积"></a>集合的直积</h2><p>$A\times B=\{(a,b){:}a\in A,b\in B\}$称为集合A和B的直积</p>
+<p><strong>集合的直积</strong></p>
+<p>$A\times B=\{(a,b){:}a\in A,b\in B\}$称为集合A和B的直积</p>
 <ul>
 <li>$\prod_{i=1}^nA_i=\{(x_1,x_2,…,x_n){:}x_i\in A_i,i=1{,}2,…,n\}$称为集合$A_i(\mathrm{i}=1,2,\ldots,\mathrm{n})$的直积</li>
 <li>$\prod_{i=1}^\infty A_i=\{(x_1,x_2,\ldots,x_n,\ldots){:}x_i\in A_i,i=1{,}2,\ldots,n,\ldots\}$称为集合$A_{i}(\mathrm{i}=1,2,\ldots,\mathrm{n},\ldots)$的直积</li>
@@ -472,7 +480,7 @@ A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0
 </li>
 <li><p><strong>满射：</strong>对任意的$y \in B$，存在$x \in A$，使得$\varphi(x)=y$</p>
 </li>
-<li><p><strong>一一映射：</strong>既是单射又是满射</p>
+<li><p><strong>一一映射(某些教材也成为双射)：</strong>既是单射又是满射</p>
 </li>
 </ul>
 <p><strong>集合的对等</strong></p>
@@ -487,7 +495,95 @@ A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0
 </ul>
 <blockquote>
 <p>例1：设$A$与$B$是两个同心圆周，则$A \sim B$.</p>
+<p>Proof：通过圆的半径，与第一个圆周相交的点为$x$，与第二个圆周相交的点为$y$，则两个圆周所构成的结合是一一对应的，因此他们对等。</p>
+<p>例2：证明自然数集与整数集对等，即$N \sim Z$</p>
+<p>Proof：直观上很容易找到自然数集和整数集的一一对等关系</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/对等.5fkdd9lpw7.webp"  ></div>
+
+<p>可以用下面的通项公式写出：</p>
+<script type="math/tex; mode=display">
+a_n=\left\{\begin{array}{cc}-\dfrac{n}{2}&,n \ is \ even\\\\\dfrac{n+1}{2}&,n \ is \ odd\end{array}\right.</script><p>做做变形可以的到：</p>
+<script type="math/tex; mode=display">
+a_n=\dfrac14-(-1)^n(\dfrac12n+\dfrac14)</script><p>因此自然数集与整数集对等。<strong>需要注意的是：一个无限集可以与其真子集对等！！这对有限集是不成立的！！</strong></p>
 </blockquote>
+<p><strong>集合的基数</strong></p>
+<ul>
+<li><p><strong>定义：</strong>如果$A \sim B$，则称$A$和$B$有相同的基数，记为$\bar{\bar{A}}=\bar{\bar{B}}$</p>
+</li>
+<li><p><strong>定义：</strong>如果集合$A$与集合$B$的某个真子集对等，但与集合$B$不对等，则称$A$的基数小于$B$，记为$\bar{\bar{A}}&lt;\bar{\bar{B}}$(或$\bar{\bar{A}}&gt;\bar{\bar{B}}$)</p>
+<p><strong>注：</strong>任给两个集合$A$，$B$，则$\bar{\bar{A}}&lt;\bar{\bar{B}}$，$\bar{\bar{A}}=\bar{\bar{B}}$，$\bar{\bar{A}}&gt;\bar{\bar{B}}$有且只有一个成立</p>
+<p>如何判断两个集合具有相同的基数？</p>
+</li>
+<li><p><strong>伯恩斯坦(Bernstein)定理：</strong>设$A$，$B$是两个非空集合，如果$A$对等于$B$的一个子集，$B$又对等于$A$的一个子集，则$A$对等于$B$。即$\bar{\bar{A}}\leq \bar{\bar{B}}$，$\bar{\bar{B}} \leq \bar{\bar{A}}$，则$\bar{\bar{A}} = \bar{\bar{B}}$</p>
+</li>
+</ul>
+<blockquote>
+<p>例1：对于无穷集合的基数问题，最经典的莫过于希尔伯特旅馆悖论了。设酒店房间为集合$A$，入住人数为集合$B$，显然根据实际意义他们都是自然数集，因此是对等的。总能找到一个对应方式使得一一对应。具体的对应方式可参考：<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27078717" >希尔伯特旅馆悖论<i class="fas fa-external-link-alt"></i></a></p>
+<p>例2：<strong>是非而是：</strong>自然数在直线上稀稀拉拉，有理数在直线上密密麻麻，直观上有理数比自然数多得多，但事实上，有理数和自然数“一样多”。即<strong>有理数集和自然数集是对等的！</strong></p>
+<p>例3：<strong>是是而非：</strong>对于实数轴上的有理数和无理数，直观来看，任取一个片段，有理数和无理数的个数至多相差一个，但严密的数学推理说明，无理数比有理数多的多。<strong>即无理集的基数大于有理数集，他们不对等</strong></p>
+</blockquote>
+<h1 id="可数集合与不可数集合"><a href="#可数集合与不可数集合" class="headerlink" title="可数集合与不可数集合"></a>可数集合与不可数集合</h1><p><strong>可数集合</strong></p>
+<ul>
+<li><p><strong>定义：</strong>凡是和全体正整数集$Z^+$对等的集合称为<strong>可数集合</strong>或<strong>可列集合</strong>，简称为<strong>可数集</strong>或<strong>可列集</strong></p>
+<p><strong>注：</strong>一个集合可数的<strong>充要条件</strong>是它的所有元素可以排成一个无穷序列$\{a_1,a_2,\cdots,a_n,\cdots\}$</p>
+</li>
+</ul>
+<p><strong>定理：</strong></p>
+<ul>
+<li><p><strong>定理1：</strong>任何无限集合都至少包含一个可数子集</p>
+<p><strong>注：</strong>可数集是所有无限集中基数最小的果合</p>
+</li>
+<li><p><strong>定理2：</strong>可数集的任何子集或者是有限集或者是可数集</p>
+</li>
+<li><p><strong>定理3：</strong>设$A$是可数集，$B$是有限集或可数集，则$A\cup B$是可数集</p>
+</li>
+<li><p><strong>定理4：</strong>设$A_i(i=1,2,\cdots,n)$都是可数集，则$\bigcup_{i=1}^nA_i$也是可数集</p>
+</li>
+<li><p><strong>定理5：</strong>有理数集$Q$是可数集</p>
+</li>
+<li><p><strong>定理6：</strong>设$A_i(i=1,2,\cdots,n)$都是可数集，则$A=A_1 \times A_2 \times \cdots \times A_n$也是可数集</p>
+</li>
+</ul>
+<p><strong>Proof：</strong></p>
+<ul>
+<li><p><strong>定理一证明：</strong>设$M$是一个无限集合，任取$e_1\in M$，因$M$无限，故$M-\{e_1\}\neq \empty$，取$e_2 \in M$，由于集合的互异性有$e_1 \neq e_2$，且$M-\{e_1,e_2\}\neq \empty$，如此往复，由归纳法知$\{e_1,e_2,\cdots,e_n,\cdots\}$是集合$M$的一个可数子集</p>
+</li>
+<li><p><strong>定理三证明：</strong></p>
+<ul>
+<li><p>设$A \cap B = \empty$，不妨设$A=\{a_1,a_2,\cdots\}$，$B=\{b_1,b_2,\cdots,b_n\}$（有限集），$B=\{b_1,b_2,\cdots,b_n\,\cdots\}$（可数集）</p>
+<p>$B$有限：$A \cup B=\{b_1,b_2,\cdots,b_n,a_1,a_2,\cdots\}$</p>
+<p>$B$可数：$A \cup B=\{a_1,b_1,a_2,b_2,\cdots,a_n,b_b,\cdots\}$</p>
+<p>故$A \cup B$是可数集</p>
+</li>
+<li><p>一般情形，令$B^\star=B-A$，则$B^\star \cap A = \empty$，因$B^\star$是$B$的子集，故仍为有限集或可数集</p>
+</li>
+</ul>
+</li>
+<li><p><strong>定理5证明：</strong>设$A_i=\{\frac{1}{i},\frac{2}{i},\cdots,\}$，$A_i$是可数集。因全体正有理数$Q^+=\bigcup_{i=1}^nA_i$，由定理4知是可数集。又因为正负有理数可以通过$\varphi(x)=-x$一一对应，所以全体负有理数$Q^-$也是可数集。再有以下定理3推论可以知$Q^+\cup Q^- \cup \{0\}$为可数集</p>
+</li>
+</ul>
+<p><strong>定理3推论：</strong></p>
+<ul>
+<li>设$A_i(i=1,2,\cdots,n)$是有限集或可数集，则$\bigcup_{i=1}^nA_i$也为有限集或可数集，如果至少有一个$A_i$是可数集，则$\bigcup_{i=1}^nA_i$必为可数集</li>
+</ul>
+<p><strong>不可数集合</strong></p>
+<ul>
+<li><strong>定义1：</strong>不是可数来合的无限集合称为不可数集合，</li>
+<li><strong>定义2：</strong>正整数集$Z^+$的基数用$a$或$\aleph_0$表示，实数集$R$的基数用$c$或$\aleph$表示，称为<strong>连续基数</strong>或<strong>连续统</strong>，则$\aleph&gt;\aleph_0$</li>
+</ul>
+<p><strong>定理：</strong></p>
+<ul>
+<li><strong>定理1：</strong>实数集$R$是不可数集合</li>
+<li><strong>定理2：</strong>任意区间$(a,b),[a,b),(a,b],(0,\infty),[0,\infty)$均具有连续基数$\aleph$</li>
+<li><p><strong>定理3：</strong>设$A_1,A_2,\cdots,A_n,\cdots$是一列互不相交的集合，且$\bar{\bar{A_n}}=\aleph,n=1,2,\cdots,$ 而$A=\cup_{n=1}^{\infty}A_{n}$，则$\bar{\bar{A}}=\aleph$</p>
+</li>
+<li><p><strong>定理4：</strong>设$\{A_n,n\in Z^+\}$是一列集合，且且$\bar{\bar{A_n}}=\aleph,n=1,2,\cdots,$ 而$A=\prod_{n=1}^{\infty}A_{n}$，则$\bar{\bar{A}}=\aleph$</p>
+</li>
+<li><p><strong>定理5：</strong>设$M$是任意一个集合，它的所有子集做成新的集合$\mu$，则$\bar{\bar{\mu}}&gt;\bar{\bar{M}}$</p>
+</li>
+</ul>
+<p><strong>连续统假设：</strong>已知$\bar{\bar{N}}=\aleph_0 &lt; \aleph=\bar{\bar{R}}$，是否存在一个无限集合$A$,使得$\aleph_0 &lt; \bar{\bar{A}} &lt; \aleph$成立？</p>
+<p>在一定的公理体系下，是不存在这样的集合$A$</p>
 
                 </div>
                 
@@ -544,14 +640,14 @@ A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/04/02/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(0)-%E7%BB%AA%E8%AE%BA/"
-                                   title="实变函数——实变函数引论"
+                                   href="/2024/04/03/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/"
+                                   title="向量范数和矩阵范数"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">实变函数——实变函数引论</span>
+                                        <span class="post-nav-title-item text-ellipsis">向量范数和矩阵范数</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -561,11 +657,11 @@ A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/03/31/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%AF%BB%E6%89%BE%E4%B8%A4%E5%90%91%E9%87%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2/"
-                                   title="寻找两向量之间的最优旋转变换"
+                                   href="/2024/04/02/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(0)-%E7%BB%AA%E8%AE%BA/"
+                                   title="实变函数——实变函数引论"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">寻找两向量之间的最优旋转变换</span>
+                                        <span class="post-nav-title-item text-ellipsis">实变函数——实变函数引论</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -585,7 +681,7 @@ A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9D%E6%AD%A5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">集合的初步概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">集合的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">集合的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">集合的运算性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%9E%81%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">集合的上下极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9E%81%E9%99%90"><span class="nav-number">1.5.</span> <span class="nav-text">集合的收敛与极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E7%9B%B4%E7%A7%AF"><span class="nav-number">1.6.</span> <span class="nav-text">集合的直积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89%E4%B8%8E%E5%9F%BA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">集合的对等与基数</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9D%E6%AD%A5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">集合的初步概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89%E4%B8%8E%E5%9F%BA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">集合的对等与基数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88%E4%B8%8E%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">可数集合与不可数集合</span></a></li></ol>
     </div>
 </div>
 
@@ -774,7 +870,7 @@ A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9D%E6%AD%A5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">集合的初步概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">集合的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">集合的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">集合的运算性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%9E%81%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">集合的上下极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9E%81%E9%99%90"><span class="nav-number">1.5.</span> <span class="nav-text">集合的收敛与极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E7%9B%B4%E7%A7%AF"><span class="nav-number">1.6.</span> <span class="nav-text">集合的直积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89%E4%B8%8E%E5%9F%BA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">集合的对等与基数</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9D%E6%AD%A5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">集合的初步概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89%E4%B8%8E%E5%9F%BA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">集合的对等与基数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88%E4%B8%8E%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">可数集合与不可数集合</span></a></li></ol>
     </div>
 </div>
 
