@@ -9,7 +9,7 @@
     
     <title>
         
-            寻找两向量之间的最优旋转变换 |
+            windows下使用vscode远程连接Linux服务器进行Python开发 |
         
         Brainiaccc&#39;blog
     </title>
@@ -231,7 +231,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        寻找两向量之间的最优旋转变换
+                        windows下使用vscode远程连接Linux服务器进行Python开发
                     </div>
                 
 
@@ -257,12 +257,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-03-31 14:17:28</span>
+                <span class="datetime">2024-04-15 17:05:18</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Apr 01 2024 11:20:28 GMT+0800">2024-04-01 11:20:28</span>
+                <span class="datetime" data-updated="Mon Apr 15 2024 19:41:17 GMT+0800">2024-04-15 19:41:17</span>
             </span>
         
 
@@ -270,7 +270,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="category-item"><a href="/categories/SSH/">SSH</a></li>
                         
                     
                 </ul>
@@ -281,10 +281,13 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/SSH/">SSH</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC/">最优旋转</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Linux/">Linux</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Vscode/">Vscode</a></li>
                         
                     
                 </ul>
@@ -308,64 +311,63 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <p>本文的原文来自: <a class="link"   target="_blank" rel="noopener" href="http://nghiaho.com/?page_id=671" >Finding optimal rotation and translation between corresponding 3D points<i class="fas fa-external-link-alt"></i></a></p>
-<p>这里我们要达成的目标是给定两组点，要尝试找到最优的旋转+位移操作，将这两组点叠在一起，而误差最小。如下图所示。</p>
-<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/Linear-algebra/旋转变换.6m3o65tn1i.webp"  ></div>
+                    <p>老板花巨资新买了一个256核512线程的服务器用来跑实验数据！！本文将记录如何在windows操作系统下使用vscode远程连接Linux服务器进行Python开发！！</p>
+<p>由于Vscode的安装确实比较简单，网上的教程层出不穷，因此这里跳过Vscode的安装过程，默认本地的windows电脑下已经安装好了。</p>
+<h1 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h1><h2 id="安装-SSH"><a href="#安装-SSH" class="headerlink" title="安装 SSH"></a>安装 SSH</h2><p>由于我们是使用 SSH 连接远程服务器，因此 Windows 需要支持 SSH，检查本地电脑是否安装了ssh？输入<code>win</code>+<code>R</code>，然后输入<code>cmd</code>打开控制窗口</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/cmd-1.2krpdi9r9m.webp"  ></div>
 
-<p>图中的颜色代表了点之间的对应关系。在最优操作下，两组点之间的位置误差的 MSE 最小。变换保留了形状特征和大小特征。不同于仿射变换，仿射变换还包括了缩放与剪切变换。</p>
-<h1 id="解法概览"><a href="#解法概览" class="headerlink" title="解法概览"></a>解法概览</h1><p>这里涉及的求解方法会涉及两种情况：有噪声和无噪声。需要注意的是，向量$\mathbf{\theta}$的维度$k$与向量个数需要满足一定的条件才有唯一解！</p>
+<p>直接输入<code>ssh</code>，如果出现下图所示，则证明安装好了SSH</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/cmd-2.5c0rlkwlxq.webp"  ></div>
+
+<h2 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h2><p>打开Vscode，搜索<code>Remote Development</code> 插件并安装</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/插件.3rb0m40l6a.webp"  ></div>
+
+<p>注意我们的插件长这个样子</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/Remote.3go6sym2o8.webp"  ></div>
+
+<p>安装完插件后，在侧边栏可以看到 “远程资源管理器” 图标。</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/远程资源.2yy54dm33q.webp"  ></div>
+
+<h2 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h2><p>目的：<strong>配置 VSCode 连接远程服务器的一些基本信息。</strong></p>
+<p>1、点击左侧的 “远程资源管理器” 图标，点击右上角的小齿轮（设置），选择第一个 config 文件打开</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/配置文件.2krpdiejge.webp"  ></div>
+
+<p>2、参考下图，填写对应信息</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/配置.26l9mn6s7f.webp"  ></div>
+
+<p>参考上述配置，释义如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host &lt;远程主机名称&gt;</span><br><span class="line">    HostName &lt;远程主机IP&gt;</span><br><span class="line">    User &lt;用户名&gt;</span><br><span class="line">    Port &lt;ssh端口，默认22&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>对于无噪声环境，求解过程等价于解方程。</p>
-<script type="math/tex; mode=display">
-\mathbf{\theta_i} = \mathbf{Q}\tilde{\mathbf{\theta_i}}+\mathbf{b}, \quad i=1,\ldots,n</script><p>其中矩阵$\mathbf{Q} \in \mathbb{R}^{n \times n}$为正交矩阵，$\mathbf{b} \in \mathbb{R}^{n}$为列向量。</p>
-</li>
-<li><p>对于存在噪声的环境，求解过程为最小化下面的误差</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\operatorname*{argmin}_{\mathbf{Q} \in \mathbb R^{k \times k}} &\sum_{i=1}^{n}  \| \theta_i-\mathbf{Q}\tilde{\theta_i}-\mathbf{b}\|^2\\
-s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
-\end{align}</script><p>求解完整的变化过程可以分解为下面三个步骤：</p>
-<ul>
-<li>数据中心化</li>
-<li>寻找最优旋转矩阵$\mathbf{Q}$</li>
-<li>寻找向量$\mathbf{b}$ </li>
+<li>Host ：连接的主机名称，可自定义；</li>
+<li>Hostname ：远程主机的 IP 地址；</li>
+<li>User ：用于登录远程主机的用户名；</li>
+<li>Port ：用于登录远程主机的端口，SSH 默认为 22 ；</li>
 </ul>
-</li>
-</ul>
-<h2 id="数据中心化"><a href="#数据中心化" class="headerlink" title="数据中心化"></a>数据中心化</h2><p>所谓数据中心化，即把所有向量都放在原点附近，使得向量的每个分量之和的值为0，通常而言会用中心化矩阵进行左乘。假设向量$\mathbf{\Theta}=(\mathbf{\theta_1},\ldots,\mathbf{\theta_n})^T_{n \times k}$，中心化矩阵$\mathbf{C_n}=\mathbf{I_n}-\frac{1}{n}\mathbf{1}\mathbf{1}^T$，中心化即有：</p>
-<script type="math/tex; mode=display">
-\mathbf{\Theta}^* = \mathbf{C_n}\mathbf{\Theta}</script><blockquote>
-<p>一般而言的向量都默认为列向量，通常将向量进行排列的时候会按照一行一行进行排列，因此排列成矩阵的形式为$n \times k$，$n$为向量样本个数，$k$为向量的维度</p>
-</blockquote>
-<p>对中心化后的数据而言，我们暂时不需要考虑其平移操作，只需要寻找最优旋转矩阵$\mathbf{Q}$就好。</p>
-<h2 id="寻找最优旋转矩阵-mathbf-Q"><a href="#寻找最优旋转矩阵-mathbf-Q" class="headerlink" title="寻找最优旋转矩阵$\mathbf{Q}$"></a>寻找最优旋转矩阵$\mathbf{Q}$</h2><ul>
-<li><p><strong>方法一：拉格朗日乘子法</strong></p>
-<p>由线代知识可知，矩阵的旋转变换即是通过乘以正交矩阵进行，由于这里限制了矩阵是正交矩阵，因此这是一个典型的约束优化问题，自然想到了拉格朗日乘子法。但需要注意的情况有两点：</p>
-<ul>
-<li><p>$L(·)$函数的值是一个数，因此如果存在矩阵的约束条件可能需要写成Frobenius范数的形式</p>
-</li>
-<li><p>拉格朗日乘子法<strong>需要满足一定的条件(灰常的玄学)</strong>，就本问题而言，拉格朗日乘子法不能写成如下形式。</p>
-<script type="math/tex; mode=display">
-L(\mathbf{Q},\lambda) = \sum_{i=1}^{n} \| \theta_i^*-\mathbf{Q}\tilde{\theta_i^*}\|^2 + \lambda \|\mathbf{Q}^T\mathbf{Q}-\mathbf{I_k}\|_F^2</script><p>对矩阵$\mathbf{Q}$求导后很容易看出矛盾所在，$\frac{\partial L(\mathbf{Q},\lambda)}{\partial \mathbf{Q}}=\mathbf{\Theta}^{\star T}\tilde{\mathbf{\Theta}}^\star+4\lambda(\mathbf{Q}\mathbf{Q}^{T}\mathbf{Q}-\mathbf{Q})=0$，对$\lambda$的偏导说明了是正交矩阵，因此会有$\mathbf{\Theta}^\star \tilde{\mathbf{\Theta}^{\star T}}=0$，显然出现了矛盾！</p>
-</li>
-</ul>
-<p>这里的约束条件可以考虑写成基向量与$\mathbf{Q}\mathbf{Q}^T$相乘再求和的形式，但不管怎么样用拉格朗日乘子法求解在这个问题中都比较复杂。</p>
-<blockquote>
-<p>​    这里的$\theta^*$表示已经数据中心化后的$\theta$，$\tilde{\theta}$同理。</p>
-</blockquote>
-</li>
-<li><p><strong>方法二：奇异值分解</strong></p>
-<p>对优化的问题进行化简，原优化问题等价于：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\operatorname*{argmax}_{\mathbf{Q} \in \mathbb R^{k \times k}} &\sum_{i=1}^{n}\mathbf{\theta_i}^T\mathbf{Q}\mathbf{\tilde{\theta_i}}=  tr(\mathbf{Q}\tilde{\mathbf{\Theta}}^{\star T}\mathbf{\Theta}^{\star} )\\
-s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
-\end{align}</script><p>令矩阵$\mathbf{C}=\tilde{\mathbf{\Theta}}^{\star T}\mathbf{\Theta}^{\star}$，对矩阵进行奇异值分解有：$\mathbf{C}=\mathbf{U}\Sigma\mathbf{V}^T$，因此$ tr(\mathbf{Q}\tilde{\mathbf{\Theta}}^{\star T}\mathbf{\Theta}^{\star} ) = tr(\mathbf{Q}\mathbf{U}\Sigma\mathbf{V}^T) = tr(\Sigma \mathbf{V}^T \mathbf{Q} \mathbf{U})$，由约束条件知道矩阵$\mathbf{Q}$是正交矩阵，$\mathbf{V}^T \mathbf{Q} \mathbf{U}$也是正交矩阵。因为对于矩阵$\mathbf{V}^T \mathbf{Q} \mathbf{U}$的主对角的每一个元素有$|a_{ii}|\leq1, i=1,2,\ldots,k$，且$\Sigma=diag(\sigma_1,\ldots,\sigma_n)$，当$\mathbf{Q}=\mathbf{V}\mathbf{U}^T$的时候有最大值$\sigma_1+\ldots+\sigma_n$，当且仅当$a_{ii}=1, i=1,2,\ldots,k$。</p>
-</li>
-</ul>
-<h2 id="寻找向量-mathbf-b"><a href="#寻找向量-mathbf-b" class="headerlink" title="寻找向量$\mathbf{b}$"></a>寻找向量$\mathbf{b}$</h2><p>在利用奇异值分解寻找到最优旋转矩阵$\mathbf{Q}$后，向量$\mathbf{b}$的求解不在困难</p>
-<script type="math/tex; mode=display">
-\mathbf{b} = \mathbf{\Theta} - \mathbf{Q}\tilde{\mathbf{\Theta}}</script><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">maximize_trace</span>(<span class="params">Theta, Theta_tilde</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Maximize the trace of the product of a orthogonal matrix Q and the transpose of the</span></span><br><span class="line"><span class="string">    centralized matrices Theta* and Theta_tilde*.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Parameters:</span></span><br><span class="line"><span class="string">    - Theta: A numpy array, the first matrix before centralization.</span></span><br><span class="line"><span class="string">    - Theta_tilde: A numpy array, the second matrix before centralization.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    - Q: The orthogonal matrix that maximizes the trace.</span></span><br><span class="line"><span class="string">    - max_trace: The maximized trace value.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Centralize matrices</span></span><br><span class="line">    Theta_star = Theta - Theta.mean(axis=<span class="number">0</span>)</span><br><span class="line">    Theta_tilde_star = Theta_tilde - Theta_tilde.mean(axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Compute the product of the transposed, centralized matrices</span></span><br><span class="line">    Theta_product =  Theta_tilde_star.T @ Theta_star</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Singular Value Decomposition</span></span><br><span class="line">    U, Sigma, VT = np.linalg.svd(Theta_product, full_matrices=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Construct the orthogonal matrix Q</span></span><br><span class="line">    Q = VT.T @ U.T</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Calculate the maximized trace</span></span><br><span class="line">    max_trace = np.trace(Q @ Theta_tilde_star.T @ Theta_star)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Q, max_trace</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use the function with the previously defined matrices</span></span><br><span class="line">Q, max_trace = maximize_trace(Theta, Theta_tilde)</span><br></pre></td></tr></table></figure>
+<p>添加完成后<code>ctrl</code>+<code>s</code>进行保存，将会看到已保存好的SSH信息</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/保存.2obbb88s7e.webp"  ></div>
+
+<h2 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h2><p>进行连接，并确定远程服务器是<code>Linux</code>，Vscode会根据服务器进行配置</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/连接.361cztbedy.webp"  ></div>
+
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/Linux.26l9mnndlj.webp"  ></div>
+
+<p>如果左下角如和下图所示，则表示连接完成</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/连接完成.2h83fsp71g.webp"  ></div>
+
+<hr>
+<p>由于每次连接都需要输入密码，这会导致非常的麻烦，因此可以采用公钥和私钥的方式进行免密登录。具体方式可以查看<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146533515" >这篇文章<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="配置Linux的Python环境"><a href="#配置Linux的Python环境" class="headerlink" title="配置Linux的Python环境"></a>配置Linux的Python环境</h1><h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p>推荐直接安装Anaconda，一般服务器而言不会缺硬盘空间，因此Anaconda安装是很方便的，自带了很多的常用三方库。首先，打开<a class="link"   href="https://link.zhihu.com/?target=https%3A//www.anaconda.com/products/individual%23linux" >官网地址<i class="fas fa-external-link-alt"></i></a>下载最新版本的Anaconda3，然后再传输到远程的Linux服务器上。注意传输的时候一般而言是传输在<code>/home/user</code>文件夹下，或者在<code>/home/user</code>文件夹下创一个文件夹，然后</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/anaconda.syqim3v9i.webp"  ></div>
+
+<p>然后将路径cd到对应位置，通过<code>bash</code>命令执行安装<code>bash Anaconda3-2024.02-1-Linux-x86_64.sh</code>，当出现如下界面的时候安装完成</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/安装完毕.1hs02mybrc.webp"  ></div>
+
+<h2 id="配置Vscode的远程插件"><a href="#配置Vscode的远程插件" class="headerlink" title="配置Vscode的远程插件"></a>配置Vscode的远程插件</h2><p>利用Vscode连接到远程服务器，安装<code>Python</code>扩展和<code>Jupyter</code>扩展</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/Python.39kyxjioib.webp"  ></div>
+
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>新建一个<code>heart.py</code>文件，文件内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成爱心曲线上的点</span></span><br><span class="line">t = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)</span><br><span class="line">x = <span class="number">16</span> * np.sin(t)**<span class="number">3</span></span><br><span class="line">y = <span class="number">13</span> * np.cos(t) - <span class="number">5</span> * np.cos(<span class="number">2</span>*t) - <span class="number">2</span> * np.cos(<span class="number">3</span>*t) - np.cos(<span class="number">4</span>*t)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制爱心图</span></span><br><span class="line">plt.plot(x, y, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.axis(<span class="string">&#x27;equal&#x27;</span>)</span><br><span class="line">plt.axis(<span class="string">&#x27;off&#x27;</span>)  <span class="comment"># 关闭坐标轴</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>如果有对应输出，则大功告成！</p>
 
                 </div>
                 
@@ -376,11 +378,15 @@ s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/SSH/">SSH</a>
                                     </li>
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC/">最优旋转</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Linux/">Linux</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Vscode/">Vscode</a>
                                     </li>
                                 
                             </ul>
@@ -419,31 +425,15 @@ s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/04/02/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(0)-%E7%BB%AA%E8%AE%BA/"
-                                   title="实变函数——实变函数引论"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">实变函数——实变函数引论</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/03/31/Hexo/Hexo-%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D/"
-                                   title="Hexo 备份和恢复"
+                                   href="/2024/04/14/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(2)-%E7%82%B9%E9%9B%86/"
+                                   title="实变函数(2)-点集"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Hexo 备份和恢复</span>
+                                        <span class="post-nav-title-item text-ellipsis">实变函数(2)-点集</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -456,6 +446,98 @@ s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
                 
 
                 
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initGitalk = () => {
+            let gitalkPathname = decodeURI(location.pathname)
+            const gitalkPathnameLength = gitalkPathname.length
+            const gitalkPathnameMaxLength = 50
+            if (gitalkPathnameLength > gitalkPathnameMaxLength) {
+              gitalkPathname = gitalkPathname.substring(0, gitalkPathnameMaxLength - 3) + '...'
+            }
+
+            if (window?.Gitalk) {
+              new Gitalk({
+                clientID: '7fcd8af2f0ac7c60cf9d',
+                clientSecret: 'a32278ac01922c5a3ba4f3185444c2fb56f5ff0a',
+                repo: 'jason51108.github.io',
+                owner: 'jason51108',
+                admin: 'jason51108',
+                id: gitalkPathname,
+                proxy: '',
+                language: 'en'
+              }).render('gitalk-container')
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initGitalk()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initGitalk()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initGitalk)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
             </div>
         </div>
 
@@ -463,7 +545,7 @@ s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">解法概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">数据中心化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5-mathbf-Q"><span class="nav-number">1.2.</span> <span class="nav-text">寻找最优旋转矩阵$\mathbf{Q}$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E5%90%91%E9%87%8F-mathbf-b"><span class="nav-number">1.3.</span> <span class="nav-text">寻找向量$\mathbf{b}$</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">远程连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-SSH"><span class="nav-number">1.1.</span> <span class="nav-text">安装 SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">添加插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">添加配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%B5%8B%E8%AF%95"><span class="nav-number">1.4.</span> <span class="nav-text">连接测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AELinux%E7%9A%84Python%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">配置Linux的Python环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Anaconda"><span class="nav-number">2.1.</span> <span class="nav-text">安装Anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEVscode%E7%9A%84%E8%BF%9C%E7%A8%8B%E6%8F%92%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">配置Vscode的远程插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li></ol>
     </div>
 </div>
 
@@ -542,6 +624,11 @@ s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
 
         <!-- PC go comment -->
         
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
 
         <!-- PC full screen -->
         <li class="tools-item flex-center full-screen">
@@ -593,6 +680,10 @@ s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
             </li>
         
 
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
         
 
         <li class="tools-item tool-toggle-show flex-center">
@@ -652,7 +743,7 @@ s.t. &\mathbf{Q}^T\mathbf{Q}=\mathbf{I_n}
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">解法概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">数据中心化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5-mathbf-Q"><span class="nav-number">1.2.</span> <span class="nav-text">寻找最优旋转矩阵$\mathbf{Q}$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E5%90%91%E9%87%8F-mathbf-b"><span class="nav-number">1.3.</span> <span class="nav-text">寻找向量$\mathbf{b}$</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">远程连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-SSH"><span class="nav-number">1.1.</span> <span class="nav-text">安装 SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">添加插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">添加配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%B5%8B%E8%AF%95"><span class="nav-number">1.4.</span> <span class="nav-text">连接测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AELinux%E7%9A%84Python%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">配置Linux的Python环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Anaconda"><span class="nav-number">2.1.</span> <span class="nav-text">安装Anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEVscode%E7%9A%84%E8%BF%9C%E7%A8%8B%E6%8F%92%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">配置Vscode的远程插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li></ol>
     </div>
 </div>
 

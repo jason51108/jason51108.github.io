@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Brainiaccc">
+    
+    <title>
+        
+            实变函数(一)—集合论 |
+        
+        Brainiaccc&#39;blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/self.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/font/css/brands.min.css">
+    
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"Brainiaccc'blog","author":"Brainiaccc","avatar":"/images/self.png","logo":"/images/self.png","favicon":"/images/self.png"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"偶尔预测、时常推断、总是学习","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/jason51108","zhihu":"https://www.zhihu.com/people/yi-tou-niu-12-64","email":"brainiaccc@foxmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":"hexo-renderer-kramed渲染缓慢，公式加载不出刷新网页即可！ 建议开vpn加载图片更快！","category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["头发茂密博士生"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":true,"reward":{"enable":false,"img_link":null,"text":null}},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"jason51108","github_admins":"jason51108","repository":"jason51108.github.io","client_id":"7fcd8af2f0ac7c60cf9d","client_secret":"a32278ac01922c5a3ba4f3185444c2fb56f5ff0a","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.21"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":false},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2018,"word_count":false,"icp":{"enable":false,"record_code":null,"url":"https://beian.miit.gov.cn"},"site_deploy":{"enable":true,"provider":"github","url":null},"shields_style":{"enable":false,"custom":[{"link_url":null,"img_url":null}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":["/js/custom_mouse.js"]},"root":"","source_data":{"links":[{"name":"Mlikiowa Home Village","link":"https://lizihao1008.github.io/","description":"graduate student at Tsinghua University.","avatar":"https://avatars.githubusercontent.com/u/52674462?v=4"}]},"version":"4.1.0"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/self.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Brainiaccc&#39;blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                
+                                HOME
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/"
+                    >HOME</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives"
+                    >ARCHIVES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags"
+                    >TAGS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories"
+                    >CATEGORIES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links"
+                    >LINKS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about"
+                    >ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        实变函数(一)—集合论
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/self.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Brainiaccc</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-04-12 15:13:25</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Mon Apr 15 2024 11:34:06 GMT+0800">2024-04-15 11:34:06</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/">实变函数</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/">实变函数</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E9%9B%86%E5%90%88%E8%AE%BA/">集合论</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body">
+                    
+
+                    <h1 id="集合的初步概念"><a href="#集合的初步概念" class="headerlink" title="集合的初步概念"></a>集合的初步概念</h1><h2 id="集合的定义和表示"><a href="#集合的定义和表示" class="headerlink" title="集合的定义和表示"></a><strong>集合的定义和表示</strong></h2><ul>
+<li><p><strong>集合的定义</strong></p>
+<ol>
+<li>具有某种特性的不同对象(或事物)组成的整体称为<strong>集合</strong>，每个对象叫做该集合的<strong>元素</strong>。一般用大写字母$A,B,X,Y,\dots$表示集合，小写字母$a,b,x,y, \dots$表示集合的元素。</li>
+<li>如果$x$是集合$A$的元素，则称$x$属于$A$，记作$x \in A$；如果$x$不是集合$A$的元素，则称$x$不属于$A$,记作$x \notin A$。</li>
+</ol>
+</li>
+<li><p><strong>集合的表示</strong></p>
+<p><strong>列举法：</strong>把集合的元素全部列举出来，例如$A={a,b,c,\dots}$</p>
+<p><strong>描述法：</strong>用元素所满足的某种性质来描述，例如集合$A$由具有性质$P$的元素全体组成，则$A=\{x:x具有性质P\}$。</p>
+<p><strong>几个特殊的集合：</strong>自然数集$N$，整数集$Z$，有理数集$Q$，实数集$R$，复数集$C$，不含任何元素的集合称为空集，记为$\emptyset $，设$f(x)$是定义在集合$E$上的函数，称$f(E)=\{f(x):x \in E\}$为$f$的值域，若$D \in R$,则称$f^{-1}(D)=\{x:x\in E,f(x) \in D\}$为$D$的原像。</p>
+</li>
+<li><p><strong>集合间的关系：</strong></p>
+<ul>
+<li><strong>子集：</strong>设$A$，$B$是两个集合，如果对任意的$x \in A$，都有$x \in B$，则称$A$是$B$的子集。记为$A \subset B$或$B \supset A$。</li>
+<li><strong>真子集：</strong>$A$是$B$的子集，且$B$中至少有一个元素不属于$A$，则称$A$为$B$的真子集。</li>
+<li><strong>相等：</strong>如果$A \subset B$，且$B \subset A$则称$A$与$B$相等，记为$A=B$。</li>
+</ul>
+</li>
+</ul>
+<h2 id="集合的运算"><a href="#集合的运算" class="headerlink" title="集合的运算"></a><strong>集合的运算</strong></h2><ul>
+<li><p><strong>并集：</strong>由所有属于$A$或者属于$B$的元素组成的集合称为$A$和$B$​的并集</p>
+<script type="math/tex; mode=display">
+A\cup B=\{x|x\in A\text{ 或 }x\in B\}</script><p><strong>”无限并“：</strong>对于一族集合$\{A_\alpha\}_{\alpha\in\Lambda}$或$\{A_\alpha|\alpha\in\Lambda\}$（简称为集族），其中$\Lambda$为指标集，由<strong>一切</strong>$A_\alpha(\alpha\in\Lambda)$​的<strong>所有元素</strong>组成的集合称为该族集合的<strong>并集</strong></p>
+<script type="math/tex; mode=display">
+\bigcup_{\alpha\in\Lambda}A_\alpha=\{x{:}\exists\alpha\in\Lambda,s.t.x\in A_\alpha\}</script><p>当$\Lambda=\{1,2,\ldots,k\}$为<strong>有限集</strong>时，$\mathrm{A}=\cup_{\alpha\in\Lambda}A_\alpha $写成$A=\cup_{n=1}^kA_n$。</p>
+<p>当$\Lambda=N$时，集簇称为<strong>集列</strong>，记为$\{A_n\}_{\alpha\in\mathbb{N}}$，其并写成$A=\cup_{n\in N}A_n$或$A=\cup_{n=1}^\infty A_n$。</p>
+</li>
+</ul>
+<blockquote>
+<p>例：</p>
+<ol>
+<li>$(a,b)=\cup_{n=1}^\infty\left[a+\frac1n,b-\frac1n\right]$</li>
+<li>若记$\boldsymbol{Q}_n=\left\{\frac{m}{n}\colon m\in\mathbf{Z}\right\},\mathrm{n=1,2,\dots}$，则$Q=\cup_{n=1}^\infty Q_n$</li>
+<li>若$\{I_\alpha:\alpha\in\Lambda\}$是一族开区间，而$[a,b]\subset\cup_{\alpha\in\Lambda}I_\alpha$，则存在$\{\alpha_1,\alpha_2,\cdotp\cdotp\cdotp,\alpha_k\}\subset\Lambda $，使得$[a,b]\subset\cup_{i=1}^kI_{\alpha_i}$（有限覆盖定理）</li>
+</ol>
+</blockquote>
+<ul>
+<li><p><strong>交集：</strong>由所有既属于$A$又属于$B$的元素组成的集合称为$A$和$B$​的交集</p>
+<script type="math/tex; mode=display">
+A\cap B=\{x|x\in A\text{ 且 }x\in B\}</script><p><strong>”无限交“：</strong>对于一族集合$\{A_\alpha\}_{\alpha\in\Lambda}$或$\{A_\alpha|\alpha\in\Lambda\}$（简称为集族），由同时属于每个$A_\alpha(\alpha\in\Lambda)$​的<strong>所有元素</strong>组成的集合称为该集族的<strong>交集</strong></p>
+<script type="math/tex; mode=display">
+\bigcap_{\alpha\in I}A_\alpha=\{x{:}\forall\alpha\in\Lambda,\text{有}x\in A_\alpha\}</script><p>当$\Lambda=\{1,2,\ldots,k\}$为<strong>有限集</strong>时，$A=\bigcap_{\alpha\in\Lambda}A_\alpha$写成$A=\cap_{n=1}^kA_n$。</p>
+<p>当$\Lambda=N$时，集列$\{A_n\}_{\alpha\in\mathbb{N}}$的交为$A=\bigcap_{n\in N}A_{n}$或$A=\bigcap_{n=1}^{\infty}A_{n}$。</p>
+</li>
+<li><p><strong>差集与余集：</strong></p>
+<p><strong>差集：</strong>由所有属于$A$不属于$B$的元素组成的集合称为$A$和$B$​的差集。</p>
+<script type="math/tex; mode=display">
+A-B\text{ 或 }A\backslash\mathcal{B}=\{x{:}x\in A\text{ 但 }x\notin B\}</script><p><strong>余集：</strong>设$A$是全集$S$的子集，则由属于$S$但不属于$A$的元素组成的集合称为$A$​的余集。</p>
+<script type="math/tex; mode=display">
+C_SA=S-A=\{x\colon x\in S\text{但}x\notin A\},\text{简记为}A^c</script><blockquote>
+<p>例：</p>
+<ol>
+<li><p>若$[a_n,b_n] \subset[a_{n-1},b_{n-1}], n = 1,2, \cdots$，且$\operatorname*{lim}_{n\rightarrow\infty}(b_{n}-a_{n})=0$，则存在唯一的$a \in R$，使得$a\in[a_n,b_n],n=1,2,\cdots$，即$\{a\}=\cap_{n=1}^\infty[a_n,b_n]$（闭区间套定理）</p>
+</li>
+<li><p>设$f(x)$定义在集合$E$上，且$S=E$，则</p>
+<script type="math/tex; mode=display">
+\{x{:}f(x)>a\}^c=\{x{:}f(x)\leq a\}</script></li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h2 id="集合的运算性质"><a href="#集合的运算性质" class="headerlink" title="集合的运算性质"></a><strong>集合的运算性质</strong></h2><ul>
+<li><strong>定理一</strong><ol>
+<li>$A\cup A=A,A\cap A=A$</li>
+<li>$A\cup\emptyset=A,A-\emptyset=A,A\cap\emptyset=\emptyset$</li>
+<li>$\text{若}A\subset B\text{,则}A\cap B=A,A\cup B=B$</li>
+<li>$\begin{aligned}A\cup B&amp;=B\cup A,A\cap B=B\cap A\end{aligned}$（交换律）</li>
+<li>$\begin{aligned}A\cup(B\cup C)&amp;=(A\cup B)\cup C\\A\cap(B\cap C)&amp;=(A\cap B)\cap C\end{aligned}$（结合律）</li>
+<li>$\begin{gathered}<br>A\cap(B\cup C)=(A\cap B)\cup(A\cap C) \\<br>A\cap(\cup_{\alpha\in\Lambda}B_\alpha)=\cup_{\alpha\in\Lambda}(A\cap B_\alpha).<br>\end{gathered}$（分配律）</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>集合运算的分配律在“无限并”的情况下仍然成立</p>
+</blockquote>
+<ul>
+<li><p><strong>定理二：德摩根(De Morgan)公式</strong></p>
+<p>若$\{A_\alpha\colon\alpha\in\Lambda\}$是一族集合，则</p>
+<ol>
+<li>$(\cup_{\alpha\in\Lambda}A_\alpha)^c=\cap_{\alpha\in\Lambda}A_\alpha^c$</li>
+<li>$(\cap_{\alpha\in\Lambda}A_\alpha)^c=\cup_{\alpha\in\Lambda}A_\alpha^c$</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>例：</p>
+<ol>
+<li><p>设$\{f_n(x)\}$是定义在$E$上的函数列，若$x \in E$，则$\{f_n(x)\}$有界的充要条件是存在$M&gt;0$，使得对任意的$n$，$|f_n(x)|\leq M$</p>
+<p><strong>集合语言：</strong></p>
+<script type="math/tex; mode=display">
+\{x{:}\{f_n(x)\}\text{有界}\}=\bigcup_{M\in R^+}\bigcap_{n=1}^\infty\{x{:}|f_n(x)|\leq M\}</script><p><strong>由德摩根公式得</strong>：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\{x{:}\{f_n(x)\}\text{无界}\} \\
+&=(\bigcup_{M\in R^+}\bigcap_{n=1}^\infty\{x{:}|f_n(x)|\leq M\})^c \\
+&=\bigcap_{M\in R^+}\bigcup_{n=1}^\infty\{x{:}|f_n(x)|>M\}
+\end{aligned}</script></li>
+<li><p>设$\{f_n(x)\}$是定义在$E$上的函数列，若$x$是使得$\{f_n(x)\}$收敛于0的点，则对任意$\varepsilon&gt;0$，存在$N\in\mathbb{N}$，使得对任意$n\geq N$，$|f_n(x)|&lt;\varepsilon $，即</p>
+<script type="math/tex; mode=display">
+\left\{x{:}\lim_{n\to\infty}f_n(x)=0\right\}=\bigcap_{\varepsilon\in\mathbb{R}}\bigcup_{N=1}^\infty\bigcap_{n=N}^\infty\{x{:}|f_n(x)|<\varepsilon\}</script><p><strong>由德摩根公式可得：</strong></p>
+<script type="math/tex; mode=display">
+\left\{x{:}\lim_{n\to\infty}f_n(x)\neq0\text{或不存在}\right\}=\bigcup_{\varepsilon\in\mathbb{R}^+}\bigcap_{N=1}^\infty\bigcup_{n=N}^\infty\{x{:}|f_n(x)|\geq\varepsilon\}</script></li>
+</ol>
+</blockquote>
+<h2 id="集合的上下极限"><a href="#集合的上下极限" class="headerlink" title="集合的上下极限"></a><strong>集合的上下极限</strong></h2><ul>
+<li><p><strong>上极限：</strong></p>
+<p>设$A_1,A_2,\dots,A_n,\dots$是一个集合序列，则由<strong>同时</strong>属于<strong>无限多个</strong>集合$A_i$的元素组成的集合称为该集列的<strong>上极限</strong>，记为$\operatorname{\overline{lim}}_{n\to\infty}A_n$ 或$\operatorname{limsup}_{n\to\infty}A_n$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\overline{lim}_{n\rightarrow\infty}A_{n}& =\{x:x\text{属于无限多个集合}A_n\}  \\
+&=\{x{:}\forall N,\exists n\geq N,\text{使得}x\in A_n\} \\
+&=\cap_{N=1}^{\infty}\cup_{n=N}^{\infty}A_{n}
+\end{aligned}</script><blockquote>
+<p>因为是属于<strong>无限多个</strong>，只需要保证从某一项集合$A_n$开始，元素$x$都属于这项以后的集列，这与前面的有限项无关</p>
+</blockquote>
+</li>
+<li><p><strong>下极限：</strong></p>
+<p>设$A_1,A_2,\dots,A_n,\dots$是一个集合序列，<strong>除去有限个集合外，</strong>属于<strong>剩余的每个集合</strong>的元素全体所组成的集合称为该集列的<strong>下极限</strong>，记为$\operatorname*{\underline{lim}}_{n\to\infty}A_{n}$或$\operatorname{liminf}_{n\to\infty}A_{n}$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\underline{lim}_{n\to\infty}A_{n}& =\{x{:\text{除去有限个集合外}} , x\text{属己剩余的每个}A_n\}  \\
+&=\{x{:}\exists N,\forall n\geq N,\text{有}x\in A_n\} \\
+&=\cup_{N=1}^{\infty}\cap_{\mathrm{n=N}}^{\infty}A_{n}
+\end{aligned}</script></li>
+</ul>
+<p><strong>注：</strong>$\underline{lim}_{n\to\infty}A_n\subset\overline{lim}_{n\to\infty}A_n$</p>
+<blockquote>
+<p>例：设$\{A_n\}$是如下点集，试确定$\{A_n\}$​的上极限和下极限。</p>
+<script type="math/tex; mode=display">
+A_{2m+1}=\left[0,2-\frac1{2m+1}\right],\quad m=0,1,2,\cdots,\quad A_{2m}=\left[0,1+\frac1{2m}\right],\quad m=1,2,3,\cdots</script><p>Poof：显然$[0,1]$中的每一点都属于$A_n,n=1,2,\dots,$对于$(1,2)$中的每一个点$x$，必存在正整数$N(x)$，使得当$m&gt;N(x)$时，$1 + \frac{1}{2m} &lt; x \leq 2-\frac{1}{2m+1}$，即当$m &gt; N(x)$，$x \notin A_{2m}$，但$x \in A_{2m+1}$。$[0,2)$以外的点都不属于任何$A_n$。因此$\operatorname{\overline{lim}}_{n\to\infty}A_n{=}[0,2),\operatorname{\underline{lim}}_{n\to\infty}A_n{=}[0,1]$</p>
+</blockquote>
+<h2 id="集合的收敛与极限"><a href="#集合的收敛与极限" class="headerlink" title="集合的收敛与极限"></a><strong>集合的收敛与极限</strong></h2><p><strong>定义：</strong>如果集列$\{A_n\}$的上极限和下极限相等，则称集列$\{A_n\}$是<strong>收敛</strong>的，称此共同的极限为该集列的<strong>极限集</strong></p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}A_n=\lim_{n\to\infty}A_n=\overline{\lim_{n\to\infty}}A_n=A</script><p><strong>定义：</strong>若集列$\{A_n\}$满足$A_{n}\subset A_{n+1}(\forall\text{n}\in N)$，则称$\{A_n\}$为单调增加集列；若它满足$A_{n}\supset A_{n+1}(\forall\text{n}\in N)$，则称其为单调减少集列</p>
+<p><strong>定理：</strong></p>
+<ul>
+<li>若$\{A_n\}$单调增加，则${lim}_{n\to\infty}A_n=\cup_{n=1}^{\infty}A_n$</li>
+<li>若$\{A_n\}$单调递减，则${lim}_{n\to\infty}A_n=\cap_{n=1}^\infty A_n$</li>
+</ul>
+<h2 id="集合的直积"><a href="#集合的直积" class="headerlink" title="集合的直积"></a><strong>集合的直积</strong></h2><p>$A\times B=\{(a,b){:}a\in A,b\in B\}$称为集合A和B的直积</p>
+<ul>
+<li>$\prod_{i=1}^nA_i=\{(x_1,x_2,…,x_n){:}x_i\in A_i,i=1{,}2,…,n\}$称为集合$A_i(\mathrm{i}=1,2,\ldots,\mathrm{n})$的直积</li>
+<li>$\prod_{i=1}^\infty A_i=\{(x_1,x_2,\ldots,x_n,\ldots){:}x_i\in A_i,i=1{,}2,\ldots,n,\ldots\}$称为集合$A_{i}(\mathrm{i}=1,2,\ldots,\mathrm{n},\ldots)$的直积</li>
+</ul>
+<h1 id="集合的对等与基数"><a href="#集合的对等与基数" class="headerlink" title="集合的对等与基数"></a>集合的对等与基数</h1><p>本节主要研究集合中元素的“个数”的多少。</p>
+<ul>
+<li>有限集：空集与只含有有限多个元素的集合</li>
+<li>无限集：不是有限集的集合</li>
+</ul>
+<p>有限集元素个数←→数数    $A=\{a_{1},a_{2},…a_{n}\}\longrightarrow\{1,2,…,n\}$</p>
+<p>非空有限集$A$和$B$的元素个数相同$\leftrightarrow$和正整数列的同一截断一一对应$\leftrightarrow$ $A$和$B$彼此一一对应</p>
+<blockquote>
+<p>假设教室里每个人都有一个座位，而且每个座位上都有且只有一个人，不需要去数座位个数和人数我们很容易知道它们是否是相同的。虽然这只针对有限集，但一一对应的思想很容易推广到无限集合。</p>
+</blockquote>
+<p>无限集元素个数←→一一对应 </p>
+<p>以上只是一个朴素的说明，接下来严格给出映射和一一对应的概念</p>
+<hr>
+<p><strong>映射：</strong></p>
+<ul>
+<li><p><strong>定义：</strong>设$A$，$B$是两个非空集合，若依照对应法则$\varphi$，使对每个$x \in A$，均存在唯一确定的$y \in B$与之对应，则称这个对应法则$\varphi$是从$A$到$B$的一个映射，记作$\varphi:A \rightarrow B$，$y$称为$x$在映射$\varphi$下的像，记作$y=\varphi(x)$</p>
+</li>
+<li><p><strong>单射：</strong>对任意的$x,y \in A$，若$\varphi(A)=\varphi(B)$，则$x=y$</p>
+</li>
+<li><p><strong>满射：</strong>对任意的$y \in B$，存在$x \in A$，使得$\varphi(x)=y$</p>
+</li>
+<li><p><strong>一一映射(某些教材也成为双射)：</strong>既是单射又是满射</p>
+</li>
+</ul>
+<h2 id="集合的对等"><a href="#集合的对等" class="headerlink" title="集合的对等"></a><strong>集合的对等</strong></h2><ul>
+<li><strong>定义：</strong>设$A$，$B$是两非空集合，若存在$A$到$B$的一一映射$\varphi$，则称$A$与$B$对等，记为$A \sim B$</li>
+<li><strong>定理一：</strong>对任意集合$A$，$B$，$C$，均有<ol>
+<li>自反性：$A \sim A$</li>
+<li>对称性：若$A \sim B$，则$B \sim A$</li>
+<li>传递性：若$A \sim B$，$B \sim C$，则$A \sim C$</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>例1：设$A$与$B$是两个同心圆周，则$A \sim B$.</p>
+<p>Proof：通过圆的半径，与第一个圆周相交的点为$x$，与第二个圆周相交的点为$y$，则两个圆周所构成的结合是一一对应的，因此他们对等。</p>
+<p>例2：证明自然数集与整数集对等，即$N \sim Z$</p>
+<p>Proof：直观上很容易找到自然数集和整数集的一一对等关系</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/对等.5fkdd9lpw7.webp"  ></div>
+
+<p>可以用下面的通项公式写出：</p>
+<script type="math/tex; mode=display">
+a_n=\left\{\begin{array}{cc}-\dfrac{n}{2}&,n \ is \ even\\\\\dfrac{n+1}{2}&,n \ is \ odd\end{array}\right.</script><p>做做变形可以的到：</p>
+<script type="math/tex; mode=display">
+a_n=\dfrac14-(-1)^n(\dfrac12n+\dfrac14)</script><p>因此自然数集与整数集对等。<strong>需要注意的是：一个无限集可以与其真子集对等！！这对有限集是不成立的！！</strong></p>
+</blockquote>
+<h2 id="集合的基数"><a href="#集合的基数" class="headerlink" title="集合的基数"></a><strong>集合的基数</strong></h2><ul>
+<li><p><strong>定义：</strong>如果$A \sim B$，则称$A$和$B$有相同的基数，记为$\bar{\bar{A}}=\bar{\bar{B}}$</p>
+</li>
+<li><p><strong>定义：</strong>如果集合$A$与集合$B$的某个真子集对等，但与集合$B$不对等，则称$A$的基数小于$B$，记为$\bar{\bar{A}}&lt;\bar{\bar{B}}$(或$\bar{\bar{A}}&gt;\bar{\bar{B}}$)</p>
+<p><strong>注：</strong>任给两个集合$A$，$B$，则$\bar{\bar{A}}&lt;\bar{\bar{B}}$，$\bar{\bar{A}}=\bar{\bar{B}}$，$\bar{\bar{A}}&gt;\bar{\bar{B}}$有且只有一个成立</p>
+<p>如何判断两个集合具有相同的基数？</p>
+</li>
+<li><p><strong>伯恩斯坦(Bernstein)定理：</strong>设$A$，$B$是两个非空集合，如果$A$对等于$B$的一个子集，$B$又对等于$A$的一个子集，则$A$对等于$B$。即$\bar{\bar{A}}\leq \bar{\bar{B}}$，$\bar{\bar{B}} \leq \bar{\bar{A}}$，则$\bar{\bar{A}} = \bar{\bar{B}}$</p>
+</li>
+</ul>
+<blockquote>
+<p>例1：对于无穷集合的基数问题，最经典的莫过于希尔伯特旅馆悖论了。设酒店房间为集合$A$，入住人数为集合$B$，显然根据实际意义他们都是自然数集，因此是对等的。总能找到一个对应方式使得一一对应。具体的对应方式可参考：<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27078717" >希尔伯特旅馆悖论<i class="fas fa-external-link-alt"></i></a></p>
+<p>例2：<strong>是非而是：</strong>自然数在直线上稀稀拉拉，有理数在直线上密密麻麻，直观上有理数比自然数多得多，但事实上，有理数和自然数“一样多”。即<strong>有理数集和自然数集是对等的！</strong></p>
+<p>例3：<strong>是是而非：</strong>对于实数轴上的有理数和无理数，直观来看，任取一个片段，有理数和无理数的个数至多相差一个，但严密的数学推理说明，无理数比有理数多的多。<strong>即无理集的基数大于有理数集，他们不对等</strong></p>
+</blockquote>
+<h1 id="可数集合与不可数集合"><a href="#可数集合与不可数集合" class="headerlink" title="可数集合与不可数集合"></a>可数集合与不可数集合</h1><h2 id="可数集合"><a href="#可数集合" class="headerlink" title="可数集合"></a><strong>可数集合</strong></h2><ul>
+<li><p><strong>定义：</strong>凡是和全体正整数集$Z^+$对等的集合称为<strong>可数集合</strong>或<strong>可列集合</strong>，简称为<strong>可数集</strong>或<strong>可列集</strong></p>
+<p><strong>注：</strong>一个集合可数的<strong>充要条件</strong>是它的所有元素可以排成一个无穷序列$\{a_1,a_2,\cdots,a_n,\cdots\}$</p>
+</li>
+</ul>
+<p><strong>定理：</strong></p>
+<ul>
+<li><p><strong>定理1：</strong>任何无限集合都至少包含一个可数子集</p>
+<p><strong>注：</strong>可数集是所有无限集中基数最小的果合</p>
+</li>
+<li><p><strong>定理2：</strong>可数集的任何子集或者是有限集或者是可数集</p>
+</li>
+<li><p><strong>定理3：</strong>设$A$是可数集，$B$是有限集或可数集，则$A\cup B$是可数集</p>
+</li>
+<li><p><strong>定理4：</strong>设$A_i(i=1,2,\cdots,n)$都是可数集，则$\bigcup_{i=1}^nA_i$也是可数集</p>
+</li>
+<li><p><strong>定理5：</strong>有理数集$Q$是可数集</p>
+</li>
+<li><p><strong>定理6：</strong>设$A_i(i=1,2,\cdots,n)$都是可数集，则$A=A_1 \times A_2 \times \cdots \times A_n$也是可数集</p>
+</li>
+</ul>
+<p><strong>Proof：</strong></p>
+<ul>
+<li><p><strong>定理一证明：</strong>设$M$是一个无限集合，任取$e_1\in M$，因$M$无限，故$M-\{e_1\}\neq \emptyset$，取$e_2 \in M$，由于集合的互异性有$e_1 \neq e_2$，且$M-\{e_1,e_2\}\neq \emptyset$，如此往复，由归纳法知$\{e_1,e_2,\cdots,e_n,\cdots\}$是集合$M$的一个可数子集</p>
+</li>
+<li><p><strong>定理三证明：</strong></p>
+<ul>
+<li><p>设$A \cap B = \emptyset$，不妨设$A=\{a_1,a_2,\cdots\}$，$B=\{b_1,b_2,\cdots,b_n\}$（有限集），$B=\{b_1,b_2,\cdots,b_n\,\cdots\}$（可数集）</p>
+<p>$B$有限：$A \cup B=\{b_1,b_2,\cdots,b_n,a_1,a_2,\cdots\}$</p>
+<p>$B$可数：$A \cup B=\{a_1,b_1,a_2,b_2,\cdots,a_n,b_b,\cdots\}$</p>
+<p>故$A \cup B$是可数集</p>
+</li>
+<li><p>一般情形，令$B^\star=B-A$，则$B^\star \cap A = \emptyset$，因$B^\star$是$B$的子集，故仍为有限集或可数集</p>
+</li>
+</ul>
+</li>
+<li><p><strong>定理5证明：</strong>设$A_i=\{\frac{1}{i},\frac{2}{i},\cdots,\}$，$A_i$是可数集。因全体正有理数$Q^+=\bigcup_{i=1}^nA_i$，由定理4知是可数集。又因为正负有理数可以通过$\varphi(x)=-x$一一对应，所以全体负有理数$Q^-$也是可数集。再有以下定理3推论可以知$Q^+\cup Q^- \cup \{0\}$为可数集</p>
+</li>
+</ul>
+<p><strong>定理3推论：</strong></p>
+<ul>
+<li>设$A_i(i=1,2,\cdots,n)$是有限集或可数集，则$\bigcup_{i=1}^nA_i$也为有限集或可数集，如果至少有一个$A_i$是可数集，则$\bigcup_{i=1}^nA_i$必为可数集</li>
+</ul>
+<h2 id="不可数集合"><a href="#不可数集合" class="headerlink" title="不可数集合"></a><strong>不可数集合</strong></h2><ul>
+<li><strong>定义1：</strong>不是可数来合的无限集合称为不可数集合，</li>
+<li><strong>定义2：</strong>正整数集$Z^+$的基数用$a$或$\aleph_0$表示，实数集$R$的基数用$c$或$\aleph$表示，称为<strong>连续基数</strong>或<strong>连续统</strong>，则$\aleph&gt;\aleph_0$</li>
+</ul>
+<p><strong>定理：</strong></p>
+<ul>
+<li><strong>定理1：</strong>实数集$R$是不可数集合</li>
+<li><strong>定理2：</strong>任意区间$(a,b),[a,b),(a,b],(0,\infty),[0,\infty)$均具有连续基数$\aleph$</li>
+<li><p><strong>定理3：</strong>设$A_1,A_2,\cdots,A_n,\cdots$是一列互不相交的集合，且$\bar{\bar{A_n}}=\aleph,n=1,2,\cdots,$ 而$A=\cup_{n=1}^{\infty}A_{n}$，则$\bar{\bar{A}}=\aleph$</p>
+</li>
+<li><p><strong>定理4：</strong>设$\{A_n,n\in Z^+\}$是一列集合，且且$\bar{\bar{A_n}}=\aleph,n=1,2,\cdots,$ 而$A=\prod_{n=1}^{\infty}A_{n}$，则$\bar{\bar{A}}=\aleph$</p>
+</li>
+<li><p><strong>定理5：</strong>设$M$是任意一个集合，它的所有子集做成新的集合$\mu$，则$\bar{\bar{\mu}}&gt;\bar{\bar{M}}$</p>
+</li>
+</ul>
+<p><strong>连续统假设：</strong>已知$\bar{\bar{N}}=\aleph_0 &lt; \aleph=\bar{\bar{R}}$，是否存在一个无限集合$A$,使得$\aleph_0 &lt; \bar{\bar{A}} &lt; \aleph$成立？</p>
+<p>在一定的公理体系下，是不存在这样的集合$A$</p>
+
+                </div>
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/">实变函数</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E9%9B%86%E5%90%88%E8%AE%BA/">集合论</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/04/14/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(2)-%E7%82%B9%E9%9B%86/"
+                                   title="实变函数(2)-点集"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">实变函数(2)-点集</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/04/11/Python/Python%E7%B1%BB%E7%BB%A7%E6%89%BF/"
+                                   title="Python类继承"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Python类继承</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9D%E6%AD%A5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">集合的初步概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">集合的定义和表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">集合的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">集合的运算性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%9E%81%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">集合的上下极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9E%81%E9%99%90"><span class="nav-number">1.5.</span> <span class="nav-text">集合的收敛与极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E7%9B%B4%E7%A7%AF"><span class="nav-number">1.6.</span> <span class="nav-text">集合的直积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89%E4%B8%8E%E5%9F%BA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">集合的对等与基数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89"><span class="nav-number">2.1.</span> <span class="nav-text">集合的对等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">集合的基数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88%E4%B8%8E%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">可数集合与不可数集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88"><span class="nav-number">3.1.</span> <span class="nav-text">可数集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88"><span class="nav-number">3.2.</span> <span class="nav-text">不可数集合</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2018</span>&nbsp;-&nbsp;2024
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Brainiaccc</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+                
+                <div class="deploy-info info-item default">
+                    
+                        This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span>
+                    
+                </div>
+            
+        
+
+        <div class="count-item info-item default">
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9D%E6%AD%A5%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">集合的初步概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">集合的定义和表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">集合的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">集合的运算性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%9E%81%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">集合的上下极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9E%81%E9%99%90"><span class="nav-number">1.5.</span> <span class="nav-text">集合的收敛与极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E7%9B%B4%E7%A7%AF"><span class="nav-number">1.6.</span> <span class="nav-text">集合的直积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89%E4%B8%8E%E5%9F%BA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">集合的对等与基数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89"><span class="nav-number">2.1.</span> <span class="nav-text">集合的对等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">集合的基数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88%E4%B8%8E%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">可数集合与不可数集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88"><span class="nav-number">3.1.</span> <span class="nav-text">可数集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86%E5%90%88"><span class="nav-number">3.2.</span> <span class="nav-text">不可数集合</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<!-- common -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/libs/anime.min.js"></script>
+
+<!-- local-search -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/local-search.min.js"></script>
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/post/share.min.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.0/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/js/custom_mouse.js" data-pjax></script>
+
+        
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
