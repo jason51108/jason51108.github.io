@@ -237,6 +237,13 @@
                     <li class="post-item border-box">
                         <span class="post-date border-box">04-17</span>
                         <a class="post-title border-box text-ellipsis"
+                           href="/2024/04/17/Linux/No-such-file-or-directory%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"
+                        >No such file or directory解决办法</a>
+                    </li>
+                
+                    <li class="post-item border-box">
+                        <span class="post-date border-box">04-17</span>
+                        <a class="post-title border-box text-ellipsis"
                            href="/2024/04/17/Hexo/Hexo%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/"
                         >Hexo建站手册</a>
                     </li>
@@ -297,13 +304,6 @@
                         >向量范数和矩阵范数</a>
                     </li>
                 
-                    <li class="post-item border-box">
-                        <span class="post-date border-box">04-02</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2024/04/02/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(0)-%E7%BB%AA%E8%AE%BA/"
-                        >实变函数——实变函数引论</a>
-                    </li>
-                
             </ul>
         </section>
     
@@ -312,6 +312,31 @@
         </div>
     </div>
     
+    <div class="paginator border-box flex-center">
+        <div class="btn-wrap">
+            <a class="jump-btn"
+               href="/"
+            ><i class="fa-solid fa-chevron-left"></i></a>
+        </div>
+
+
+        <div class="page-number-box border-box flex-center">
+            <input class="page-number-input border-box base-color-size"
+                   type="number"
+                   value="1"
+                   min="1"
+                   max="2"
+            ><span class="delimiter base-color-size">/</span><span class="base-color-size">2</span>
+        </div>
+
+
+        <div class="btn-wrap allowed">
+            <a class="jump-btn"
+               href="/archives/2024/04/page/2/"
+            ><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+    </div>
+
 
 
 
@@ -544,5 +569,20 @@
         
     
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

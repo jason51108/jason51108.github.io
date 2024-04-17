@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-17T02:43:32.871Z</updated>
+  <updated>2024-04-17T07:37:13.904Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>No such file or directory解决办法</title>
+    <link href="http://example.com/2024/04/17/Linux/No-such-file-or-directory%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://example.com/2024/04/17/Linux/No-such-file-or-directory%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
+    <published>2024-04-17T07:29:56.000Z</published>
+    <updated>2024-04-17T07:37:13.904Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Linux服务器上写<code>bash</code>脚本的时候，当写好文件后运行有时会出现No such file or directory的错误！一般是因为Linux无法识别出Windows的DOS格式，此时只需将文件格式转换成unix的即可，利用Vim进行修改文件格式即可，方法如下：</p><h2 id="编辑出错文件"><a href="#编辑出错文件" class="headerlink" title="编辑出错文件"></a>编辑出错文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi filename</span><br></pre></td></tr></table></figure><h2 id="查看该格式（报错文件格式是DOS）"><a href="#查看该格式（报错文件格式是DOS）" class="headerlink" title="查看该格式（报错文件格式是DOS）"></a>查看该格式（报错文件格式是DOS）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> ff</span><br></pre></td></tr></table></figure><p>通常而言报错格式都是<code>DOS</code>的格式</p><h2 id="修改格式"><a href="#修改格式" class="headerlink" title="修改格式"></a>修改格式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> ff=unix</span><br></pre></td></tr></table></figure><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq!</span><br></pre></td></tr></table></figure><p>通过以上方法通常能够解决问题，如果还没能解决问题，注意看是否是文件头出现了错误，文件头不能留空行！！</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">后面有空格，就会报错</span><br><span class="line"><span class="comment">#!/bin/bash </span></span><br><span class="line">后面没有空格就可以执行　</span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在Linux服务器上写&lt;code&gt;bash&lt;/code&gt;脚本的时候，当写好文件后运行有时会出现No such file or directory的错误！一般是因为Linux无法识别出Windows的DOS格式，此时只需将文件格式转换成unix的即可，利用Vim进行修改文件格</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo建站手册</title>
@@ -63,9 +87,9 @@
     <category term="SSH" scheme="http://example.com/categories/SSH/"/>
     
     
-    <category term="SSH" scheme="http://example.com/tags/SSH/"/>
-    
     <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    
+    <category term="SSH" scheme="http://example.com/tags/SSH/"/>
     
     <category term="Vscode" scheme="http://example.com/tags/Vscode/"/>
     
