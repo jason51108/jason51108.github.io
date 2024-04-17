@@ -9,7 +9,7 @@
     
     <title>
         
-            向量范数和矩阵范数 |
+            Hexo建站手册 |
         
         Brainiaccc&#39;blog
     </title>
@@ -231,7 +231,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        向量范数和矩阵范数
+                        Hexo建站手册
                     </div>
                 
 
@@ -257,12 +257,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-04-03 14:22:06</span>
+                <span class="datetime">2024-04-17 09:43:38</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed Apr 03 2024 19:36:48 GMT+0800">2024-04-03 19:36:48</span>
+                <span class="datetime" data-updated="Wed Apr 17 2024 10:43:32 GMT+0800">2024-04-17 10:43:32</span>
             </span>
         
 
@@ -270,7 +270,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="category-item"><a href="/categories/Hexo/">Hexo</a></li>
                         
                     
                 </ul>
@@ -281,10 +281,10 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Hexo/">Hexo</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E8%8C%83%E6%95%B0/">范数</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/">建站手册</a></li>
                         
                     
                 </ul>
@@ -307,53 +307,116 @@
 
                 <div class="post-content keep-markdown-body">
                     
+                        <div class="post-aging-tips"
+                             data-update-date="Wed Apr 17 2024 10:43:32 GMT+0800"
+                             data-aging-days="30"
+                        >
+                            <i class="fa-solid fa-circle-exclamation"></i>It has been <span class="days">0</span> days since the last update of this post. Some contents may be outdated. Please pay attention to screening.
+                        </div>
+                    
 
-                    <p>本文参考《矩阵分析与应用》（第二版）（张贤达）</p>
-<h2 id="向量范数"><a href="#向量范数" class="headerlink" title="向量范数"></a>向量范数</h2><ul>
-<li><p>$L_0$​范数(也称0范数)</p>
-<script type="math/tex; mode=display">
-\|x\|_0 := 非零元素的个数</script></li>
-<li><p>$L_1$​范数(也称和范数或1范数)</p>
-<script type="math/tex; mode=display">
-\|x\| := \sum_{i=1}^m|x_i|=|x_1|+\cdots+|x_m|</script></li>
-<li><p>$L_2$​范数(常称Euclidean范数，有时也称Frobenius范数)</p>
-<script type="math/tex; mode=display">
-\|x\|_2=\left(|x_1|^2+\cdots+|x_m|^2\right)^{1/2}</script></li>
-<li><p>$L_{\infty}$​范数(也称无穷范数或极大范数)</p>
-<script type="math/tex; mode=display">
-\|x\|_\infty=\max\{|x_1|,\cdots,|x_m|\}</script></li>
-</ul>
-<blockquote>
-<p>严格上讲，$L_0$范数不满足范数公理中的齐次性，即$\forall \mathbf{x} \in \mathbf{X}, \alpha \in K, |\alpha \mathbf{x}|=\alpha|\mathbf{x}|$，它是一种虚拟的范数，然而，$L_0$范数在稀疏向量与稀疏表示中却起着关键的作用。</p>
-</blockquote>
-<h2 id="矩阵范数"><a href="#矩阵范数" class="headerlink" title="矩阵范数"></a>矩阵范数</h2><p>矩阵范数主要有<strong>三种</strong>类型：诱导范数、元素形式范数和Schatten范数</p>
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<p>GitHub Pages 是一种静态站点托管服务，每个 GitHub 帐户或组织都可以有一个站点。借助GitHub Pages的优势，很方便的将个人博客布置在上面。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>安装 Hexo 前要先安装：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Node.js</span><br><span class="line">Git</span><br></pre></td></tr></table></figure>
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>下载地址： <a class="link"   target="_blank" rel="noopener" href="http://nodejs.cn/download/，选择windows安装包.msi安装" >http://nodejs.cn/download/，选择windows安装包.msi安装<i class="fas fa-external-link-alt"></i></a></p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/hexo/node.js.3ye8ju0hzj.webp"  ></div>
+
+<p>运行安装包，我们默认选择c盘</p>
+<div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/hexo/node.js1.2h83i2ymv1.webp"  ></div>
+
+<p>在这里选择Add to PATH然后点Next继续就行了</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/node.js2.4xubx08vrp.webp'> </div>
+
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>下载地址：<a class="link"   target="_blank" rel="noopener" href="https://git-scm.com/，点这里即可下载最新版本，如果你的下载速度比较慢可以选择开Vpn进行下载或找找国内的镜像源" >https://git-scm.com/，点这里即可下载最新版本，如果你的下载速度比较慢可以选择开Vpn进行下载或找找国内的镜像源<i class="fas fa-external-link-alt"></i></a></p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/git1.64dn5m30kw.webp'> </div>
+
+<p>运行安装包，选择合适的安装位置，然后点Next</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/git2.esau1blx3.webp'> </div>
+
+<p>后面的安装步骤全部只要点Next就行了，不需要我们多余配置</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/git3.99t54k433h.webp'> </div>
+
+<h3 id="验证node-jsh和git是否安装成功"><a href="#验证node-jsh和git是否安装成功" class="headerlink" title="验证node.jsh和git是否安装成功"></a>验证node.jsh和git是否安装成功</h3><p>我们安装完Git后，在桌面右键会有Git Bash Here，我们直接点开</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/git4.2krpft8wmq.webp'> </div>
+
+<p>会出来一个终端，我们分别执行下面的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
+<p>如果输出了版本号，那么证明配置成功，如果没有版本号，请重新安装nodejs（检查是否勾选Add to Path），或者手动为nodejs添加环境变量</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/git5.2dohkdpvbl.webp'> </div>
+
+<h2 id="安装hexo和初始化博客"><a href="#安装hexo和初始化博客" class="headerlink" title="安装hexo和初始化博客"></a>安装hexo和初始化博客</h2><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>在git bash里面执行下面的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><p>选择一个文件夹，然后右键打开git bash</p>
+<p>例如：我在F盘新建了一个blog文件夹，就在blog文件夹下打开git bash</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/hexo1.5mnlh1h32j.webp'> </div>
+
+<p>然后这里会显示你当前目录</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/hexo2.pf4n74fm4.webp'> </div>
+
+<p>然后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+<p>等待命令完成后，就完成了初始化，现在就可以预览我们的博客了</p>
+<p>执行下面这个命令</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/hexo3.7p2ym5n3a.webp'> </div>
+
+<p>然后会出来一段http开头的网址，我们复制下来然后在浏览器打开</p>
+<p>就会出现这么一个页面了</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/hexo4.6t6wpnagoc.webp'> </div>
+
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>你是否觉得上面的默认主题有点不好看呢？现在教你如何替换主题，hexo的所有主题都在下面这个地址：<a class="link"   target="_blank" rel="noopener" href="https://hexo.io/themes/。每个主题一般都会有比较详细的介绍和教程。" >https://hexo.io/themes/。每个主题一般都会有比较详细的介绍和教程。<i class="fas fa-external-link-alt"></i></a></p>
+<p>我的博客采用<code>keep</code>主题，<a class="link"   target="_blank" rel="noopener" href="https://keep-docs.xpoet.cn/" >https://keep-docs.xpoet.cn/<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="生成文章编辑工具"><a href="#生成文章编辑工具" class="headerlink" title="生成文章编辑工具"></a>生成文章编辑工具</h2><p>在博客根目录下面执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;my first blog&quot;</span><br></pre></td></tr></table></figure>
+<p>会显示你的文章生成的目录，每次生成的文章都固定在你的博客根目录下面的source/_posts下</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/hexo5.7i069o4hlh.webp'> </div>
+
+<p>可以看到是一个后缀为.md的文件，这个其实是一个markdown文件，推荐使用typora编辑器来写markdown文件，目前typora已从免费改为了付费，<a class="link"   target="_blank" rel="noopener" href="https://pan.baidu.com/s/1XQrijBHXVtIPjulxMTN6Lg?pwd=2jwz" >这里提供免费版的百度网盘下载链接链接<i class="fas fa-external-link-alt"></i></a>，提取码：2jwz。</p>
+<p>按照目录打开my-firsy-blog.md文件，可以看到一个横线上面有一段信息，这里面是存放你博客信息的地方</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/hexo6.7i069ob2l1.webp'> </div>
+
 <ul>
-<li><p><strong>诱导范数</strong></p>
-<p>待补充……</p>
-</li>
-<li><p><strong>元素范数</strong></p>
-<p>将$m \times n$矩阵先按照列堆栈的形式，排列成一个$mn \times 1$​向量，然后采用向量的范数定义，即得到矩阵的范数。由于这类范数是使用矩阵的元素表示的，故称为元素形式范数。定义如下</p>
-<script type="math/tex; mode=display">
-||x||_p=\left(\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^p\right)^{\frac1p}</script><p>以下是三种典型的元素形式$p$范数</p>
-<ol>
-<li><p>$L_1$范数（和范数）(p=1)</p>
-<script type="math/tex; mode=display">
-\|A\|_1=\sum_{i=1}^{m}\sum_{j=1}^{n}|a_{ij}|</script></li>
-<li><p>Frobenius范数</p>
-<script type="math/tex; mode=display">
-\|A\|_F=(\sum_{i=1}^{m}\sum_{j=1}^{n}|a_{ij}|^2)^{\frac{1}{2}}</script><p>Fronebius范数可以写成矩阵迹的形式：</p>
-<script type="math/tex; mode=display">
-\|A\|_F=\sqrt{tr(A^\top A)}</script></li>
-<li><p>最大范数，定义为</p>
-<script type="math/tex; mode=display">
-\left|\left|x\right|\right|_p=\max\left\{\left|a_{ij}\right|\right\},i=1,\cdots,m;j=1,\cdots,n</script></li>
-</ol>
-<p>元素范数中通常还有一种范数，称为二到无穷范数，假设$\mathbf{X}=(x_{ij})_{n\times m}$，$[n]:=\{1,\cdots,n\}$，$[m]:=\{1,\cdots,m\}$，$|\mathbf{X}|_{2\to\infty}=\max_{i\in[n]}(\sum_{j\in[p]}x_{ij}^2)^{1/2}$。通俗来说就是先对矩阵的每一行求出行向量的二范数，进行这步后原矩阵压缩为一个列向量，然后对这个列向量求无穷范数。感觉不算很正式的定义，因此需要用符号$:=$或$\overline{def}$进行定义说明。</p>
-</li>
-<li><p><strong>Schatten范数</strong></p>
-<p>待补充……</p>
-</li>
+<li>title 文章标题</li>
+<li>date 文章日期</li>
+<li>tag 文章标签 </li>
 </ul>
+<p>然后这时候你可以修改文章标题，并且在横线下面输入你文章的内容</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/hexo7.26l9oyqap9.webp'> </div>
+
+<p>保存之后，你可以在博客根目录打开git bash，执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>就可以预览到你的博客了。</p>
+<h2 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h2><p>利用Github创建一个仓库，<strong>仓库名必须是</strong> <code>用户名 + .github.io</code>，接下来需要我们创建一个git秘钥打开git bash（不要求在哪个目录）</p>
+<p>执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C “your_email@youremail.com“</span><br></pre></td></tr></table></figure>
+<p>不管出现什么信息，你只需要回车就可以了</p>
+<p>然后执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>这一步会输出你的公钥信息，<strong>选中公钥信息(在git界面会自动复制)</strong>粘贴在Github的New SSH即可</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/github1.45h0wyffr.webp'> </div>
+
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/github2.3uumm5okio.webp'> </div>
+
+<p>在上图进行粘贴公钥</p>
+<p>打开项目，点击绿色按钮，点击Use SSH</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/github3.4xubx1m5ck.webp'> </div>
+
+<p>复制git开头的地址</p>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/github4.60u17xiz2s.webp'> </div>
+
+<p>打开本地站点的<code>_config.yml</code>修改部署信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你复制的地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>在博客根目录下打开git bash</p>
+<p>分别执行下面的命令：</p>
+<p>yourname是你的名字</p>
+<p>youremail是你的邮箱</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;yourname&quot;</span><br><span class="line">$ git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+<p>然后安装上传插件</p>
+<p>在博客根目录下打开git bash，执行下面的命令就可以上传了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>在博客根目录下打开git bash，执行下面的命令就可以上传了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+<div align=center><img src='https://github.com/jason51108/picx-images-hosting/raw/master/hexo/github6.3k7st0g9gj.webp'> </div>
 
                 </div>
                 
@@ -364,11 +427,11 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Hexo/">Hexo</a>
                                     </li>
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E8%8C%83%E6%95%B0/">范数</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/">建站手册</a>
                                     </li>
                                 
                             </ul>
@@ -407,31 +470,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/04/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"
-                                   title="广义线性模型(Generalized Linear Model)"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">广义线性模型(Generalized Linear Model)</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/04/02/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0(0)-%E7%BB%AA%E8%AE%BA/"
-                                   title="实变函数——实变函数引论"
+                                   href="/2024/04/15/SSH/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8vscode%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8python%E7%8E%AF%E5%A2%83/"
+                                   title="windows下使用vscode远程连接Linux服务器进行Python开发"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">实变函数——实变函数引论</span>
+                                        <span class="post-nav-title-item text-ellipsis">windows下使用vscode远程连接Linux服务器进行Python开发</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -444,6 +491,98 @@
                 
 
                 
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initGitalk = () => {
+            let gitalkPathname = decodeURI(location.pathname)
+            const gitalkPathnameLength = gitalkPathname.length
+            const gitalkPathnameMaxLength = 50
+            if (gitalkPathnameLength > gitalkPathnameMaxLength) {
+              gitalkPathname = gitalkPathname.substring(0, gitalkPathnameMaxLength - 3) + '...'
+            }
+
+            if (window?.Gitalk) {
+              new Gitalk({
+                clientID: '7fcd8af2f0ac7c60cf9d',
+                clientSecret: 'a32278ac01922c5a3ba4f3185444c2fb56f5ff0a',
+                repo: 'jason51108.github.io',
+                owner: 'jason51108',
+                admin: 'jason51108',
+                id: gitalkPathname,
+                proxy: '',
+                language: 'en'
+              }).render('gitalk-container')
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initGitalk()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initGitalk()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initGitalk)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
             </div>
         </div>
 
@@ -451,7 +590,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">向量范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">矩阵范数</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85node-js"><span class="nav-number">2.1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="nav-number">2.2.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81node-jsh%E5%92%8Cgit%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="nav-number">2.3.</span> <span class="nav-text">验证node.jsh和git是否安装成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="nav-number">3.</span> <span class="nav-text">安装hexo和初始化博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">3.1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="nav-number">3.2.</span> <span class="nav-text">初始化博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">更换主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%96%87%E7%AB%A0%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7"><span class="nav-number">4.</span> <span class="nav-text">生成文章编辑工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2"><span class="nav-number">5.</span> <span class="nav-text">部署博客</span></a></li></ol>
     </div>
 </div>
 
@@ -530,6 +669,11 @@
 
         <!-- PC go comment -->
         
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
 
         <!-- PC full screen -->
         <li class="tools-item flex-center full-screen">
@@ -581,6 +725,10 @@
             </li>
         
 
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
         
 
         <li class="tools-item tool-toggle-show flex-center">
@@ -640,7 +788,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">向量范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">矩阵范数</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85node-js"><span class="nav-number">2.1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="nav-number">2.2.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81node-jsh%E5%92%8Cgit%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="nav-number">2.3.</span> <span class="nav-text">验证node.jsh和git是否安装成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="nav-number">3.</span> <span class="nav-text">安装hexo和初始化博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">3.1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="nav-number">3.2.</span> <span class="nav-text">初始化博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">更换主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%96%87%E7%AB%A0%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7"><span class="nav-number">4.</span> <span class="nav-text">生成文章编辑工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2"><span class="nav-number">5.</span> <span class="nav-text">部署博客</span></a></li></ol>
     </div>
 </div>
 

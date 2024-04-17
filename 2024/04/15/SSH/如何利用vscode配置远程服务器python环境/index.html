@@ -262,7 +262,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Apr 15 2024 19:41:17 GMT+0800">2024-04-15 19:41:17</span>
+                <span class="datetime" data-updated="Wed Apr 17 2024 09:38:10 GMT+0800">2024-04-17 09:38:10</span>
             </span>
         
 
@@ -356,6 +356,10 @@
 
 <hr>
 <p>由于每次连接都需要输入密码，这会导致非常的麻烦，因此可以采用公钥和私钥的方式进行免密登录。具体方式可以查看<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146533515" >这篇文章<i class="fas fa-external-link-alt"></i></a></p>
+<blockquote>
+<p>具体来说就是将公钥存储在远程电脑的.ssh/authorized_keys文件里，私钥放在本地电脑，并在vscode的config配置中写好私钥的具体位置</p>
+<p>Host &lt;远程主机名称&gt;<br>    HostName &lt;远程主机IP&gt;<br>    User &lt;用户名&gt;<br>    Port <ssh端口，默认22><br>    IdentityFile &lt;私钥本地位置&gt;<br>这样子就免去了每次需要输入密码的麻烦</p>
+</blockquote>
 <h1 id="配置Linux的Python环境"><a href="#配置Linux的Python环境" class="headerlink" title="配置Linux的Python环境"></a>配置Linux的Python环境</h1><h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p>推荐直接安装Anaconda，一般服务器而言不会缺硬盘空间，因此Anaconda安装是很方便的，自带了很多的常用三方库。首先，打开<a class="link"   href="https://link.zhihu.com/?target=https%3A//www.anaconda.com/products/individual%23linux" >官网地址<i class="fas fa-external-link-alt"></i></a>下载最新版本的Anaconda3，然后再传输到远程的Linux服务器上。注意传输的时候一般而言是传输在<code>/home/user</code>文件夹下，或者在<code>/home/user</code>文件夹下创一个文件夹，然后</p>
 <div align=center><img     src="https://github.com/jason51108/picx-images-hosting/raw/master/SSH/anaconda.syqim3v9i.webp"  ></div>
 
@@ -424,6 +428,22 @@
 
                 
                     <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/04/17/Hexo/Hexo%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/"
+                                   title="Hexo建站手册"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Hexo建站手册</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
                         
                         
                             <div class="next-post">
@@ -843,20 +863,5 @@
         
     
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
