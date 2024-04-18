@@ -262,7 +262,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Thu Apr 18 2024 19:47:36 GMT+0800">2024-04-18 19:47:36</span>
+                <span class="datetime" data-updated="Thu Apr 18 2024 20:49:00 GMT+0800">2024-04-18 20:49:00</span>
             </span>
         
 
@@ -379,10 +379,10 @@ p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y
 </li>
 </ul>
 <h4 id="指数族分布的期望"><a href="#指数族分布的期望" class="headerlink" title="指数族分布的期望"></a>指数族分布的期望</h4><script type="math/tex; mode=display">
-E(Y)=b^\prime(m)</script><p><strong>Proff</strong>：由于Score函数的期望为0，加上积分和求导可换序这两个条件可以很容易求出其期望</p>
+E(Y)=b^\prime(m)</script><p><strong>Proof</strong>：由于Score函数的期望为0，加上积分和求导可换序这两个条件可以很容易求出其期望</p>
 <script type="math/tex; mode=display">
 0=\frac{\partial}{\partial m}E\left[\log p\left(y|\theta,\varphi\right)\right]=E\left[\frac{\partial}{\partial m}\log p\left(y|m,\varphi\right)\right]=E\left[\frac{y-b^{\prime}\left(m\right)}{\varphi}\right]</script><h4 id="指数族分布的方差"><a href="#指数族分布的方差" class="headerlink" title="指数族分布的方差"></a>指数族分布的方差</h4><script type="math/tex; mode=display">
-Var\left(Y\right)=E[Y-b^{\prime}\left(m\right)]^2=\varphi b^{\prime\prime}\left(m\right).</script><p><strong>Proff</strong>：</p>
+Var\left(Y\right)=E[Y-b^{\prime}\left(m\right)]^2=\varphi b^{\prime\prime}\left(m\right).</script><p><strong>Proof</strong>：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 E\biggl[\frac{y-b^{\prime}\left(m\right)}{\varphi}\biggr]^{2}=E\biggl(\frac{\partial}{\partial m}\mathrm{log}f\left(y|m,\varphi\right)\biggr)^{2} =E\left(\frac{\partial^{2}}{\partial m^{2}}\mathrm{log}f\left(y|m,\varphi\right)\right)=b^{\prime\prime}\left(m\right)/\varphi \\
@@ -395,10 +395,22 @@ Var\left(Y\right)=\varphi b^{\prime\prime}\left(m\right).
 </li>
 <li>Normal的期望为$b^\prime(m)=m=\gamma$，方差为$\varphi b^{\prime\prime}(m)=\varphi$</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>GLM模型是形如$p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y,\varphi\right)\right\}$的模型，其中$m = \mathbf{\theta}^\top\mathbf{x}$是自变量的线性组合，在逻辑回归的情况下，sigmoid函数为$(1+e^x)/e^x$。在GLM中，他总能把$\mathbb{R}$通过合理的映射投影到真的概率分布参数上！例如：在possion中，我们都知道参数$\gamma \in (0,+\infty)$，GLM中把$m \in \mathbb{R}$通过$e^m$完美地投影到$(0,+\infty)$这个合理的区间上。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>GLM模型是形如$p\left(y|m,\varphi\right)=\exp\left\{\varphi^{-1}\{ym-b\left(m\right)\}+c\left(y,\varphi\right)\right\}$的概率模型，其中$m = \mathbf{\theta}^\top\mathbf{x}$是自变量的线性组合，在Logistic Regression的情况下，Sigmoid投影函数为$e^x/(1+e^x)$，而机器学习中的损失函数实则是对数似然函数的负数，在指数族分布中很容易写出损失函数的表达式。在GLM中，他总能把$\mathbb{R}$通过合理的映射投影到真正的概率分布参数上！例如：在Possion中，我们都知道参数$\gamma \in (0,+\infty)$，GLM中把$m \in \mathbb{R}$通过$e^m$完美地投影到$(0,+\infty)$这个合理的区间上。</p>
 <blockquote>
 <p>注意：这个投影函数不一定为$b^\prime(m)$，当期望等于其参数的时候才成立。以上三者情况都是特例，如果是$\Gamma$分布的情况就不成立。</p>
 </blockquote>
+<p>当我们明白Logistic Regression这种二分类的情况后，来思考一下多分类的线性模型为什么最后会用Softmax函数进行求最终的概率？</p>
+<script type="math/tex; mode=display">
+softmax(x_i)=\frac{e^x_i}{\sum_{i=1}^{n}e^{x_i}}</script><p>多分类模型的本质是多项分布，是二项分布的拓展，多项分布的概率质量函数为：</p>
+<script type="math/tex; mode=display">
+P\{X_{1}=k_{1} , X_{2}=k_{2} , \cdots, X_{n}=k_{n} \}=\frac{N!}{k_{1} ! k_{2} ! \cdots k_{n} !}p_{1}^{k_{1}}p_{2}^{k_{2}}\cdots p_{n}^{k_{n}} \\
+=\exp\{k_1\log{p_1}+k_2\log{p_2}+\cdots+k_n\log{p_n} + \log{\frac{N!}{k_{1} ! k_{2} ! \cdots k_{n} !}}\}</script><p>在多分类模型中，随机变量$X_i \in \{0,1\}$且$\sum X_i=1$，即每一次分类结果只能对应唯一的一个值。令$m_1=\log p_1,m_2=\log p_2,\cdots,m_n=\log p_n$</p>
+<p>代入上式有：</p>
+<script type="math/tex; mode=display">
+\exp\{k_1\log{p_1}+k_2\log{p_2}+\cdots+k_n\log{p_n} + \log{\frac{N!}{k_{1} ! k_{2} ! \cdots k_{n} !}}\} \\
+=\exp\{k_1m_1+k_2m_2+\cdots k_nm_n +  \log{\frac{N!}{k_{1} ! k_{2} ! \cdots k_{n} !}}\}</script><p>我们知道$m_1,\cdots,m_n \in \mathbb{R}$且存在约束$p_1+\cdots p_n=1$，有</p>
+<script type="math/tex; mode=display">
+p_i = e^{m_i}=e^{m_i}/1=\frac{e^m_i}{\sum_{i=1}^{n}e^{m_i}}</script><p>引入相关约束正则约束后的概率计算表达式就是Softmax函数。</p>
 
                 </div>
                 
@@ -886,5 +898,20 @@ Var\left(Y\right)=\varphi b^{\prime\prime}\left(m\right).
         
     
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
