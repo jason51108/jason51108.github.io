@@ -262,7 +262,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Apr 15 2024 11:13:59 GMT+0800">2024-04-15 11:13:59</span>
+                <span class="datetime" data-updated="Wed Jun 05 2024 10:54:52 GMT+0800">2024-06-05 10:54:52</span>
             </span>
         
 
@@ -333,6 +333,11 @@ J=\int_a^bf(x)dx</script><script type="math/tex; mode=display">
 \end{aligned}</script><p>通俗解释就是，达布上积分表示对于每个小区间$[x_{i-1},x_i]$都取最大值$\max_{x_{i-1} \leq x \leq x_i}f(x)$作为长方形的高，再进行求和。达布上积分表示对于每个小区间$[x_{i-1},x_i]$都取最小值$\min_{x_{i-1} \leq x \leq x_i}f(x)$作为长方形的高，再进行求和。如果我们说一个函数是黎曼可积的，那么有$\Leftrightarrow\overline{\int_a^b}f(x)dx=\underline{\int_a^b}f(x)dx$。哪些函数是黎曼可积的呢？</p>
 <ul>
 <li>闭区间上的连续函数一致连续黎曼可积</li>
+</ul>
+<blockquote>
+<p>为什么需要一致连续呢？一致连续说明了函数不光连续，而且导函数有界，即函数不会过于陡峭，在不一致连续的情况下，可能会导致原函数不可积</p>
+</blockquote>
+<ul>
 <li>闭区间上具有有限个间断点的有界函数黎曼可积</li>
 </ul>
 <blockquote>
@@ -366,7 +371,7 @@ f(x)=\begin{cases}0,&0\leq x<1,\\
 <p>注意，一定要是黎曼可积才能有上式子成立，否则是可能存在返例的</p>
 </blockquote>
 </li>
-<li><p><strong>黎曼回积函数空间不完备</strong></p>
+<li><p><strong>黎曼可积函数空间不完备</strong></p>
 <p>记$[0,1]$区间上黎曼可积函数的全体：$R([0,1])$。定义距离：</p>
 <script type="math/tex; mode=display">
 d(f,g)=\int_0^1\lvert f(x)-g(x)\rvert dx,\quad f,g\in R([0,1]).</script><p>称$R([0,1])$不完备是指当$f_n\in R([0,1])$且$\lim_{n\to\infty,m\to\infty}d(f_{n},f_{m})=0$时，并不一定存在函数$f\in R([0,1])$，使得</p>
