@@ -16,7 +16,7 @@ Through my research, I aim to develop new methods and insights that contribute t
 
 2022.09 - 2024.06, Applied Statistics, College of Statistics and Information, Shanghai University of International Business and Economics.
 
-2017.09 - 2021.06, Aerospace Engineering, College of Aeronautics and Astronautics, Sihuan University              
+2017.09 - 2021.06, Aerospace Engineering, College of Aeronautics and Astronautics, Sichuan University              
 
 #### Research Interests
 - Network analysis: longitudinal network, signed network
